@@ -1,3 +1,12 @@
+--[[
+	Dex++
+	Version 2.0
+	
+	Developed by Chillz
+	
+	Dex++ is a revival of Moon's Dex, made to fulfill Moon's Dex prophecy.
+]]
+
 local selection
 local nodes = {}
 
@@ -5903,7 +5912,7 @@ local function main()
 		local createGui = function(self)
 			local gui = create({
 				{1,"ScreenGui",{Name="Window",}},
-				{2,"Frame",{Active=true,BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Name="Main",Parent={1},Position=UDim2.new(0,0,0,0),Size=UDim2.new(0,300,0,300),}},
+				{2,"Frame",{Active=true,BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,BorderSizePixel=0,Name="Main",Parent={1},Position=UDim2.new(0.40000000596046,0,0.40000000596046,0),Size=UDim2.new(0,300,0,300),}},
 				--[[background mod set to 0.05]]	{3,"Frame",{BackgroundColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),BorderSizePixel=0,Name="Content",Parent={2},Position=UDim2.new(0,0,0,20),Size=UDim2.new(1,0,1,-20),ClipsDescendants=true}},
 				{4,"Frame",{BackgroundColor3=Color3.fromRGB(33,33,33),BorderSizePixel=0,Name="Line",Parent={3},Size=UDim2.new(1,0,0,1),}},
 				{5,"TextButton",{AutoButtonColor=false,BackgroundColor3=Color3.new(0.20392157137394,0.20392157137394,0.20392157137394),BorderSizePixel=0,Name="TopBar",Parent={2},Size=UDim2.new(1,0,0,20),Text = ""}},
@@ -13684,6 +13693,3277 @@ local function createScriptButton(labelText, onClickFunction)
 	return textButton
 end
 
+local castleh = createScriptButton("castle", function(btn)
+	btn.Text = "Loading... Please Wait"
+	wait(0.5)
+	btn.Text = "castle"
+end)
+
+local devoyh = createScriptButton("devoy", function(btn)
+	btn.Text = "Loading... Please Wait"
+	wait(0.5)
+	btn.Text = "devoy"
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+
+local humanoid = char:FindFirstChildOfClass("Humanoid")
+
+if humanoid then
+    for _, track in pairs(humanoid:GetPlayingAnimationTracks()) do
+        track:Stop()
+        track:Destroy()
+    end
+
+    local animator = humanoid:FindFirstChildOfClass("Animator")
+    if animator then
+        animator:Destroy()
+    end
+end
+
+local target = game.Players.LocalPlayer.Name
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+
+
+if game.Players.LocalPlayer.Name == target then
+	local function loadmod(modID, gamePath)
+		local IS = game:GetService("InsertService")
+		local loadedMOD = IS:LoadLocalAsset("rbxassetid://" .. modID)
+		loadedMOD.Parent = gamePath
+		return loadedMOD
+	end
+
+	local mod = loadmod("15536487140")
+
+	local osytrfhuu00de0l = mod:FindFirstChild("Devoyance V4")
+    osytrfhuu00de0l.Parent = char
+end
+	wait(1)
+
+
+local Devoy = char:FindFirstChild("Devoyance V4")
+script = Devoy
+	Pl =  game.Players[target]
+	Player = Pl
+	C = Pl.Character
+	Hum = C.Humanoid
+	CFR = CFrame.new
+	game.Players[target].Character = Player.Character
+-- || Aero's Animation Base. || --
+-- Some items might be borrowed from other sources. --
+local CAS = {Actions={}}
+local Event = Instance.new("RemoteEvent")
+Event.Name = "UserInput_Event"
+Event.Parent = game.Players[target].Character
+local fakeEvent = function()
+	local t = {_fakeEvent=true}
+	t.Connect = function(self,f)self.Function=f end
+	t.connect = t.Connect
+	return t
+end
+local m = {Target=nil,Hit=CFrame.new(),KeyUp=fakeEvent(),KeyDown=fakeEvent(),Button1Up=fakeEvent(),Button1Down=fakeEvent()}
+local UIS = {InputBegan=fakeEvent(),InputEnded=fakeEvent()}
+function CAS:BindAction(name,fun,touch,...)
+	CAS.Actions[name] = {Name=name,Function=fun,Keys={...}}
+end
+function CAS:UnbindAction(name)
+	CAS.Actions[name] = nil
+end
+local function te(self,ev,...)
+	local t = m[ev]
+	if t and t._fakeEvent and t.Function then
+		t.Function(...)
+	end
+end
+m.TrigEvent = te
+UIS.TrigEvent = te
+Event.OnClientEvent:Connect(function(plr,io)
+	if plr ~= Player then
+		local WarnUi = Player.PlayerGui.DevoyanceV4ScreenGui["Main Gui"].WarnGui
+		WarnUi.Visible = true
+		WarnUi.Warn:Play()
+		WarnUi.RemoteDetector.Text = tostring(plr.Name.." Just tried firing the Input Event! User will be kicked momentarily.")
+		for i = 0,10 do wait() WarnUi.Background.BackgroundTransparency -= .1 end
+		for i = 0,10 do wait() WarnUi.Outline.ImageTransparency -= .1 end
+		for i = 0,10 do wait() WarnUi.RemoteDetector.TextTransparency -= .1 end
+		wait(5)
+		for i = 0,10 do wait() WarnUi.RemoteDetector.TextTransparency += .1 end
+		for i = 0,10 do wait() WarnUi.Background.BackgroundTransparency += .1 end
+		for i = 0,10 do wait() WarnUi.Outline.ImageTransparency += .1 end
+		WarnUi.Warn.TimePosition = 0
+		WarnUi.Visible = false
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if plr == Player then
+		if io.isMouse then
+			m.Target = io.Target
+			m.Hit = io.Hit
+		elseif io.UserInputType == Enum.UserInputType.MouseButton1 then
+			if io.UserInputState == Enum.UserInputState.Begin then
+				m:TrigEvent("Button1Down")
+			else
+				m:TrigEvent("Button1Up")
+			end
+		else
+			for n,t in pairs(CAS.Actions) do
+				for _,k in pairs(t.Keys) do
+					if k==io.KeyCode then
+						t.Function(t.Name,io.UserInputState,io)
+					end
+				end
+			end
+			if io.UserInputState == Enum.UserInputState.Begin then
+				m:TrigEvent("KeyDown",io.KeyCode.Name:lower())
+				UIS:TrigEvent("InputBegan",io,false)
+			else
+				m:TrigEvent("KeyUp",io.KeyCode.Name:lower())
+				UIS:TrigEvent("InputEnded",io,false)
+			end
+		end
+	end
+end)
+Mouse,mouse,UserInputService,ContextActionService = m,m,UIS,CAS
+-- < // Global Definitions. \\ > --
+Player = player
+Character = char
+Humanoid = Character.Humanoid
+CF,CFN,CFEA,V3 = CFrame,CFrame.new,CFrame.fromEulerAnglesXYZ,Vector3.new
+SN,RD,CS = math.sin,math.rad,math.cos
+RGB,HSV = Color3.fromRGB,Color3.fromHSV
+S = 0
+RCF = CFEA(-1.57,0,3.14)
+NeckVals = CFN(0, 1, 0, -1, -0, -0, 0, 0, 1, 0, 1, 0)
+local ValueFolder = script.Resources.Values
+local Aero = Player.UserId == 16330509
+local GradientToggled = false
+local EyeToggle = false
+local EyeToggle2 = false
+local Colorful = false
+local Mode = "Euphoric"
+local Loudness = 0
+local SpinBool = false
+local SitBool = false
+local PreviousWS,PreviousJP = 16,50
+local FlyBool = false
+local FlyHeight = 0
+local PreviousMusicPitch = 1
+local RemoveIdles = false
+local headGuiEnabled = true
+
+-- < || Part Definitions. || > --
+LLeg = Character["Left Leg"]   RLeg = Character["Right Leg"]
+LArm = Character["Left Arm"]  RArm = Character["Right Arm"]
+Head = Character["Head"]  Torso = Character["Torso"]   HMNRoot = Character["HumanoidRootPart"]
+
+-- < || No idea, But we'll see what this does. || > --
+LegLeft = Character["Left Leg"]   LegRight = Character["Right Leg"]
+ArmLeft = Character["Left Arm"]  ArmRight = Character["Right Arm"] 
+LA = Torso["Left Shoulder"]  RA = Torso["Right Shoulder"] 
+LLG = Torso["Left Hip"]  RLG = Torso["Right Hip"] 
+RHip, LHip = Instance.new("Motor6D",script.Resources.M6D), Instance.new("Motor6D",script.Resources.M6D) 
+RH = Torso["Right Hip"] LH = Torso["Left Hip"]
+
+H = Torso.Neck RJNT = HMNRoot.RootJoint
+
+RSH = Torso["Right Shoulder"]
+LSH = Torso["Left Shoulder"]
+RSH.Parent=nil 
+LSH.Parent=nil 
+
+RA.Name = "Right Shoulder" RA.Part0 = Torso
+RA.C0 = CFN(1.5, 0.5, 0) * CFEA(1.3, 0, -0.5) RA.C1 = CFN(0, 0.5, 0)
+RA.Part1 = Character["Right Arm"]  RA.Parent = Torso
+
+LA.Name = "Left Shoulder" LA.Part0 = Torso 
+LA.C0 = CFN(-1.5, 0.5, 0) * CFEA(1.7, 0, 0.8) LA.C1 = CFN(0, 0.5, 0)
+LA.Part1 = Character["Left Arm"]  LA.Parent = Torso
+
+-- < || Removing Animate. || > --
+--Character:WaitForChild("Animate"):Destroy() 
+--Character:FindFirstChildOfClass("Humanoid"):WaitForChild("Animator"):Destroy()
+local disabler = script.AnimDisabler:Clone()
+disabler.Disabled = false
+disabler.Parent = Character:WaitForChild("Animate")
+
+-- < || Functions. || > --
+
+function CFA(X,Y,Z) 
+	return CF.Angles(RD(X),RD(Y),RD(Z)) 
+end
+
+function M6D(Parent,P0,P1,C0)
+	local M6 = Instance.new("Motor6D")
+	M6.Part0 = P0 M6.Part1 = P1
+	M6.C0 = C0 or CFrame.new()
+	M6.Parent = Parent
+	return M6
+end
+
+function VectorColorToRGB(Color3Val)
+	return Vector3.new(Color3Val.R,Color3Val.G,Color3Val.B)
+end
+
+function DivideVectorColorToRGB(Color3Val)
+	return Vector3.new(Color3Val.R/50,Color3Val.G/50,Color3Val.B/50)
+end
+
+function FX(Shape,LightToggle,LightBrightness,LightRange,Color,Material,CFrame,Lifetime,PlaybackSpeed,RotationAmount,StartSize,EndSize,StartTransparency,EndTransparency)
+	for i,v in pairs(game.Players:GetChildren()) do if v.PlayerGui and v.PlayerGui:FindFirstChild('DevoyanceV4CR') then
+			if v.PlayerGui.DevoyanceV4CR:FindFirstChild('EffectCR') then v.PlayerGui.DevoyanceV4CR.EffectCR.CRFX:FireClient(v,script,Shape,LightToggle,LightBrightness,LightRange,Color,Material,CFrame,Lifetime,PlaybackSpeed,RotationAmount,StartSize,EndSize,StartTransparency,EndTransparency)
+			end
+		end
+	end
+end
+
+local ModeValue = script.Resources.Values.ModeValue
+ModeValue.Value = "Euphoric"
+
+local WingFolder1,WingFolder2,WingFolder3,WingFolder4 = script.Resources.Wings1,script.Resources.Wings2,script.Resources.Wings3,script.Resources.Wings4
+local WNG1 = script.Startup.Wing
+OtherThings = script.Resources.M6D
+
+W1 = Instance.new("Motor6D",WNG1.CenterPart) W1.Part0 = Torso W1.Part1 = script.Startup.Wing.CenterPart
+
+for i = 1,3 do -- Left Wings --
+	Wings1 = script.Startup.Wing:Clone()
+	Wings1.Parent,Wings1.Name = WingFolder1,"Wing"..i
+end
+
+for i = 4,6 do -- Right Wings --
+	Wings2 = script.Startup.Wing:Clone()
+	Wings2.Parent,Wings2.Name = WingFolder2,"Wing"..i
+end
+
+for i = 7,9 do -- More Left Wings --
+	Wings3 = script.Startup.Wing:Clone()
+	Wings3.Parent,Wings3.Name = WingFolder3,"Wing"..i
+end
+
+for i = 10,12 do -- More Right Wings --
+	Wings4 = script.Startup.Wing:Clone()
+	Wings4.Parent,Wings4.Name = WingFolder4,"Wing"..i
+end
+
+local W1,W2,W3 = WingFolder1.Wing1.CenterPart.Motor6D,WingFolder1.Wing2.CenterPart.Motor6D,WingFolder1.Wing3.CenterPart.Motor6D
+local W4,W5,W6 = WingFolder2.Wing4.CenterPart.Motor6D,WingFolder2.Wing5.CenterPart.Motor6D,WingFolder2.Wing6.CenterPart.Motor6D
+local W7,W8,W9 = WingFolder3.Wing7.CenterPart.Motor6D,WingFolder3.Wing8.CenterPart.Motor6D,WingFolder3.Wing9.CenterPart.Motor6D
+local W10,W11,W12 = WingFolder4.Wing10.CenterPart.Motor6D,WingFolder4.Wing11.CenterPart.Motor6D,WingFolder4.Wing12.CenterPart.Motor6D
+
+for i = 0 , 2 do
+	for i,v in pairs(WingFolder3:GetDescendants()) do if v:IsA("MeshPart") then v.Transparency = 1 end end
+	for i,v in pairs(WingFolder4:GetDescendants()) do if v:IsA("MeshPart") then v.Transparency = 1 end end
+end
+
+M6D(OtherThings,script.Resources.Aero.Scarf ,Torso,CFrame.new(0,-.8,.05))
+M6D(OtherThings,script.Resources.Aero.AeroHead,Head)
+
+Startup = script.Startup
+Music = Startup.DevoyanceV4Audio
+Music.Parent = Torso
+Music.Playing = true
+Startup.DevoyanceV4HeadGui.Parent = Head
+Startup.DevoyanceV4ScreenGui.Parent = Player.PlayerGui
+Startup:Destroy()
+
+LPL = Instance.new("PointLight",ArmLeft) LPL.Enabled = true LPL.Color = Color3.fromRGB(125,0,255) LPL.Range = 6 LPL.Brightness = 2
+RPL = Instance.new("PointLight",ArmRight) RPL.Enabled = true RPL.Color = Color3.fromRGB(125,0,255) RPL.Range = 6 RPL.Brightness = 2
+
+function DevoyanceSongChange(MusicID,MusicVolume,MusicTimePosition,MusicSpeed,MusicName)
+	MusicVolume = math.max(MusicVolume,3)
+	Music.SoundId,Music.Volume,Music.TimePosition,Music.PlaybackSpeed = "rbxassetid://"..MusicID,MusicVolume,MusicTimePosition,MusicSpeed
+	Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerPanel.Seperator.SongName.Text = MusicName
+	Player.PlayerGui.DevoyanceV4ScreenGui["Main Gui"].MusicBar.MusicName.Text = MusicName
+end
+
+function ExploiterWarn(PlayerWhoFired,RemoteFired)
+	local WarnUi = Player.PlayerGui.DevoyanceV4ScreenGui["Main Gui"].WarnGui
+	WarnUi.Visible = true
+	WarnUi.Warn:Play()
+	WarnUi.RemoteDetector.Text = tostring(PlayerWhoFired.." Just tried firing the "..RemoteFired.." Event! User has been kicked.")
+	for i = 0,10 do wait() WarnUi.Background.BackgroundTransparency -= .1 end
+	for i = 0,10 do wait() WarnUi.Outline.ImageTransparency -= .1 end
+	for i = 0,10 do wait() WarnUi.RemoteDetector.TextTransparency -= .1 end
+	wait(5)
+	for i = 0,10 do wait() WarnUi.RemoteDetector.TextTransparency += .1 end
+	for i = 0,10 do wait() WarnUi.Background.BackgroundTransparency += .1 end
+	for i = 0,10 do wait() WarnUi.Outline.ImageTransparency += .1 end
+	WarnUi.RemoteDetector.Text = ""
+	WarnUi.Warn.TimePosition = 0
+	WarnUi.Visible = false
+end
+
+script.Resources.Remotes.VisualizerEvent.OnClientEvent:Connect(function(plr,LocalLoudness) 
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"PlaybackLoudness")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	Loudness = LocalLoudness
+end)
+
+script.Resources.Remotes.VisualizerInfoEvent.OnClientEvent:Connect(function(plr,ID,Volume,TimePosition,Pitch) 
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"VisualizerInfo")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if ID ~= nil and Mode == "Visualization" and plr == Player then
+		local Msc = game:GetService("MarketplaceService"):GetProductInfo(tonumber(ID))
+		DevoyanceSongChange(ID,Volume,TimePosition,Pitch,Msc.Name)
+	end
+end)
+
+script.Resources.Remotes.EqualizerEvent.OnClientEvent:Connect(function(plr,Enabled,HG,MG,LG)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"EqualizerSettings")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Visualization" and plr == Player then
+		Music.Equalizer.Enabled = Enabled
+		Music.Equalizer.HighGain,Music.Equalizer.MidGain,Music.Equalizer.LowGain = HG,MG,LG
+	end
+end) 
+
+script.Resources.Remotes.ReverbEvent.OnClientEvent:Connect(function(plr,Enabled,WL,DL,DFS,DSY,DCYTM)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"ReverbSettings")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Visualization" and plr == Player then
+		Music.Reverb.Enabled = Enabled
+		Music.Reverb.WetLevel,Music.Reverb.DryLevel,Music.Reverb.Diffusion,Music.Reverb.Density,Music.Reverb.DecayTime = WL,DL,DFS,DSY,DCYTM
+	end
+end) 
+
+script.Resources.Remotes.ChorusEvent.OnClientEvent:Connect(function(plr,Enabled,Depth,Mix,Rate)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"ChorusSettings")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Visualization" and plr == Player then
+		Music.Chorus.Enabled = Enabled
+		Music.Chorus.Depth,Music.Chorus.Mix,Music.Chorus.Rate = Depth,Mix,Rate
+	end
+end) 
+
+script.Resources.Remotes.EchoEvent.OnClientEvent:Connect(function(plr,Enabled,WetLevel,DryLevel,Feedback,DelayTime)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"EchoSettings")
+		Music.Echo.WetLevel,Music.Echo.DryLevel,Music.Echo.Feedback,Music.Echo.Delay = WetLevel,DryLevel,Feedback,DelayTime
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Visualization" and plr == Player then
+		Music.Echo.Enabled = Enabled
+		Music.Echo.WetLevel,Music.Echo.DryLevel,Music.Echo.Feedback,Music.Echo.Delay = WetLevel,DryLevel,Feedback,DelayTime
+	end
+end)
+
+script.Resources.Remotes.PitchShiftEvent.OnClientEvent:Connect(function(plr,Enabled,Octave)
+	if plr ~= Player then
+		local RemoteName = "PitchShiftSettings"
+		ExploiterWarn(plr.Name,RemoteName)
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Visualization" and plr == Player then
+		Music.PitchShift.Enabled = Enabled
+		Music.PitchShift.Octave = Octave
+	end
+end) 
+
+local RMTName = "CUSTOMIZATION"
+CustomC1,CustomC2,CustomC3,CustomC4 = RGB(0,0,0),RGB(0,0,0),RGB(0,0,0),RGB(0,0,0)
+
+script.Resources.Remotes.C1.OnClientEvent:Connect(function(plr,C1)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"CustomC1")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Customization" and plr == Player then
+		CustomC1,CustomC2,CustomC3,CustomC4 = C1,CustomC2,CustomC3,CustomC4
+		DevoyanceRecolorMaterial(RMTName,CustomC1,CustomC2,CustomC3,CustomC4,"Neon","Neon","Neon","Neon",CustomC1,CustomC2,RGB(100,100,130),RGB(255,255,255))
+		GuiRecolor(CustomC1,CustomC2)
+	end
+end)
+
+script.Resources.Remotes.C2.OnClientEvent:Connect(function(plr,C2)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"CustomC2")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Customization" and plr == Player then
+		CustomC1,CustomC2,CustomC3,CustomC4 = CustomC1,C2,CustomC3,CustomC4
+		DevoyanceRecolorMaterial(RMTName,CustomC1,CustomC2,CustomC3,CustomC4,"Neon","Neon","Neon","Neon",CustomC1,CustomC2,RGB(100,100,130),RGB(255,255,255))
+		GuiRecolor(CustomC1,CustomC2)
+	end
+end)
+
+script.Resources.Remotes.C3.OnClientEvent:Connect(function(plr,C3)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"CustomC3")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Customization" and plr == Player then
+		CustomC1,CustomC2,CustomC3,CustomC4 = CustomC1,CustomC2,C3,CustomC4
+		DevoyanceRecolorMaterial(RMTName,CustomC1,CustomC2,CustomC3,CustomC4,"Neon","Neon","Neon","Neon",CustomC1,CustomC2,RGB(100,100,130),RGB(255,255,255))
+		GuiRecolor(CustomC1,CustomC2)
+	end
+end)
+
+script.Resources.Remotes.C4.OnClientEvent:Connect(function(plr,C4)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"CustomC4")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Customization" and plr == Player then
+		CustomC1,CustomC2,CustomC3,CustomC4 = CustomC1,CustomC2,CustomC3,C4
+		DevoyanceRecolorMaterial(RMTName,CustomC1,CustomC2,CustomC3,CustomC4,"Neon","Neon","Neon","Neon",CustomC1,CustomC2,RGB(100,100,130),RGB(255,255,255))
+		GuiRecolor(CustomC1,CustomC2)
+	end
+end)
+
+script.Resources.Remotes.NameEvent.OnClientEvent:Connect(function(plr,Name)
+	if plr ~= Player then
+		ExploiterWarn(plr.Name,"ModeName")
+		coroutine.resume(coroutine.create(function()
+			while wait() do
+				local plrName = plr.Name
+				game.Players:WaitForChild(plrName):Kick("I Know you're firing remotes~~ - Love, "..Player.Name)
+			end
+		end))
+	end
+	if Mode == "Customization" and plr == Player then
+		RMTName = Name
+		DevoyanceRecolorMaterial(Name,CustomC1,CustomC2,CustomC3,CustomC4,"Neon","Neon","Neon","Neon",CustomC1,CustomC2,RGB(100,100,130),RGB(255,255,255))
+		GuiRecolor(CustomC1,CustomC2)
+	end
+end)
+
+if Aero == false then
+	for i,v in pairs(script.Resources.Aero.EyeParts:GetDescendants()) do if v:IsA("ImageLabel") or v:IsA("Decal") then
+			v.Transparency = 1
+		end
+	end
+	local RemoveThese = {"Scarf","Shades"}
+	for i,v in pairs(Character:GetDescendants()) do
+		if v:IsA("MeshPart") or v:IsA("Part") or v:IsA("Decal") then
+			for A,B in pairs(RemoveThese) do
+				if string.find(v.Name,B) then
+					v:Destroy()
+				end
+			end
+		end
+	end
+	script.Resources.Aero.AeroHead.Transparency = 1
+	script.Resources.Aero.AeroHead.AeroF.Transparency = 1
+	script.Resources.Aero.LocksOfIce.Transparency = 1
+	script.Resources.Aero.LocksOfIce2.Transparency = 1
+	--print('Current Script Parent is Not Aero.')
+end
+
+
+local rayCast = function (Pos, Dir, Max, Ignore) 
+	return game:GetService("Workspace"):FindPartOnRay(Ray.new(Pos, Dir.unit * (Max or 999.999)), Ignore) 
+end
+
+local LerpX = function (Start,End,Speed) 
+	return Start:Lerp(End,Speed) 
+end
+
+local LocationChange = function()
+	RemoveIdles = true
+	Humanoid.WalkSpeed,Humanoid.JumpPower = 0,0
+	local TeleportSound = Instance.new("Sound",Torso)
+	TeleportSound.SoundId,TeleportSound.Playing,TeleportSound.PlaybackSpeed = "rbxassetid://6964732684",true,1
+	TeleportSound:Play()
+	HMNRoot.CFrame = Mouse.Hit
+	for i = 0 , 25 do wait()
+		RJNT.C0 = RJNT.C0:Lerp(CFN(0,-1.2,.3)*CFA(-30,0,0)*RCF,.2)
+		H.C0=H.C0:Lerp(NeckVals*CFN(0,0,0)*CFA(20,0,0),.2)
+		RA.C0=RA.C0:Lerp(CFN(1.6,-.3,.1)*CFA(39,9,11),.2)
+		LA.C0=LA.C0:Lerp(CFN(-1.4,-.2,-.1)*CFA(30,-30,-15),.2)
+		RH.C0=RH.C0:Lerp(CFN(1,.3,-.6)*CFA(30,0,0)*CFA(0,90,0),.2)
+		LH.C0=LH.C0:Lerp(CFN(-1,-1.2,-.7)*CFA(-65,0,0)*CFA(0,-90,0),.2)
+	end
+	Humanoid.WalkSpeed,Humanoid.JumpPower = PreviousWS,PreviousJP
+	RemoveIdles = false
+	wait(1)
+	TeleportSound:Destroy()
+end
+
+function GuiRecolor(Color1,Color2)
+	-- Visualization Stuff --
+	for i,v in pairs(Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerPanel:GetDescendants()) do
+		if v:IsA("ImageLabel") then v.ImageColor3 = Color2
+		elseif v:IsA("Frame") then v.BackgroundColor3 = Color1
+		elseif v:IsA("TextLabel") then v.TextColor3 = Color1
+		elseif v:IsA("TextBox") then v.PlaceholderColor3,v.TextColor3 = Color1,Color1
+		end
+	end
+	for i,v in pairs(Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerButtons:GetDescendants()) do
+		if v:IsA("ImageLabel") or v:IsA("ImageButton") then v.ImageColor3 = Color2
+		elseif v:IsA("Frame") then v.BackgroundColor3 = Color1
+		end
+	end
+
+	Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerMenus.DefiningText.TextColor3 = Color1
+	Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerMenus.Seperator.BackgroundColor3 = Color2
+
+	for i,v in pairs(Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerMenus.GuiFolder:GetDescendants()) do
+		if v:IsA("ImageLabel") or v:IsA("ImageButton") then v.ImageColor3 = Color1
+		elseif v:IsA("Frame") then v.BackgroundColor3 = Color2
+		elseif v:IsA("TextLabel") and v.Parent ~= "VisualizerMenus" then v.TextColor3 = Color2
+		elseif v:IsA("TextBox") then v.PlaceholderColor3,v.TextColor3 = Color2,Color1
+		end
+	end
+	-- Base Gui Stuff --
+	for i,v in pairs(Player.PlayerGui.DevoyanceV4ScreenGui["Main Gui"]:GetDescendants()) do
+		if v:IsA("Frame") and v.Parent.Name ~= "WarnGui" then v.BackgroundColor3 = Color2
+		elseif v:IsA("TextLabel") and v.Parent.Name ~= "WarnGui"  then v.TextColor3 = Color1
+		end
+	end
+end
+
+local CSN,CSK = ColorSequence.new,ColorSequenceKeypoint.new
+function DevoyanceRecolorMaterial(ModeName,C1,C2,C3,C4,M1,M2,M3,M4,TextColor,TextStrokeColor,GradientColor,GradientColor2)
+	Head.DevoyanceV4HeadGui.ModeNameStrokeLabel.Text = tostring(ModeName)
+	Head.DevoyanceV4HeadGui.ModeNameStrokeLabel.ModeNameTextLabel.Text = tostring(ModeName)
+	for i,v in pairs(Head.DevoyanceV4HeadGui:GetDescendants()) do if v:IsA('TextLabel') then
+			v.TextColor3,v.TextStrokeColor3 = TextColor,TextStrokeColor
+		end
+		if v:IsA("Frame") then v.BackgroundColor3 = C1 end
+	end
+	for i,v in pairs(WingFolder1:GetDescendants()) do 
+		if v.Name == "Color1" then v.Color = C1 v.Material = Enum.Material[M1]
+		elseif v.Name == "Color2" then v.Color = C2 v.Material = Enum.Material[M2]
+		end end
+	for i,v in pairs(WingFolder2:GetDescendants()) do 
+		if v.Name == "Color1" then v.Color = C3 v.Material = Enum.Material[M3]
+		elseif v.Name == "Color2" then v.Color = C4 v.Material = Enum.Material[M4]
+		end end
+	Head.DevoyanceV4HeadGui.ModeNameStrokeLabel.TextGradient.Color = CSN({CSK(0,GradientColor),CSK(.25,GradientColor2),CSK(.5,GradientColor),CSK(.75,GradientColor2),CSK(1,GradientColor)})
+	Head.DevoyanceV4HeadGui.PlayerNameStrokeLabel.TextGradient.Color = CSN({CSK(0,GradientColor),CSK(1,GradientColor2)})
+	Head.DevoyanceV4HeadGui.ScriptNameStrokeLabel.TextGradient.Color = CSN({CSK(0,GradientColor),CSK(1,GradientColor2)})
+
+	LPL.Color = C2
+	RPL.Color = C2
+end	
+
+function HumanoidValues(WalkSpeed,JumpPower)
+	Humanoid.WalkSpeed = WalkSpeed	
+	Humanoid.JumpPower = JumpPower	
+end
+
+function ExtraWings(Bool,C1,C2,C3,C4,M1,M2,M3,M4)
+	if Bool == false then
+		for i,v in pairs(WingFolder3:GetDescendants()) do if v:IsA("MeshPart") then v.Transparency = 1 end end
+		for i,v in pairs(WingFolder4:GetDescendants()) do if v:IsA("MeshPart") then v.Transparency = 1 end end
+	elseif Bool == true then
+		for i,v in pairs(WingFolder3:GetDescendants()) do if v:IsA("MeshPart") then v.Transparency = 0 end 
+			if v.Name == "Main" then v.Color,v.Material = C1,Enum.Material[M1] or nil end
+			if v.Name == "Secondary" then v.Color,v.Material = C2,Enum.Material[M2] or nil end
+		end
+		for i,v in pairs(WingFolder4:GetDescendants()) do if v:IsA("MeshPart") then v.Transparency = 0 end 
+			if v.Name == "Main" then v.Color,v.Material = C3,Enum.Material[M3] or nil end
+			if v.Name == "Secondary" then v.Color,v.Material = C4,Enum.Material[M4] or nil end
+		end		
+	end
+end
+
+local OriginalTable = {"Euphoric","Euphoric","Euphoric","Euphoric","OriginalStartingMode","Euphorius"}
+Mode = OriginalTable[math.random(1,6)]
+if Mode == "Euphoric" then
+	FlyBool,FlyHeight = false,0
+	local EuphoricMusic = {15461489450,15461477815,15461495456}
+	local MusicNames1 = {"夏毛 - あさやけもゆうやけもないんだ","夏毛 - あさやけもゆうやけもないんだ","夏毛 - あさやけもゆうやけもないんだ","夏毛 - _","夏毛 - あさやけもゆうやけもないんだ","夏毛 - あさやけもゆうやけもないん (けだるぎ Arrange)","夏毛 - あさやけもゆうやけもないん.arrange","夏毛 - あさやけもゆうやけもないん.arrange"}
+	local sameRand = math.random(1,3)
+	local C1,C2,C3,C4 = RGB(26,0,75),RGB(78,13,144),RGB(26,0,75),RGB(78,13,144)
+	DevoyanceRecolorMaterial("EUPHORIC",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+	DevoyanceSongChange(EuphoricMusic[sameRand],1,0,1,MusicNames1[sameRand]) PreviousMusicPitch = 1
+	HumanoidValues(16,50)
+	GuiRecolor(C1,C2)
+	ExtraWings(false)
+
+elseif Mode == "OriginalStartingMode" then
+	--Head.DevoyanceV4HeadGui.Enabled = false
+	FlyBool,FlyHeight = false,0
+	local C1,C2,C3,C4 = RGB(45,125,255),RGB(255,195,145),RGB(45,125,255),RGB(255,195,145)
+	DevoyanceRecolorMaterial(" ",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+	DevoyanceSongChange(15461489450,1,0,1,"x髥莏 - i") PreviousMusicPitch = 1
+	HumanoidValues(16,50)
+	GuiRecolor(C1,C2)
+	ExtraWings(false)
+
+elseif Mode == "Euphorius" then
+	FlyBool,FlyHeight = false,0
+	local C1,C2,C3,C4 = RGB(26,0,75),RGB(78,13,144),RGB(26,0,75),RGB(78,13,144)
+	DevoyanceRecolorMaterial("EUPHORIUS",C2,C1,C4,C3,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+	DevoyanceSongChange(15461513960,1,0,1,"夏毛 - Untitled") PreviousMusicPitch = 1
+	HumanoidValues(16,50)
+	GuiRecolor(C1,C2)
+	ExtraWings(false)
+end
+
+mouse.KeyDown:Connect(function(Key)
+
+	if Key == "q" and Mode ~= "Euphoric" and SitBool == false then
+		local OriginalTable = {"Euphoric","Euphoric","Euphoric","Euphoric","OriginalStartingMode","Euphorius"}
+		Mode = OriginalTable[math.random(1,6)]
+		if Mode == "Euphoric" then
+			FlyBool,FlyHeight = false,0
+			local EuphoricMusic = {15461489450,15461477815,15461495456}
+			local MusicNames1 = {"夏毛 - あさやけもゆうやけもないんだ","夏毛 - あさやけもゆうやけもないんだ","夏毛 - あさやけもゆうやけもないんだ","夏毛 - _","夏毛 - あさやけもゆうやけもないんだ","夏毛 - あさやけもゆうやけもないん (けだるぎ Arrange)","夏毛 - あさやけもゆうやけもないん.arrange","夏毛 - あさやけもゆうやけもないん.arrange"}
+			local sameRand = math.random(1,3)
+			local C1,C2,C3,C4 = RGB(26,0,75),RGB(78,13,144),RGB(26,0,75),RGB(78,13,144)
+			DevoyanceRecolorMaterial("EUPHORIC",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+			DevoyanceSongChange(EuphoricMusic[sameRand],1,0,1,MusicNames1[sameRand]) PreviousMusicPitch = 1
+			HumanoidValues(16,50)
+			GuiRecolor(C1,C2)
+			ExtraWings(false)
+
+		elseif Mode == "OriginalStartingMode" then
+			FlyBool,FlyHeight = false,0
+			--Head.DevoyanceV4HeadGui.Enabled = false
+			local C1,C2,C3,C4 = RGB(45,125,255),RGB(255,195,145),RGB(45,125,255),RGB(255,195,145)
+			DevoyanceRecolorMaterial(" ",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+			DevoyanceSongChange(15461489450,1,0,1,"x髥莏 - i") PreviousMusicPitch = 1
+			HumanoidValues(16,50)
+			GuiRecolor(C1,C2)
+			ExtraWings(false)
+
+		elseif Mode == "Euphorius" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,C3,C4 = RGB(26,0,75),RGB(78,13,144),RGB(26,0,75),RGB(78,13,144)
+			DevoyanceRecolorMaterial("EUPHORIUS",C2,C1,C4,C3,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+			DevoyanceSongChange(15461530544,1,0,1,"夏毛 - Untitled") PreviousMusicPitch = 1
+			HumanoidValues(16,50)
+			GuiRecolor(C1,C2)
+			ExtraWings(false)
+		end
+	end
+
+	if Key == "b" and Mode ~= "NIL" and Mode == "Euphoric" and SitBool == false then
+		Mode = "NIL"
+		FlyBool,FlyHeight = true,7
+		local C1,C2,C3,C4 = RGB(0,0,0),RGB(0,0,0),RGB(0,0,0),RGB(0,0,0)
+		DevoyanceRecolorMaterial("NIL",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+		DevoyanceSongChange(15461530544,3,0,1,"M1DY - 959BPM") PreviousMusicPitch = 1
+		HumanoidValues(999999,500)
+		GuiRecolor(C1,C2)
+		ExtraWings(false)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "b" and Mode ~= "NIL" and Mode == "OriginalStartingMode" and SitBool == false then
+		Mode = "NIL"
+		FlyBool,FlyHeight = true,7
+		local C1,C2,C3,C4 = RGB(0,0,0),RGB(0,0,0),RGB(0,0,0),RGB(0,0,0)
+		DevoyanceRecolorMaterial("NIL",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+		DevoyanceSongChange(15461530544,3,0,1,"M1DY - 959BPM") PreviousMusicPitch = 1
+		HumanoidValues(999999,500)
+		GuiRecolor(C1,C2)
+		ExtraWings(false)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "e" and Mode ~= "Ambiguation" and SitBool == false then
+		Mode = "Ambiguation"
+		FlyBool,FlyHeight = false,0
+		local AmbigMusic = {14952016255,14952016255}
+		local AmbigMusicNames = {"xx4号 - くらげ(Jellyfish)","xx4号 - くらげ(Jellyfish)","xx4号 - くらげ(Jellyfish)","xx4号 - くらげ(Jellyfish)","xx4号 - くらげ(Jellyfish) (x0o0x_ Cover)"}
+		local sameRand2 = math.random(1,2)
+		local C1,C2,C3,C4 = RGB(135,155,255),RGB(145,100,255),RGB(135,155,255),RGB(145,100,255)
+		DevoyanceRecolorMaterial("AMBIGUATION",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+		DevoyanceSongChange(AmbigMusic[sameRand2],1,0,1,AmbigMusicNames[sameRand2]) PreviousMusicPitch = 1
+		HumanoidValues(16,50)
+		GuiRecolor(C1,C2)
+		ExtraWings(false)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "r" and Mode ~= "Embers" and SitBool == false then
+		Mode = "Embers"
+		FlyBool,FlyHeight = false,0
+		local C1,C2,C3,C4 = RGB(195,75,65),RGB(65,45,25),RGB(195,75,65),RGB(65,45,25)
+		DevoyanceRecolorMaterial("EMBERS",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C2,C1,RGB(130,130,130),RGB(255,255,255))
+		DevoyanceSongChange(15027902563,1,0,1,"Distance OST - Embers") PreviousMusicPitch = 1
+		HumanoidValues(500,50)
+		GuiRecolor(C1,C2)
+		ExtraWings(false)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+	end
+
+	if Key == "m" and Mode == "Euphoric" and SitBool == false  then
+		local ObscurityTable = {"Obscurity","Obscurity","Obscurity","Obscurity","Randomization"}
+		Mode = ObscurityTable[math.random(1,5)]
+		if Mode == "Obscurity" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,C3,C4 = RGB(25,45,65),RGB(65, 45, 85),RGB(25,45,65),RGB(65, 45, 85)
+			DevoyanceRecolorMaterial("OBSCURITY",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",RGB(25,45,65),RGB(65, 125, 145),RGB(25,45,65),RGB(145,185,255))
+			ExtraWings(false)
+			DevoyanceSongChange(14954906099,1,0,1,"x0o0x_ - Untitled (UTAU Defoko Version)") PreviousMusicPitch = 1
+			HumanoidValues(16,100)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+		elseif Mode == "Randomization" then			
+			FlyBool,FlyHeight = false,0
+			local C1,C2,C3,C4 = RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255))
+			DevoyanceRecolorMaterial("RANDOMIZATION",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,C3,C4)
+			ExtraWings(false)
+			DevoyanceSongChange(15461612709,1,56.5,1,"x髥莏 - ^") PreviousMusicPitch = 1
+			HumanoidValues(16,100)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+	elseif Key == "m" and Mode == "Euphorius" and SitBool == false  then
+		local ObscurityTable = {"Obscurity","Obscurity","Obscurity","Obscurity","Randomization"}
+		Mode = ObscurityTable[math.random(1,5)]
+		if Mode == "Obscurity" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,C3,C4 = RGB(25,45,65),RGB(65, 45, 85),RGB(25,45,65),RGB(65, 45, 85)
+			DevoyanceRecolorMaterial("OBSCURITY",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",RGB(25,45,65),RGB(65, 125, 145),RGB(25,45,65),RGB(145,185,255))
+			ExtraWings(false)
+			DevoyanceSongChange(14954906099,1,0,1,"x0o0x_ - Untitled (UTAU Defoko Version)") PreviousMusicPitch = 1
+			HumanoidValues(16,100)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+		elseif Mode == "Randomization" then		
+			FlyBool,FlyHeight = false,0
+			local C1,C2,C3,C4 = RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255))
+			DevoyanceRecolorMaterial("RANDOMIZATION",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,C3,C4)
+			ExtraWings(false)
+			DevoyanceSongChange(15461612709,1,56.5,1,"x髥莏 - ^") PreviousMusicPitch = 1
+			HumanoidValues(16,100)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+	elseif Key == "m" and Mode == "OriginalStartingMode" and SitBool == false  then
+		local ObscurityTable = {"Obscurity","Obscurity","Obscurity","Obscurity","Randomization"}
+		Mode = ObscurityTable[math.random(1,5)]
+		if Mode == "Obscurity" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,C3,C4 = RGB(25,45,65),RGB(65, 45, 85),RGB(25,45,65),RGB(65, 45, 85)
+			DevoyanceRecolorMaterial("OBSCURITY",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",RGB(25,45,65),RGB(65, 125, 145),RGB(25,45,65),RGB(145,185,255))
+			ExtraWings(false)
+			DevoyanceSongChange(14954906099,1,0,1,"x0o0x_ - Untitled (UTAU Defoko Version)") PreviousMusicPitch = 1
+			HumanoidValues(16,100)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+		elseif Mode == "Randomization" then			
+			FlyBool,FlyHeight = false,0
+			local C1,C2,C3,C4 = RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255))
+			DevoyanceRecolorMaterial("RANDOMIZATION",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,C3,C4)
+			ExtraWings(false)
+			DevoyanceSongChange(15461612709,1,56.5,1,"x髥莏 - ^") PreviousMusicPitch = 1
+			HumanoidValues(16,100)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+	elseif Key == "n" and Mode == "Obscurity" and SitBool == false  then
+		local Irrational = {"Inexplicability","Inexplicability","Inexplicability","Irrationality","Irrationality","Irrationality"}
+		Mode = Irrational[math.random(1,5)]
+		if Mode == "Inexplicability" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,GRC1 = RGB(175,175,175),RGB(95,95,95),RGB(75,75,75)
+			DevoyanceRecolorMaterial("INEXPLICABILITY",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+			ExtraWings(false)
+			DevoyanceSongChange(15461706215,1,0,1.05, "??? - うんとこしょ (xx4号)") PreviousMusicPitch = 1
+			HumanoidValues(16,150)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+		if Mode == "Irrationality" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,GRC1,GRC2 = RGB(25,45,65),RGB(45,85,95),RGB(45,65,125),RGB(195,185,255)
+			DevoyanceRecolorMaterial("IRRATIONALITY",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,GRC2)
+			ExtraWings(false)
+			DevoyanceSongChange(15461744434,1,0,1, "Kurage Meme - 6_y") PreviousMusicPitch = 1
+			HumanoidValues(16,150)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+	elseif Key == "n" and Mode == "Randomization" and SitBool == false  then
+		local Irrational = {"Inexplicability","Inexplicability","Inexplicability","Irrationality","Irrationality","Irrationality"}
+		Mode = Irrational[math.random(1,5)]
+		if Mode == "Inexplicability" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,GRC1 = RGB(175,175,175),RGB(95,95,95),RGB(75,75,75)
+			DevoyanceRecolorMaterial("INEXPLICABILITY",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+			ExtraWings(false)
+			DevoyanceSongChange(15461706215,1,0,1.05, "??? - うんとこしょ (xx4号)") PreviousMusicPitch = 1
+			HumanoidValues(16,150)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+		if Mode == "Irrationality" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,GRC1,GRC2 = RGB(25,45,65),RGB(45,85,95),RGB(45,65,125),RGB(195,185,255)
+			DevoyanceRecolorMaterial("IRRATIONALITY",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,GRC2)
+			ExtraWings(false)
+			DevoyanceSongChange(15461744434,1,0,1, "Kurage Meme - 6_y") PreviousMusicPitch = 1
+			HumanoidValues(16,150)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+	elseif Key == "t" and Mode ~= "Serenity" and SitBool == false  then
+		Mode = "Serenity"
+		FlyBool,FlyHeight = false,0
+		local C1,C2,C3,C4,GRC1 = RGB(95,25,165),RGB(95,65,255),RGB(95,25,165),RGB(95,65,255),RGB(20,35,65) 
+		DevoyanceRecolorMaterial("SERENITY",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+		ExtraWings(false)
+		DevoyanceSongChange(15461760861,3.5,0,1.075, "Yume 2kki OST - The Ceiling") PreviousMusicPitch = 1.075
+		HumanoidValues(16,150)
+		GuiRecolor(C1,C2)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "n" and Mode ~= "Convolution" and Mode == "Serenity" and SitBool == false  then
+		Mode = "Convolution"
+		FlyBool,FlyHeight = false,0
+		local C1,C2,C3,C4,GRC1 = RGB(25,45,75),RGB(45,75,100),RGB(25,45,75),RGB(45,75,100),RGB(20,35,65) 
+		DevoyanceRecolorMaterial("CONVOLUTION",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+		ExtraWings(false)
+		DevoyanceSongChange(14954847942,1,0,1, "0x000002d7 (⌘) - melancholy") PreviousMusicPitch = 1
+		HumanoidValues(16,150)
+		GuiRecolor(C1,C2)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "m" and Mode == "Serenity" and SitBool == false  then
+		local DilutionTable = {"Dilution","Dilution","Dilution","Tranquility","Tranquility","Tranquility","Synergistic","Synergistic"}
+		Mode = DilutionTable[math.random(1,8)]
+		if Mode == "Dilution" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,GRC1 = RGB(165,165,175),RGB(145,125,255),RGB(125,65,255)
+			DevoyanceRecolorMaterial("DILUTION",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+			ExtraWings(false)
+			DevoyanceSongChange(14954844955,3.5,0,.95, "Yume 2kki OST - moseni - Lotus Waters") PreviousMusicPitch = .95
+			HumanoidValues(10,50)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+		elseif Mode == "Tranquility" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,GRC1 = RGB(30,65,45),RGB(50,100,85),RGB(35,125,65)
+			DevoyanceRecolorMaterial("TRANQUILITY",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+			ExtraWings(false)
+			DevoyanceSongChange(15461814188,3.5,0,1, "LCDDEM OST - bgm006") PreviousMusicPitch = 1
+			HumanoidValues(10,50)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+		elseif Mode == "Synergistic" then
+			FlyBool,FlyHeight = false,0
+			local C1,C2,GRC1 = RGB(20,60,50),RGB(0,115,85),RGB(35,125,65)
+			DevoyanceRecolorMaterial("SYNERGISTIC",C2,C1,C2,C1,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+			ExtraWings(false)
+			DevoyanceSongChange(14954908089,1,0,.45, "? ? ?") PreviousMusicPitch = .45
+			HumanoidValues(10,50)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+	elseif Key == "y" and Mode ~= "Affectionate" and SitBool == false  then
+		Mode = "Affectionate"
+		FlyBool,FlyHeight = false,0
+		local C1,C2,GRC1 = RGB(145,125,255),RGB(165, 165, 175),RGB(125,65,255)
+		DevoyanceRecolorMaterial("AFFECTIONATE",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+		ExtraWings(false)
+		DevoyanceSongChange(15461828009,1,0,1, "x髥莏 - HappyValentine") PreviousMusicPitch = 1
+		HumanoidValues(20,150)
+		GuiRecolor(C1,C2)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "m" and Mode ~= "Convivial" and Mode == "Affectionate"  and SitBool == false  then
+		Mode = "Convivial"
+		FlyBool,FlyHeight = true,3.75
+		local C1,C2,GRC1 = RGB(125,255,145),RGB(165,200,175),RGB(75,125,85)
+		DevoyanceRecolorMaterial("CONVIVIAL",C2,C1,C2,C1,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+		ExtraWings(false)
+		DevoyanceSongChange(15461845458,1,15,1,"ああああ - をかけるアドベンチャー ～ we are forever friends! [Long Version]") PreviousMusicPitch = 1
+		HumanoidValues(35,150)
+		GuiRecolor(C1,C2)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "b" and Mode == "Affectionate" and SitBool == false  then
+		local how = {"Debiliation","Debiliation","Debiliation","how","how"}
+		Mode = how[math.random(1,5)]
+		if Mode == "Debiliation" then
+			FlyBool,FlyHeight = false,6
+			local C1,C2,GRC1 = RGB(35,65,95),RGB(45,125,255),RGB(65,65,65)
+			DevoyanceRecolorMaterial("DEBILIATION",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+			ExtraWings(false)
+			DevoyanceSongChange(15461857949,1,0,1, "いずら17号 - 予言屋さん") PreviousMusicPitch = 1
+			HumanoidValues(35,150)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+		if Mode == "how" then
+			FlyBool,FlyHeight = false,6
+			local C1,C2,GRC1 = RGB(35,95,65),RGB(45,255,125),RGB(65,65,65)
+			DevoyanceRecolorMaterial("how",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C1,C2,GRC1,RGB(255,255,255))
+			ExtraWings(false)
+			DevoyanceSongChange(15461865549,1,0,1, "ああああ - 「カラクサタウン」") PreviousMusicPitch = 1
+			HumanoidValues(35,150)
+			GuiRecolor(C1,C2)
+			PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		end
+
+	elseif Key == "j" and Mode ~= "Hyperium" and SitBool == false  then
+		Mode = "Hyperium"
+		FlyBool,FlyHeight = true,10
+		local C1,C2,C3,C4 = RGB(0,125,255),RGB(15,35,45),RGB(95,0,255),RGB(15,35,45)
+		DevoyanceRecolorMaterial("HYPERIUM",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C2,C1,RGB(130,130,130),RGB(255,255,255))
+		ExtraWings(true,C1,C2,C3,C4)
+		DevoyanceSongChange(15461886538,1,30,1,"T+Pazolite - Ultrasonic Anthem (Remastered Version)") PreviousMusicPitch = 1
+		HumanoidValues(100000,500)
+		GuiRecolor(C1,C2)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "k" and Mode ~= "Visualization" and SitBool == false  then
+		Mode = "Visualization"
+		local RandomSetting = {15461903482,15461911069}
+		local RandomSettingName = {"こわがりなりそこない。 - 00B","xx4gou RETUNE // Lamprey hole"}
+		local RandomSettingTime = {0,93.5}
+		local RandomVolume = {1,2}
+		local Randomizer = math.random(1,2)
+		FlyBool,FlyHeight = false,0
+		Player.PlayerGui.DevoyanceV4ScreenGui["Main Gui"].MusicBar.Visible = false
+		local C1,C2,C3,C4 = RGB(0,0,0),RGB(0,0,0),RGB(0,0,0),RGB(0,0,0)
+		DevoyanceRecolorMaterial("VISUALIZATION",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+		ExtraWings(false)
+		DevoyanceSongChange(RandomSetting[Randomizer],RandomVolume[Randomizer],RandomSettingTime[Randomizer],1,RandomSettingName[Randomizer]) PreviousMusicPitch = 1
+		--Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerPanel.IDLabel.Modifier.Text = tostring(RandomSetting[Randomizer])
+		--Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerPanel.TimeLabel.Modifier.Text = tostring(RandomSettingTime[Randomizer])
+		script.VisualizerData:FireClient(Player,tostring(RandomSetting[Randomizer]),tostring(RandomSettingTime[Randomizer]))
+		
+	elseif Key == "u" and Mode ~= "Inundated" then
+		Mode = "Inundated"
+		FlyBool,FlyHeight = false,0
+		local C1 = Color3.fromRGB(35,65,95) local C2 = Color3.fromRGB(25,95,165) local GRC1 = Color3.fromRGB(125,65,255) local GRC2 = Color3.fromRGB(255,255,255) 
+		DevoyanceRecolorMaterial("INUNDATED",C1,C2,C1,C2,"Neon","Neon","Neon","Neon",C2,C1,GRC1,GRC2)
+		ExtraWings(false)
+		DevoyanceSongChange(15751154351,3.5,0,1, "x0o0x_ -          ") PreviousMusicPitch = 1
+		HumanoidValues(16,450)
+		GuiRecolor(C1,C2)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		
+	elseif Key == "b" and Mode == "Disconsolation" then
+		Mode = "Shatteration"
+		FlyBool,FlyHeight = false,0
+		local C1 = Color3.fromRGB(65,65,65) local C2 = Color3.fromRGB(95,95,95) local GRC1 = Color3.fromRGB(75,75,75) local GRC2 = Color3.fromRGB(255,255,255)
+		DevoyanceRecolorMaterial("SHATTERATION",C2,C1,C2,C1,"Neon","Neon","Neon","Neon",C1,C2,C2,GRC2)
+		ExtraWings(false)
+		DevoyanceSongChange(14954908089,3.5,0,1,"アブジェ - Piano Cover") PreviousMusicPitch = 1
+		HumanoidValues(14,50)
+		GuiRecolor(C1,C2)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+		
+	elseif Key == "m" and Mode ~= "Customization" and Mode == "Visualization" and SitBool == false  then
+		Mode = "Customization"
+		FlyBool,FlyHeight = false,0
+		Player.PlayerGui.DevoyanceV4ScreenGui["Main Gui"].MusicBar.Visible = false
+		local C1,C2,C3,C4 = RGB(0,0,0),RGB(0,0,0),RGB(0,0,0),RGB(0,0,0)
+		DevoyanceRecolorMaterial(RMTName,CustomC1,CustomC2,CustomC3,CustomC4,"Neon","Neon","Neon","Neon",CustomC1,CustomC2,RGB(100,100,130),RGB(255,255,255))
+		ExtraWings(false)
+		DevoyanceSongChange(2032024538,1,0,1,"Frums - theyaremanycolors") PreviousMusicPitch = 1
+		HumanoidValues(16,100)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "b" and Mode == "Irrationality" and SitBool == false then
+		Mode = "Disconsolation"
+		FlyBool,FlyHeight = false,0
+		local C1,C2,C3,C4 = RGB(125,175,255),RGB(15,35,65)
+		DevoyanceRecolorMaterial("DISCONSOLATION",C2,C1,C2,C1,"Glass","Neon","Glass","Neon",C2,C1,RGB(130,130,130),RGB(255,255,255))
+		ExtraWings(false)
+		local TableB = {14951904089,14966696979}
+		local songNames = {"全てあなたの所為です。- アブジェ","全てあなたの所為です。- アブジェ","全てあなたの所為です。- アブジェ (x0o0x_ Cover)","全てあなたの所為です。- アブジェ (x0o0x_ Cover)"}
+		local randIndex = math.random(1,#TableB)
+		DevoyanceSongChange(TableB[randIndex],1,0,1,songNames[randIndex]) PreviousMusicPitch = 1
+		HumanoidValues(16,50)
+		GuiRecolor(C1,C2)
+		PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+
+	elseif Key == "l" and Music.Playing == true then
+		Music.Playing = false
+
+	elseif Key == "l" and Music.Playing == false then
+		Music.Playing = true
+
+	elseif Key == "equals" and Music.Parent == Player.PlayerGui then
+		Music.Parent = Torso
+
+	elseif Key == "equals" and Music.Parent == Torso then
+		Music.Parent = Player.PlayerGui
+
+	elseif Key == "quote" then
+		Music.TimePosition = 0
+		
+	elseif Key == "minus" then
+		headGuiEnabled = not headGuiEnabled
+
+	elseif Key == "one" and EyeToggle2 == false and EyeToggle == false and Aero == true then
+		EyeToggle = true
+		script.Resources.Aero.EyeParts["Right Eye"].Eye.Enabled = true
+		script.Resources.Aero.EyeParts["Left Eye"].Eye.Enabled = true
+		script.Resources.Aero.EyeParts["REyeHalf"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["LEyeHalf"].Eye.Enabled = false
+
+	elseif Key == "one" and EyeToggle2 == false and EyeToggle == true and Aero == true then
+		EyeToggle = false	
+		script.Resources.Aero.EyeParts["Right Eye"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["Left Eye"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["REyeHalf"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["LEyeHalf"].Eye.Enabled = false
+
+	elseif Key == "two" and EyeToggle2 == false and EyeToggle == false  and Aero == true then
+		EyeToggle2 = true
+		script.Resources.Aero.EyeParts["Right Eye"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["Left Eye"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["REyeHalf"].Eye.Enabled = true
+		script.Resources.Aero.EyeParts["LEyeHalf"].Eye.Enabled = true
+
+	elseif Key == "two" and EyeToggle2 == true and EyeToggle == false  and Aero == true then
+		EyeToggle2 = false	
+		script.Resources.Aero.EyeParts["Right Eye"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["Left Eye"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["REyeHalf"].Eye.Enabled = false
+		script.Resources.Aero.EyeParts["LEyeHalf"].Eye.Enabled = false		
+
+	elseif Key == "three" and Colorful == false and Aero == true then
+		Colorful = true
+		script.Resources.Aero.LocksOfIce.Transparency = 1
+		script.Resources.Aero.LocksOfIce2.Transparency = 0
+
+	elseif Key == "three" and Colorful == true and Aero == true then
+		Colorful = false
+		script.Resources.Aero.LocksOfIce.Transparency = 0
+		script.Resources.Aero.LocksOfIce2.Transparency = 1
+
+	elseif Key == "leftbracket" and GradientToggled == false then
+		GradientToggled = true
+		for i,v in pairs(script.Resources.Aero.Gradient:GetDescendants()) do if v:IsA("MeshPart") then v.Transparency = v.Name end end
+		if GradientToggled == true and Mode == "Synergistic" then
+			Music.Reverb.Enabled = false
+			Music.Reverb.DecayTime,Music.Reverb.Density,Music.Reverb.Diffusion,Music.Reverb.DryLevel,Music.Reverb.WetLevel = 5,.5,1,0,-5
+			Music.Reverb.Priority = 0
+		elseif GradientToggled == true and Mode ~= "Synergistic" then
+			Music.Reverb.Enabled = true
+			Music.Reverb.DecayTime,Music.Reverb.Density,Music.Reverb.Diffusion,Music.Reverb.DryLevel,Music.Reverb.WetLevel = 5,.5,1,0,-5
+			Music.Reverb.Priority = 0
+		end
+		if Aero == true then
+			script.Resources.Aero.Shades.Transparency = 1
+		end
+
+	elseif Key == "rightbracket" and GradientToggled == true then
+		GradientToggled = false
+		for i,v in pairs(script.Resources.Aero.Gradient:GetDescendants()) do if v:IsA("MeshPart") then v.Transparency = 1 end end
+		Music.PlaybackSpeed = PreviousMusicPitch
+		Music.Reverb.Enabled = false
+		if Aero == true then
+			script.Resources.Aero.Shades.Transparency = 0
+		end
+
+	elseif Key == "z" and Mode == "Debiliation" and SpinBool == false then
+		SpinBool = true
+	elseif Key == "z" and Mode == "Debiliation" and SpinBool == true then
+		SpinBool = false
+
+	elseif Key == "z" then
+		LocationChange()
+
+	elseif Key == "z" and Mode == "how" and SpinBool == false then
+		SpinBool = true
+	elseif Key == "z" and Mode == "how" and SpinBool == true then
+		SpinBool = false
+
+	elseif Key == "z" and Mode == "Randomization" then			
+		local C1,C2,C3,C4 = RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255))
+		DevoyanceRecolorMaterial("RANDOMIZATION",C1,C2,C3,C4,"Neon","Neon","Neon","Neon",C1,C2,C3,C4)
+		GuiRecolor(C1,C2)
+
+	elseif Key == "zero" and SitBool == false then
+		SitBool = true
+		HumanoidValues(0,0)
+
+	elseif Key == "zero" and SitBool == true then
+		SitBool = false
+		HumanoidValues(PreviousWS,PreviousJP)
+	end
+end)
+
+-- Artificial HB --
+local HB = Instance.new("BindableEvent",script) HB.Name = "Event" script:WaitForChild("Event") 
+local OF = 0 local AFL = false local TRNDR = false local LF = tick() local Frame = 1/60 HB:Fire() game:GetService("RunService").Heartbeat:Connect(function(S,P) 
+	OF = OF + S if OF >= Frame then if AFL then script.Heartbeat:Fire()	 LF = tick() else for i = 1, math.floor(OF / Frame) do HB:Fire() end LF = tick() end
+		if TRNDR then OF = 0 else OF = OF - Frame * math.floor(OF / Frame) end end end)
+
+function QuickWait(Number) if Number == 0 or Number == nil then HB.Event:wait() else for i = 0, Number do HB.Event:wait() end end end
+
+coroutine.resume(coroutine.create(function()
+	while wait() do
+		ModeValue.Value = Mode
+		if Character:FindFirstChild("AeroSc") then
+			Character.AeroSc:Destroy()
+		end
+	end
+end))
+
+coroutine.resume(coroutine.create(function()
+	while wait() do
+		if Aero == true then
+			if Mode == "Inexplicability" then
+				script.Resources.Aero.AeroHead.AeroF.Texture = "rbxassetid://2813766627"	
+			elseif EyeToggle2 == true then
+				script.Resources.Aero.AeroHead.AeroF.Texture = "rbxassetid://6759267948"
+			elseif Mode == "Disconsolation" then
+				script.Resources.Aero.AeroHead.AeroF.Texture = "rbxassetid://6759267948"
+			else
+				script.Resources.Aero.AeroHead.AeroF.Texture = "rbxassetid://4896443994"
+			end
+		end
+		if Mode ~= "Visualization" then
+			Player.PlayerGui.DevoyanceV4ScreenGui["Main Gui"].MusicBar.Visible = true
+		end
+		if Mode ~= "OriginalStartingMode" and headGuiEnabled then 
+			Head.DevoyanceV4HeadGui.Enabled = true
+		else
+			Head.DevoyanceV4HeadGui.Enabled = false
+		end
+		if Mode == "Synergistic" and GradientToggled == true then
+			Music.PlaybackSpeed = .45
+		elseif GradientToggled == true then
+			Music.PlaybackSpeed = .85	
+		end
+	end
+end))
+
+coroutine.resume(coroutine.create(function()
+	while true do QuickWait()
+		if Aero == true then
+			local blacklistaccessories = {"Silver","MadScientistHair","FurryWhiteCoatCollar","BlueHoodie","HQWingedGlasses","WhiteStyledBackHair","WhiteStyledHair"} -- case sensitive
+			for i,v in pairs(Character:GetDescendants()) do
+				if v:IsA("Accessory") then
+					for A,B in pairs(blacklistaccessories) do
+						if string.find(v.Name,B) then
+							v:Destroy()
+							Character.Head.Transparency = 1
+							Character.Head.face.Transparency = 1
+						end
+					end
+				end
+			end
+		end
+
+		if Mode == "Visualization" then
+			Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerPanel.Visible = true
+			Player.PlayerGui.DevoyanceV4ScreenGui.Custom.Colors.Visible = false
+			Player.PlayerGui.DevoyanceV4ScreenGui.Custom.ModeName.Visible = false
+			local VSense = Loudness/875
+			local VSense2 = Loudness/100
+			if VSense >= 1 then
+				VSense = 1
+			end
+			local C1,C2 = HSV(S/360 - math.floor(S/360),1,VSense),HSV(0,0,VSense)
+			GuiRecolor(C1,C2)
+			DevoyanceRecolorMaterial("VISUALIZATION",C2,C1,C2,C1,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+			LPL.Range =  5 * VSense2 LPL.Brightness =  1.5 * VSense2
+			RPL.Range =  5 * VSense2 RPL.Brightness =  1.5 * VSense2
+			coroutine.resume(coroutine.create(function()
+				if SitBool == false then
+					HumanoidValues(math.ceil(5 * Loudness/10),math.ceil(10 * Loudness/15))
+					PreviousWS,PreviousJP = Humanoid.WalkSpeed,Humanoid.JumpPower
+				elseif SitBool == true then
+					Humanoid(0,0)
+				end
+			end))
+
+		elseif Mode ~= "Visualization" then
+			Player.PlayerGui.DevoyanceV4ScreenGui["Visualizer Stuff"].VisualizerPanel.Visible = false
+			LPL.Range = 6 LPL.Brightness = 2
+			RPL.Range = 6 RPL.Brightness = 2 
+			Music.Chorus.Enabled,Music.Equalizer.Enabled,Music.Reverb.Enabled,Music.PitchShift.Enabled,Music.Echo.Enabled = false,false,false,false,false
+			if GradientToggled == false then
+				Music.Chorus.Enabled,Music.Equalizer.Enabled,Music.Reverb.Enabled,Music.PitchShift.Enabled,Music.Echo.Enabled = false,false,false,false,false
+			elseif Mode ~= "Synergistic" then
+				Music.Reverb.Enabled = true
+				if Mode == "Synergistic" then
+					Music.Reverb.Enabled = false
+				end
+			end
+		end
+
+		if Mode == "Affectionate" then
+			local LDNS = Loudness/700
+			if LDNS >= 1 then
+				LDNS = 1
+			end
+			local C1,C2,GRC1 = HSV(.8,0.4,LDNS),RGB(35,20,55),RGB(0,0,0)
+			DevoyanceRecolorMaterial("AFFECTIONATE",C2,C1,C2,C1,"Neon","Neon","Neon","Neon",C1,C2,RGB(130,130,130),RGB(255,255,255))
+			ExtraWings(false)
+			GuiRecolor(C1,C2)
+		end
+		if Mode == "Irrationality" then
+			FX("Sphere",true,.5,10,WingFolder1.Wing1.Color2.Color,"Neon",HMNRoot.CFrame * CFN(math.random(-8,8),-2.75,math.random(-8,5)) * CFA(90,0,0),15,1,V3(0,0,0),V3(.5,.5,.5),V3(2,2,2),0,1)
+		end
+		if Mode == "Convivial" then
+			local Position = CFN(math.random(-7,7),math.random(-3,9),math.random(-7,7))
+			FX("Sphere",true,1,7,WingFolder1.Wing1.Color1.Color,"ForceField",HMNRoot.CFrame * Position * CFA(90,0,0),10,.1,V3(0,0,0),V3(1.25,1.25,1.25),V3(1.25,1.25,1.25),.7,1)
+			FX("Sphere",false,1,7,WingFolder1.Wing1.Color2.Color,"Neon",HMNRoot.CFrame * Position * CFA(90,0,0),10,.1,V3(0,0,0),V3(.75,.75,.75),V3(.75,.75,.75),.7,1)
+		end
+		if Mode == "Customization" then
+			Player.PlayerGui.DevoyanceV4ScreenGui.Custom.Colors.Visible = true
+			Player.PlayerGui.DevoyanceV4ScreenGui.Custom.ModeName.Visible = true
+		elseif Mode ~= "Customization" then
+			Player.PlayerGui.DevoyanceV4ScreenGui.Custom.Colors.Visible = false
+			Player.PlayerGui.DevoyanceV4ScreenGui.Custom.ModeName.Visible = false
+		end
+	end
+end))
+
+
+coroutine.resume(coroutine.create(function()
+	while true do
+		QuickWait()
+		local RT = 0
+		if Mode == "Hyperium" or Mode == "NIL" then
+			RT = 50 + S * 3
+			W1.C0 = CFN(0,0,1.5) * CFA(90,125,-8 * SN(S/30))
+			W2.C0 = CFN(0,0,1.5) * CFA(90,-90,-8 * SN(S/30))
+			W3.C0 = CFN(0,0,1.5) * CFA(90,50,- 8 * SN(S/30))
+			W4.C0 = CFN(0,0,1.5) * CFA(90,115 + RT,0)
+			W5.C0 = CFN(0,0,1.5) * CFA(90,50 + RT * 2,0)
+			W6.C0 = CFN(0,0,1.5) * CFA(90,0 + RT * 2.5,0)
+			W7.C0 = CFN(1,0,1.5) * CFA(90,115 + RT * 7,0)
+			W8.C0 = CFN(1,0,1.85) * CFA(90,115 + RT * 9,0)
+			W9.C0 = CFN(1,0,1.85) * CFA(90,115 + RT * 10,0)
+			W10.C0 = CFN(-1,0,1.85) * CFA(90,115 + RT * 6,0)
+			W11.C0 = CFN(-1,0,1.85) * CFA(90,115 + RT * 8,0)
+			W12.C0 = CFN(-1,0,1.85) * CFA(90,115 + RT * 5,0)
+
+		elseif FlyBool == false then
+			local S1,S2,S3 = SN(S/30),SN(S/32),SN(S/34)
+			W1.C0 = CFN(0,0,1.5) * CFA(90,-5 * S1,-8 * S1)
+			W2.C0 = CFN(0,0,1.5) * CFA(90,30 - 5 * S2,-8 * S2)
+			W3.C0 = CFN(0,0,1.5) * CFA(90,55 - 5 * S3,-8 * S3)
+			W4.C0 = CFN(0,0,1.5) * CFA(90,180 + 5 * S1,-8 * S1)
+			W5.C0 = CFN(0,0,1.5) * CFA(90,150 + 5 * S2,-8 * S2)
+			W6.C0 = CFN(0,0,1.5) * CFA(90,125 + 5 * S3,-8 * S3)
+			W1.C1 = CFN(0,0,0) * CFA(0,0,0)
+			W2.C1 = CFN(0,0,0) * CFA(0,0,0)
+			W3.C1 =CFN(0,0,0) * CFA(0,0,0)
+			W4.C1 = CFN(0,0,0) * CFA(0,0,0)
+			W5.C1 = CFN(0,0,0) * CFA(0,0,0)
+			W6.C1 = CFN(0,0,0) * CFA(0,0,0)
+
+		elseif FlyBool == true then
+			W1.C0 = CFN(0,0,1.5) * CFA(90,0 - 10 * SN(S/30),0 - 20 * SN(S/30))
+			W2.C0 = CFN(0,0,1.5) * CFA(90,40 - 10 * SN(S/35),0 - 20 * SN(S/30))
+			W3.C0 = CFN(0,0,1.5) * CFA(90,-40 - 10 * SN(S/33),0 - 20 * SN(S/30))
+			W4.C0 = CFN(0,0,1.5) * CFA(90,140 + 10 * SN(S/35),0 - 20 * SN(S/30))
+			W5.C0 = CFN(0,0,1.5) * CFA(90,-140 + 10 * SN(S/33),0 - 20 * SN(S/30))
+			W6.C0 = CFN(0,0,1.5) * CFA(90,180 + 10 * SN(S/30),0 - 20 * SN(S/30))
+
+			W1.C1 = CFN(0,0,0) * CFA(0,0,0)
+			W2.C1 = CFN(0,0,0) * CFA(0,0,0)
+			W3.C1 =CFN(0,0,0) * CFA(0,0,0)
+			W4.C1 = CFN(0,0,0) * CFA(0,0,0)
+			W5.C1 = CFN(0,0,0) * CFA(0,0,0)
+			W6.C1 = CFN(0,0,0) * CFA(0,0,0)
+		end
+	end
+end))
+
+coroutine.resume(coroutine.create(function()
+	while true do
+		QuickWait()
+		if Aero == true then
+			for i = 1, 300 do QuickWait() end
+			if EyeToggle2 == true then
+				script.Resources.Aero.EyeParts.LEyeHalf.Eye.Enabled = false
+				script.Resources.Aero.EyeParts.REyeHalf.Eye.Enabled = false
+				for i,v in pairs(script.Resources.Aero.EyeParts.Closed:GetDescendants()) do if v:IsA("Decal") then v.Transparency = 0 end end
+			end
+			for i = 1, 15 do QuickWait() end
+			if EyeToggle2 == true then
+				script.Resources.Aero.EyeParts.LEyeHalf.Eye.Enabled = true
+				script.Resources.Aero.EyeParts.REyeHalf.Eye.Enabled = true
+				for i,v in pairs(script.Resources.Aero.EyeParts.Closed:GetDescendants()) do if v:IsA("Decal") then v.Transparency = 1 end end
+			end
+		end
+	end
+end))
+
+coroutine.resume(coroutine.create(function()
+	while true do
+		QuickWait()
+		if Mode == "NIL" then
+			DevoyanceRecolorMaterial(math.random(0,99999).."  NIL  "..math.random(0,99999),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),"Neon","Neon","Neon","Neon",RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)))
+			GuiRecolor(RGB(math.random(0,255),math.random(0,255),math.random(0,255)),RGB(math.random(0,255),math.random(0,255),math.random(0,255)))
+			ExtraWings(false)
+		end
+	end
+end))
+
+
+coroutine.resume(coroutine.create(function()
+	while true do
+		QuickWait()
+		if Aero == true then
+			for i = 1, 300 do QuickWait() end
+			if EyeToggle == true then
+				script.Resources.Aero.EyeParts["Right Eye"].Eye.Enabled = false
+				script.Resources.Aero.EyeParts["Left Eye"].Eye.Enabled = false
+				for i,v in pairs(script.Resources.Aero.EyeParts.Closed:GetDescendants()) do if v:IsA("Decal") then v.Transparency = 0 end end
+			end
+			for i = 1, 15 do QuickWait() end
+			if EyeToggle == true then
+				script.Resources.Aero.EyeParts["Right Eye"].Eye.Enabled = true
+				script.Resources.Aero.EyeParts["Left Eye"].Eye.Enabled = true
+				for i,v in pairs(script.Resources.Aero.EyeParts.Closed:GetDescendants()) do if v:IsA("Decal") then v.Transparency = 1 end end
+			end
+		end
+	end
+end))
+
+coroutine.resume(coroutine.create(function()
+	while true do QuickWait(100)
+		for i,v in pairs(game.Players:GetChildren()) do if v.Character then
+				local PLRGui = v.PlayerGui
+				local SCRGui
+				if not PLRGui:FindFirstChild("DevoyanceV4CR") then
+					SCRGui = Instance.new('ScreenGui',PLRGui) SCRGui.ResetOnSpawn = false
+					SCRGui.Name = "DevoyanceV4CR"
+				else
+					SCRGui = PLRGui:FindFirstChild('DevoyanceV4CR')
+				end
+				if not SCRGui:FindFirstChild('EffectCR') then
+					local Script = script.EffectCR:Clone() Script.Parent = SCRGui Script.Disabled = false
+				end
+			end
+		end
+	end
+end))
+
+while true do
+	QuickWait()
+	S += 1
+
+	Humanoid.MaxHealth = math.huge
+	Humanoid.Health = math.huge
+
+	if Aero == true then
+		if Player.Character:WaitForChild("Shirt").ShirtTemplate == "http://www.roblox.com/asset/?id=4769576192" or Player.Character:WaitForChild("Shirt").ShirtTemplate == "http://www.roblox.com/asset/?id=796246064" then
+			script.Resources.Aero.Scarf.Transparency = 1
+		elseif Player.Character:WaitForChild("Shirt").ShirtTemplate == "http://www.roblox.com/asset/?id=762466523" then
+			script.Resources.Aero.Scarf.Transparency = 0
+		end
+	end
+	
+	script.BlackAndWhite.Value = (Mode == "Shatteration")
+
+	if Colorful == true and Mode ~= "Visualization" then
+		script.Resources.Aero.LocksOfIce2.Mesh.VertexColor = VectorColorToRGB(WingFolder1.Wing1.Color1.Color)
+		script.Resources.Aero.EyeParts["Left Eye"].Eye.EyeTexL.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["Right Eye"].Eye.EyeTexR.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts.Closed.LEyeClosed.ClosedEyeTexL.Color3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts.Closed.REyeClosed.ClosedEyeTexR.Color3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["REyeHalf"].Eye.EyeTexR.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["LEyeHalf"].Eye.EyeTexL.ImageColor3 = WingFolder1.Wing1.Color2.Color
+
+	elseif Colorful == true and Mode == "Affectionate" then 
+		script.Resources.Aero.LocksOfIce2.Mesh.VertexColor = VectorColorToRGB(WingFolder1.Wing1.Color1.Color)
+		script.Resources.Aero.EyeParts["Left Eye"].Eye.EyeTexL.ImageColor3 = WingFolder1.Wing1.Color1.Color
+		script.Resources.Aero.EyeParts["Right Eye"].Eye.EyeTexR.ImageColor3 = WingFolder1.Wing1.Color1.Color
+		script.Resources.Aero.EyeParts.Closed.LEyeClosed.ClosedEyeTexL.Color3 = WingFolder1.Wing1.Color1.Color
+		script.Resources.Aero.EyeParts.Closed.REyeClosed.ClosedEyeTexR.Color3 = WingFolder1.Wing1.Color1.Color
+		script.Resources.Aero.EyeParts["REyeHalf"].Eye.EyeTexR.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["LEyeHalf"].Eye.EyeTexL.ImageColor3 = WingFolder1.Wing1.Color2.Color
+
+	elseif Colorful == true and Mode == "Visualization" then 
+		script.Resources.Aero.LocksOfIce2.Mesh.VertexColor = VectorColorToRGB(WingFolder1.Wing1.Color2.Color)
+		script.Resources.Aero.EyeParts["Left Eye"].Eye.EyeTexL.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["Right Eye"].Eye.EyeTexR.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts.Closed.LEyeClosed.ClosedEyeTexL.Color3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts.Closed.REyeClosed.ClosedEyeTexR.Color3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["REyeHalf"].Eye.EyeTexR.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["LEyeHalf"].Eye.EyeTexL.ImageColor3 = WingFolder1.Wing1.Color2.Color
+
+	elseif EyeToggle == true or EyeToggle2 == true then
+		script.Resources.Aero.LocksOfIce2.Mesh.VertexColor = VectorColorToRGB(WingFolder1.Wing1.Color1.Color)
+		script.Resources.Aero.EyeParts["Left Eye"].Eye.EyeTexL.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["Right Eye"].Eye.EyeTexR.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts.Closed.LEyeClosed.ClosedEyeTexL.Color3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts.Closed.REyeClosed.ClosedEyeTexR.Color3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["REyeHalf"].Eye.EyeTexR.ImageColor3 = WingFolder1.Wing1.Color2.Color
+		script.Resources.Aero.EyeParts["LEyeHalf"].Eye.EyeTexL.ImageColor3 = WingFolder1.Wing1.Color2.Color
+	end
+
+	hitfloor,posfloor=rayCast(HMNRoot.Position,(CFN(HMNRoot.Position,HMNRoot.Position - Vector3.new(0,1,0))).lookVector,4,Character)
+	local Walking = Humanoid.MoveDirection.magnitude>0
+	local FwdDir = (Walking and Humanoid.MoveDirection * HMNRoot.CFrame.lookVector or Vector3.new())
+	local RigDir = (Walking and Humanoid.MoveDirection * HMNRoot.CFrame.rightVector or Vector3.new())
+	local Vec = {
+		X = RigDir.X+RigDir.Z,
+		Z = FwdDir.X+FwdDir.Z
+	};
+	local Divide = 1
+	if(Vec.Z<0)then
+		Divide = math.clamp(-(1.25*Vec.Z),1,2)
+	end
+	Vec.Z = Vec.Z/Divide
+	Vec.X = Vec.X/Divide
+
+	local VX,VZ = Vec.X,Vec.Z
+	if FlyBool == true then
+		CurrentState = (not hitfloor and HMNRoot.Velocity.Y <- 1 and 'Falling' or not hitfloor and HMNRoot.Velocity.Y > 1 and 'Jumping' or Humanoid.Sit and "Sit" or Walking and Humanoid.WalkSpeed < 36 and "Walking" or Walking and Humanoid.WalkSpeed >= 36 and "Running" or "Idle")
+	elseif FlyBool == false then
+		CurrentState = (not hitfloor and HMNRoot.Velocity.Y <- 1 and 'Falling' or not hitfloor and HMNRoot.Velocity.Y > 1 and 'Jumping' or Humanoid.Sit and "Sit" or Walking and Humanoid.WalkSpeed < 22 and "Walking" or Walking and Humanoid.WalkSpeed >= 22 and "Running" or "Idle")
+	end
+	ValueFolder.PlayerMoveStatus.Value = CurrentState
+
+	if RemoveIdles then
+
+	elseif not RemoveIdles then
+		if CurrentState == "Jumping" then
+			RA.C0 = LerpX(RA.C0,CFN(1.5,.5,.4) * CFA(-25,-20,20),.1) 
+			LA.C0 = LerpX(LA.C0,CFN(-1.5,.5,.4) * CFA(-25,20,-20),.1) 
+			RH.C0 = LerpX(RH.C0,CFN(1,-.4,-.5) * CFA(0,90,-15),.1) 
+			LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,15),.1) 
+			RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(-1 * VX,-1 * VZ,0) * CFA(15 * VZ,10 * VX,30 * VX),.1)
+			H.C0 = LerpX(H.C0,NeckVals * CFA(-35 * VZ,-10 * VX,-30 * VX),.1)
+
+		elseif CurrentState == "Falling" then
+			local CS1 = CS(S/24)
+			RA.C0 = LerpX(RA.C0,CFN(1,.9,0) * CFA(0,-10,145 - 10 * CS1),.1) 
+			LA.C0 = LerpX(LA.C0,CFN(-1,.9,0) * CFA(0,10,-145 + 10 * CS1),.1) 
+			RH.C0 = LerpX(RH.C0,CFN(1,-.4,-.5) * CFA(0,90,-15),.1) 
+			LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,15),.1) 
+			RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(-1 * VX,-1 * VZ,0) * CFA(0,10 * VX,30 * VX),.1)
+			H.C0 = LerpX(H.C0,NeckVals * CFA(20 * VX,-10 * VX,-30 * VX),.1)
+
+		elseif CurrentState == "Idle" then 
+			local sine = S
+			local angles = CF.Angles
+			local cf = CFN
+			local RootJoint = RJNT
+			local clerp = LerpX
+			local RootCF = RCF
+			local RW,LW = RA,LA
+			local necko = NeckVals	
+			
+			if Mode == "Euphoric" and SitBool == false  then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1,.5 + .1 * S4,.5) * CFA(0,0,-35),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1,.5 + .1 * S4,.5) * CFA(0,0,35),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(.85,-1 + .1 * S1,.3) * CFA(0,55 + 5.75 * S2,-2.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * S1,0) * CFA(0,-90 + 5.75 * S2,2.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-2 * S1,0,35 - 5 * S2),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(10 - 2 * S1,3 * CS3,-35 + 5 * S2),.1)
+
+			elseif Mode == "Euphorius" and SitBool == false then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.1,.3 + .1 * S4,.5) * CFA(0,0,-40 - 2 * CS2),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.1,.3 + .1 * S4,.5) * CFA(0,0,40 + 2 * CS2),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1 + .1 * S1,0) * CFA(0,75,-3.75 * S1) * CFA(-6,0,0),.1)
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * S1,0) * CFA(0,-90,3.75 * S1),.1)
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-3 * S1,0,15),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(5 + 3 * S1,0,-15),.1)
+
+			elseif Mode == "OriginalStartingMode" and SitBool == false then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.3 + .1 * S4,.25) * CFA(15,0,-10 - 2 * CS2),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S4,0) * CFA(0,0,0),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1 + .1 * S1,0) * CFA(0,75,-3.75 * S1) * CFA(-6,0,0),.1)
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * S1,0) * CFA(0,-90,3.75 * S1),.1)
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-3 * S1,0,15),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(5 + 3 * S1,0,-15),.1)
+
+			elseif Mode == "Obscurity" and SitBool == false  then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.3 - .1 * S4,0) * CFA(3 * CS3,0,10 - 2 * CS2),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.3,.5 - .1 * S4,0) * CFA(175 + 3 * CS3,0,20 + 2 * CS2),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1 - .1 * S1,0) * CFA(0,90 - 3.75 * S1,-3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1.1,-1 - .1 * S1,-.1) * CFA(0,-70,25 + 3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,.1 * S1) * CFA(-3 * S1,0,0-25),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(10 - 4 * CS1,15,25),.1)
+
+			elseif Mode == "NIL" and SitBool == false  then
+				local S1,S2,S3,S4,S5 = SN(S/34),SN(S/32),SN(S/30),SN(S/28),SN(S/17)
+				local CS1,CS2,CS3,CS4,CS5 = CS(S/34),CS(S/32),CS(S/30),CS(S/28),CS(S/17)
+				RA.C0 = LerpX(RA.C0,CFN(1.1,.3 + .1 * S4,.5) * CFA(0,0,-40 - 2 * CS2),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.1,.3 + .1 * S4,.5) * CFA(0,0,40 + 2 * CS2),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.5,-.5) * CFA(0,90,-25 + 5 * S2),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,15 - 5 * S2),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,3 * S2,FlyHeight + 2 * CS5) * CFA(-15 * CS1,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(15 * CS1,0,0),.1)
+
+			elseif Mode == "Randomization" and SitBool == false then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.2,.25 - .1 * S1,-.7) * CFA(180,-5,-65 - 2 * CS3),.1)
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.25 - .1 * S1,.6) * CFA(35,0,35),.1)
+				RH.C0 = LerpX(RH.C0,CFN(1,-1 + .1 * S1,0) * CFA(0,75,-3.75 * S1) * CFA(-6,0,0),.1)
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * S1,0) * CFA(0,-90,3.75 * S1),.1)
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-3 * S1,0,15),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(5 + 3 * S1,0,-15),.1)
+
+			elseif Mode == "Inexplicability" and SitBool == false  then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.4,.3 + .1 * S4,.35) * CFA(0,0,-30 - 2 * CS2),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S4,0) * CFA(-10 * CS3,0,-15 + 2 * CS2),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1.2 + .1 * S1,0) * CFA(0,80,0) * CFA(8.5 - .5 * S1,0,-3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * S1,0) * CFA(0,-70,0) * CFA(-8.5 - .5 * S1,0,3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-3 * S1,8,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(5 - 3 * CS4,-4,0),.1)
+
+			elseif Mode == "Irrationality" and SitBool == false  then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.1,.3 + .1 * S4,.5) * CFA(0,0,-40 - 2 * CS2),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1,.3 + .1 * S4,.75) * CFA(-90,10,90 - 2 * CS2),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(.9,-1 + .1  * S1,.3) * CFA(0,60,-3.75 * S1) * CFA(0,0,0),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1  * S1,0) * CFA(0,-90,25 + 3.75 * S1) * CFA(2.5,0,0),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-3 * S1,0,30),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(10 - 2.5 * CS1,5 - 2 * CS2,-30),.1)
+
+			elseif Mode == "Serenity" and SitBool == false then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.35 - .1 * S4,0.25) * CFA(15,0,-5),.1)
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.35 - .1 * S4,0.25) * CFA(15,0,5),.1)
+				RH.C0 = LerpX(RH.C0,CFN(1,-1 + .1 * S1,0) * CFA(0,75,-3.75 * S1) * CFA(-6,0,0),.1)
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * S1,0) * CFA(0,-90,3.75 * S1),.1)
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-3 * S1,0,15),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(2 + 3 * CS1,0,-15),.1)
+
+			elseif Mode == "Dilution" and SitBool == false  then
+				local S1,S2,S3,S4 = SN(S/44),SN(S/42),SN(S/40),SN(S/38)
+				local CS1,CS2,CS3,CS4 = CS(S/44),CS(S/42),CS(S/40),CS(S/38)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,-45,15),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,45,-15),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.8 + .1 * S1,-.6) * CFA(0,90,90 - 3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,.1 + .1 * S1,-.5) * CFA(0,-90,-60 + 3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-1.9 - .1 * S1) * CFA(-3 * S1,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(6 - 3 * CS1,0,0),.1)
+
+			elseif Mode == "Tranquility" and SitBool == false  then
+				local S1,S2,S3,S4 = SN(S/44),SN(S/42),SN(S/40),SN(S/38)
+				local CS1,CS2,CS3,CS4 = CS(S/44),CS(S/42),CS(S/40),CS(S/38)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,-45,15),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,45,-15),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.8 + .1 * S1,-.6) * CFA(0,90,90 - 3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,.1 + .1 * S1,-.5) * CFA(0,-90,-60 + 3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-1.9 - .1 * S1) * CFA(-3 * S1,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(6 - 3 * CS1,0,0),.1)
+
+			elseif Mode == "Synergistic" and SitBool == false  then
+				local S1,S2,S3,S4 = SN(S/44),SN(S/42),SN(S/40),SN(S/38)
+				local CS1,CS2,CS3,CS4 = CS(S/44),CS(S/42),CS(S/40),CS(S/38)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,-45,15),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,45,-15),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.8 + .1 * S1,-.6) * CFA(0,90,90 - 3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,.1 + .1 * S1,-.5) * CFA(0,-90,-60 + 3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-1.9 - .1 * S1) * CFA(-3 * S1,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(6 - 3 * CS1,0,0),.1)
+
+			elseif Mode == "Hyperium" and SitBool == false  then
+				local S1,S2,S3,S4,S5 = SN(S/34),SN(S/32),SN(S/30),SN(S/28),SN(S/17)
+				local CS1,CS2,CS3,CS4,CS5 = CS(S/34),CS(S/32),CS(S/30),CS(S/28),CS(S/17)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5,0) * CFA(15 * S5,0,35 - 10 * S1),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5,0) * CFA(15 * S5,0,-35 + 10 * S1),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.5,-.5) * CFA(0,90,-25 + 5 * S2),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,15 - 5 * S2),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,3 * S2,FlyHeight + 2 * CS5) * CFA(-15 * CS1,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(15 * CS1,0,0),.1)
+
+			elseif Mode == "Convivial" and SitBool == false then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5 + .1 * CS4,0) * CFA(0,0,15 - 10 * S1),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * CS4,0) * CFA(0,0,-15 + 10 * S1),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.5 + .1 * CS1,-.75) * CFA(-5,90,-20 - 3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * CS1,0) * CFA(0,-90,10 + 3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(.2 * CS1,0,FlyHeight + .5 * S1) * CFA(-3 * S1,3 * S1,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(8 - 3 * CS1,-3 * S1,0),.1)
+
+			elseif Mode == "Debiliation" and SpinBool == true and SitBool == false  then
+				RA.C0 = LerpX(RA.C0,CFN(1.5,1,0) * CFA(0,0,80),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,1,0) * CFA(0,0,-80),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1,0) * CFA(0,90,0),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,0),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0 - 50 * SN(S/25),-50 * CS(S/25),6 - 1 * SN(S/34)) * CFA(0,180,10 + S * -10),.1)
+				H.C0 = LerpX(H.C0,NeckVals  * CFA(0,0,0),.1)
+
+			elseif Mode == "Debiliation" and SpinBool == false and SitBool == false  then
+				RA.C0 = LerpX(RA.C0,CFN(1.5,1,0) * CFA(0,0,80),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,1,0) * CFA(0,0,-80),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1,0) * CFA(0,90,0),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,0),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,FlyHeight - 1 * SN(S/34)) * CFA(0,180,10 + S * -10),.1)
+				H.C0 = LerpX(H.C0,NeckVals  * CFA(0,0,0),.1)
+
+			elseif Mode == "how" and SpinBool == false and SitBool == false  then
+				RA.C0 = LerpX(RA.C0,CFN(1.5,1,0) * CFA(0,0,80),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,1,0) * CFA(0,0,-80),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1,0) * CFA(0,90,0),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,0),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,FlyHeight - 1 * SN(S/34)) * CFA(0,10 + S * -10,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals  * CFA(0,0,0),.1)
+
+			elseif Mode == "how" and SpinBool == true and SitBool == false  then
+				RA.C0 = LerpX(RA.C0,CFN(1.5,1,0) * CFA(0,0,80),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,1,0) * CFA(0,0,-80),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1,0) * CFA(0,90,0),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,0),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(-50 * SN(S/25),0,FlyHeight - 1 * SN(S/34)) * CFA(0,10 + S * -10,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals  * CFA(0,0,0),.1)
+				
+			elseif Mode == "Inundated" and SitBool == false  then
+				RH.C0=clerp(RH.C0,cf(1,-1 - 0.1 * math.cos(sine / 34),0)*angles(math.rad(0),math.rad(90),math.rad(0))*angles(math.rad(0),math.rad(0),math.rad(0 - 2 * math.cos(sine/34))),.1)
+				LH.C0=clerp(LH.C0,cf(-1,-1 - 0.1 * math.cos(sine / 34),0)*angles(math.rad(0),math.rad(-90),math.rad(0))*angles(math.rad(0),math.rad(0),math.rad(25 + 2 * math.cos(sine/34))),.1)
+				RootJoint.C0=clerp(RootJoint.C0,RootCF*cf(0,0,0 + .1* math.cos(sine / 34))*angles(math.rad(0 - 2 * math.cos(sine / 34)),math.rad(0),math.rad(15)),.1)
+				Torso.Neck.C0=clerp(Torso.Neck.C0,necko*angles(math.rad(10 - 5 * math.cos(sine / 29)),math.rad(0),math.rad(-15)),.1)
+				RW.C0=clerp(RW.C0,cf(1.1,0.5 - 0.1 * math.cos(sine / 28),.5)*angles(math.rad(0 + 3 * math.cos(sine/30)),math.rad(0),math.rad(-40 - 2 * math.cos(sine/32))),.1)
+				LW.C0=clerp(LW.C0,cf(-1.1,0.5 - 0.1 * math.cos(sine / 28),.5)*angles(math.rad(0 + 3 * math.cos(sine/30)),math.rad(0),math.rad(40 + 2 * math.cos(sine/32))),.1)
+				
+			elseif Mode == "Ambiguation" and SitBool == false  then
+				RH.C0=clerp(RH.C0,cf(1,-1 - 0.1 * math.cos(sine / 34),0)*angles(math.rad(0),math.rad(90),math.rad(0))*angles(math.rad(-5 + 1.15 * math.cos(sine/34)),math.rad(0),math.rad(0 - 3.75 * math.cos(sine/34))),.1)
+				LH.C0=clerp(LH.C0,cf(-1,-1 - 0.1 * math.cos(sine / 34),0)*angles(math.rad(0),math.rad(-90),math.rad(0))*angles(math.rad(-5 - 1.15 * math.cos(sine/34)),math.rad(0),math.rad(0 + 3.75 * math.cos(sine/34))),.1)
+				RootJoint.C0=clerp(RootJoint.C0,RootCF*cf(0,0,0 + .1* math.cos(sine / 34))*angles(math.rad(0 - 3 * math.cos(sine / 34)),math.rad(0),math.rad(25)),.1)
+				Torso.Neck.C0=clerp(Torso.Neck.C0,necko*angles(math.rad(10 - 5 * math.cos(sine / 29)),math.rad(0),math.rad(-25)),.1)
+				RW.C0=clerp(RW.C0,cf(1.1,0.5 - 0.1 * math.cos(sine / 28),-.4)*angles(math.rad(65 - 3 * math.cos(sine/30)),math.rad(0),math.rad(-45 - 2 * math.cos(sine/32))),.1)
+				LW.C0=clerp(LW.C0,cf(-1,0.5 - 0.1 * math.cos(sine / 28),-.3)*angles(math.rad(95 - 3 * math.cos(sine/30)),math.rad(-5),math.rad(65 + 2 * math.cos(sine/32))),.1)	
+				
+			elseif Mode == "Visualization" and SitBool == false then
+				local S1 = math.sin(S/34)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5 - .035 * Loudness/72,0) * CFA(35 * Loudness / 200,0,15),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.25,.5 - .035 * Loudness/72,.5) * CFA(0,0,25),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(.9,-1 + .035 * Loudness/75,.25) * CFA(0,65,-3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .035 * Loudness/75,0) * CFA(0,-90,3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.035 * Loudness / 75) * CFA(0 - 3 * S1,0,25),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(25 * Loudness/700,0,-25),.1)
+
+			elseif Mode == "Customization" and SitBool == false then
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.1,.3 + .1 * S4,.5) * CFA(0,0,-40 - 2 * CS2),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.1,.3 + .1 * S4,.5) * CFA(0,0,40 + 2 * CS2),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1 + .1 * S1,0) * CFA(0,75,-3.75 * S1) * CFA(-6,0,0),.1)
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * S1,0) * CFA(0,-90,3.75 * S1),.1)
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-3 * S1,0,15),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(5 + 3 * S1,0,-15),.1)
+
+			elseif SitBool == true then
+				local S1,S2,S3,S4 = SN(S/44),SN(S/42),SN(S/40),SN(S/38)
+				local CS1,CS2,CS3,CS4 = CS(S/44),CS(S/42),CS(S/40),CS(S/38)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,-45,15),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,45,-15),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.8 + .1 * S1,-.6) * CFA(0,90,90 - 3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,.1 + .1 * S1,-.5) * CFA(0,-90,-60 + 3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-1.9 - .1 * S1) * CFA(-3 * S1,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(6 - 3 * CS1,0,0),.1)
+
+			else
+				local S1,S2,S3,S4 = SN(S/34),SN(S/32),SN(S/30),SN(S/28)
+				local CS1,CS2,CS3,CS4 = CS(S/34),CS(S/32),CS(S/30),CS(S/28)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5 + .1 * S4,0) * CFA(0,0,0),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S4,0) * CFA(0,0,0),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1 + .1 * S1,0) * CFA(0,90,-3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1 + .1 * S1,0) * CFA(0,-90,3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-.1 * S1) * CFA(-3 * S1,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(-3 * CS1,0,0),.1)
+			end
+
+		elseif CurrentState == "Walking" then 
+			if SitBool == true then
+				local S1,S2,S3,S4 = SN(S/44),SN(S/42),SN(S/40),SN(S/38)
+				local CS1,CS2,CS3,CS4 = CS(S/44),CS(S/42),CS(S/40),CS(S/38)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,-45,15),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S1,.25) * CFA(-3.75 * S1,45,-15),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.8 + .1 * S1,-.6) * CFA(0,90,90 - 3.75 * S1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,.1 + .1 * S1,-.5) * CFA(0,-90,-60 + 3.75 * S1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-1.9 - .1 * S1) * CFA(-3 * S1,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(6 - 3 * CS1,0,0),.1)
+
+			elseif FlyBool == false then
+				local S1,S2,S3 = SN(S/10),SN(S/5),SN(S/8)
+				local CS1,CS2 = CS(S/10),CS(S/5)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5,0) * CFA(40 * CS1 * VZ,0,2.5),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5,0) * CFA(-40 * CS1 * VZ,0,-2.5),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1,0) * CFA(0,90 - 10 * S1 * VZ,-45 * S1 * VZ) * CFA(-10 * CS1 * VX,0,20 * S1 * VX),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90 - 10 * S1 * VZ,-45 * S1 * VZ) * CFA(-10 * CS1 * VX,0,20 * S1 * VX),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(-.25 * VX,-.25 * VZ,.175 * CS2) * CFA(5 * VZ,0,10 * S1 * VZ) * CFA(0,0,20 * VX),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(5 - 3 * S2 * VZ,0,-10 * S1 * VZ) * CFA(0,0,-20 * VX),.1)
+
+			elseif FlyBool == true then
+				local S1,S2,S3 = SN(S/34),SN(S/17),SN(S/32)
+				local CS1,CS2 = CS(S/34),CS(S/17)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5,.2 * VX) * CFA(0,-25 * VX,25),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5,.2 * VX) * CFA(0,25 * VX,-25),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1,0) * CFA(-5,90,0),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-.5,-.75) * CFA(-5,-90,20),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(-1 * VX,-1 * VZ,FlyHeight - .75 * S2) * CFA(15 * VZ ,-5 * VX,30 * VX),.1)
+				H.C0 = LerpX(H.C0,NeckVals  * CFA(-5 + 5 * CS2 * VZ,5 * VX,-30 * VX),.1)
+			end
+
+		elseif CurrentState == "Running" then
+			if Mode == "Debiliation" or Mode == "how" then
+				RA.C0 = LerpX(RA.C0,CFN(1.5,1,0) * CFA(0,0,80),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,1,0) * CFA(0,0,-80),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1,0) * CFA(0,90,0),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,0),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,0) * CFA(10 + S * 5 ,0,0),.1)
+				H.C0 = LerpX(H.C0,NeckVals  * CFA(0,0,0),.1)
+
+			elseif FlyBool == false then	
+				local CS1,CS2,CS3,CS4 = CS(S/7.5),CS(S/7),CS(S/6),CS(S/3.5)
+				local S1 = SN(S/3.5)
+				RA.C0 = LerpX(RA.C0,CFN(1.4,.5,0 + .5 * CS1 * VZ) * CFA(165 * CS3 * VZ,0,0),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.4,.5,0 - .5 * CS1 * VZ) * CFA(-165 * CS3 * VZ,0,0),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-1,0 + .5 * CS4 * VZ) * CFA(0,90,145 * CS3 * VZ) * CFA(20 * CS2 * VX,-10 * CS3 * VX,30 * CS1 * VX),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0 + .5 * CS4 * VZ) * CFA(0,-90,145 * CS3 * VZ) * CFA(20 * CS2 * VX,-10 * CS3 * VX,30 * CS1 * VX),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(-1 * VX,-1 * VZ,.25 * CS4) * CFA(28 * VZ - 1 * CS2,1 * CS3 * VZ,5 * CS3 * VZ) * CFA(0,0,10 * VX),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(5 + 5 * VZ * S1,0,-3 * CS3 * VZ)* CFA(0,0,20 * VX),.1)
+
+			elseif FlyBool == true then
+				local CS1,CS2 = CS(S/34),CS(S/17)
+				local S1,S2 = SN(S/34),SN(S/17)
+				RA.C0 = LerpX(RA.C0,CFN(1.5,.5,0) * CFA(0,-35 * VZ,25) * CFA(0,-35 * VZ,0),.1) 
+				LA.C0 = LerpX(LA.C0,CFN(-1.5,.5,0) * CFA(0,35 * VZ,-25) * CFA(0,35 * VZ,0),.1) 
+				RH.C0 = LerpX(RH.C0,CFN(1,-.4,-1) * CFA(0,90,-35 + 5 * CS1),.1) 
+				LH.C0 = LerpX(LH.C0,CFN(-1,-1,0) * CFA(0,-90,25 - 5 * CS1),.1) 
+				RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,FlyHeight + 1.5 * S2) * CFA(65 * VZ,0,-35 * VX),.1)
+				H.C0 = LerpX(H.C0,NeckVals * CFA(-50 * VZ,0,-40 * VX),.1)
+			end
+		elseif CurrentState == "Sit" then
+			local S1,S2,S3,S4 = SN(S/44),SN(S/42),SN(S/40),SN(S/38)
+			local CS1,CS2,CS3,CS4 = CS(S/44),CS(S/42),CS(S/40),CS(S/38)
+			RA.C0 = LerpX(RA.C0,CFN(1.5,.5 + .1 * S1,.25) * CFA(30 - 3.75 * S1,-5,5),.1) 
+			LA.C0 = LerpX(LA.C0,CFN(-1.5,.5 + .1 * S1,.25) * CFA(30 - 3.75 * S1,5,-5),.1) 
+			RH.C0 = LerpX(RH.C0,CFN(1,-.8 + .1 * S1,-.6) * CFA(0,90,90 - 3.75 * S1),.1) 
+			LH.C0 = LerpX(LH.C0,CFN(-1,-.8 + .1 * S1,-.6) * CFA(0,-90,-90 + 3.75 * S1),.1) 
+			RJNT.C0 = LerpX(RJNT.C0,RCF * CFN(0,0,-0.3 - .1 * S1) * CFA(-3 * S1,0,0),.1)
+			H.C0 = LerpX(H.C0,NeckVals * CFA(6 - 3 * CS1,0,0),.1)
+		end
+	end
+end
+end)
+
+local grandh = createScriptButton("grand", function(btn)
+	btn.Text = "Loading... Please Wait"
+	wait(0.5)
+	btn.Text = "grand"
+	loadstring(game:HttpGet("https://pastefy.app/NkKIJePz/raw", true))()
+end)
+
+local grand_pivoth = createScriptButton("grand_pivot", function(btn)
+	btn.Text = "Loading... Please Wait"
+	wait(0.5)
+	btn.Text = "grand_pivot"
+	loadstring(game:HttpGet("https://pastefy.app/NkKIJePz/raw", true))()
+end)
+
+local mjolnirh = createScriptButton("mjolnir", function(btn)
+	btn.Text = "Loading... Please Wait"
+	wait(0.5)
+	btn.Text = "mjolnir"
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
+
+Mjolnir = Instance.new("Tool")
+Mjolnir.Name = "Mjolnir"
+Mjolnir.Parent = player.Backpack
+
+Handle = Instance.new("Part")
+Handle.Parent = Mjolnir
+Handle.Anchored = false
+Handle.Name = "Handle"
+Handle.CanCollide = true
+Handle.Size = Vector3.new(1.000000, 4.000000, 2.000000)
+Handle.CFrame = CFrame.new(6.424833297729492, 1.9891911745071411, -23.33095932006836, -0.006068193819373846, -0.00023975562362466007, -0.9999815821647644, 0.00041880097705870867, 0.9999998807907104, -0.00024230143753811717, 0.9999815225601196, -0.0004202635900583118, -0.0060680927708745)
+Handle.Color = Color3.new(0.388235, 0.372549, 0.384314)
+Handle.Material = Enum.Material.Plastic
+Handle.BrickColor = BrickColor.new("Dark stone grey")
+Handle.Transparency = 0
+Handle.Reflectance = 0
+Handle.Shape = Enum.PartType.Block
+Boom = Instance.new("Sound")
+Boom.Parent = Handle
+Boom.SoundId = "rbxasset://sounds/Rocket shot.wav"
+Boom.Volume = 1
+Boom.Name = "Boom"
+Boom.PlaybackSpeed = 1
+Boom.Looped = false
+Boom.Playing = false
+Boom.TimePosition = 0
+Boom.RollOffMaxDistance = 10000
+Boom.RollOffMinDistance = 10
+Boom.RollOffMode = Enum.RollOffMode.Inverse
+Boom.EmitterSize = 10
+Mesh = Instance.new("SpecialMesh")
+Mesh.Parent = Handle
+Mesh.Name = "Mesh"
+Mesh.MeshId = "http://www.roblox.com/asset/?id=1279013"
+Mesh.TextureId = "http://www.roblox.com/asset/?id=1279012"
+Mesh.Offset = Vector3.new(0.000000, 0.000000, 0.000000)
+Mesh.Scale = Vector3.new(1.050000, 1.050000, 1.050000)
+Mesh.MeshType = Enum.MeshType.FileMesh
+
+SwingAnim = Instance.new("Animation")
+SwingAnim.Name = "SwingAnim"
+SwingAnim.Parent = Mjolnir
+
+script.Parent = Mjolnir
+local rs = game:GetService("RunService")
+
+local Tool = script.Parent
+local hammer = Tool.Handle
+
+local shockRing = Instance.new("Part")
+shockRing.formFactor = 2
+shockRing.Size = Vector3.new(1, 0.4, 1)
+shockRing.Anchored = true
+shockRing.Locked = true
+shockRing.CanCollide = false
+shockRing.archivable = false
+shockRing.TopSurface = 0
+shockRing.BottomSurface = 0
+shockRing.Transparency = 1
+local decal = Instance.new("Decal")
+decal.Face = 1
+decal.Texture = "http://www.roblox.com/asset/?version=1&id=1280730"
+decal.Parent = shockRing
+
+local bottomDecal = decal:Clone()
+bottomDecal.Face = 4
+bottomDecal.Parent = shockRing
+
+local partCache = {}
+
+local function addPart(part)
+	if part:IsA("BasePart") then
+		partCache[#partCache+1] = part
+	end
+end
+
+local function recurseParts(obj)
+	for _,v in pairs(obj:GetChildren()) do
+		addPart(v)
+		recurseParts(v)
+	end
+end
+
+recurseParts(workspace)
+workspace.DescendantAdded:connect(addPart)
+
+local function spawn(func,...)
+	local b = Instance.new("BindableEvent")
+	b.Event:connect(func)
+	b:Fire(...)
+end
+
+local function fastWait(t)
+	local t = t or 0.03
+	local now = tick()
+	while (tick() - now) < t do
+		rs.Stepped:wait()
+	end
+end
+
+function doDamage(hit)
+	local humanoid = hit.Parent:findFirstChild("Humanoid")
+	local vCharacter = char
+	local vPlayer = player
+	local hum = vCharacter:findFirstChild("Humanoid") -- non-nil if tool held by a character
+	if humanoid~=nil and humanoid ~= hum and hum ~= nil then
+		humanoid:TakeDamage(humanoid.MaxHealth)
+		if humanoid.Health <= 0 then
+			local c = hit.CFrame
+			hit.CFrame = CFrame.new(hit.Position)
+			hit.CFrame = c
+		end
+	end
+end
+
+local XZ_Vector = Vector3.new(1,0,1)
+local upOffset = Vector3.new(0,0.5,0)
+local abs = math.abs
+
+function blow(objPos, char)
+	for _,obj in pairs(partCache) do
+		if not obj:IsDescendantOf(char) and not obj.Anchored and obj.Size.magnitude < 96 then
+			local pos = obj.Position
+			local offset = (pos - objPos) * XZ_Vector
+			if (offset.magnitude < 96) and abs(objPos.y-pos.y) <= 8 then
+				spawn(function ()
+					fastWait(offset.magnitude / 96)
+					doDamage(obj)
+					obj:BreakJoints()
+					obj.Velocity = obj.Velocity + ((offset.unit + Vector3.new(0,0.5,0)) * 96)
+					obj.RotVelocity = obj.RotVelocity + (offset.unit * 40)
+				end)
+			end
+		end
+	end
+end
+
+function attack()
+	damage = slash_damage
+	local anim = Instance.new("StringValue")
+	anim.Name = "toolanim"
+	anim.Value = "Slash"
+	anim.Parent = Tool
+	wait(0.2)
+
+	print("Blasting!")
+
+	local pos = hammer.CFrame * (Vector3.new(0, 1.4, 0) * hammer.Mesh.Scale)
+
+	blow(pos, char)
+
+	shockRing.CFrame = CFrame.new(pos)
+	shockRing.Parent = workspace
+	local rs = game:GetService("RunService")
+	for x = 1, 29 do
+		shockRing.Size = Vector3.new(0, 0.4, 0) + Vector3.new(6.4, 0, 6.4) * x
+		fastWait()
+	end
+	shockRing.Parent = nil
+end
+
+
+Tool.Enabled = true
+function onActivated()
+
+	if not Tool.Enabled then
+		return
+	end
+
+	Tool.Enabled = false
+
+	local character = char;
+	local humanoid = character.Humanoid
+	if humanoid == nil then
+		print("Humanoid not found")
+		return 
+	end
+
+	hammer.Boom:Play()
+	attack()
+
+	wait(0.5)
+
+	Tool.Enabled = true
+end
+
+
+script.Parent.Activated:connect(onActivated)
+--script.Parent.Equipped:connect(onEquipped)
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local GrandGui = Instance.new("ScreenGui")
+GrandGui.Name = "GrandGui"
+GrandGui.ResetOnSpawn=false
+GrandGui.Parent = player:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Name = "Frame"
+Frame.Parent = GrandGui
+Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Frame.BackgroundTransparency = 0
+Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.05000000819563866, 0, 0.5856353640556335, 0)
+Frame.Size = UDim2.new(0, 150, 0, 100)
+Frame.AnchorPoint = Vector2.new(0, 0)
+Frame.Visible = true
+Frame.ZIndex = 1
+Frame.ClipsDescendants = false
+Frame.LayoutOrder = 0
+Frame.Active = true
+
+local TextBoxTemplate = Instance.new("Frame")
+TextBoxTemplate.Name = "TextBoxTemplate"
+TextBoxTemplate.Parent = Frame
+TextBoxTemplate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBoxTemplate.BackgroundTransparency = 1
+TextBoxTemplate.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextBoxTemplate.BorderSizePixel = 1
+TextBoxTemplate.Position = UDim2.new(0, 0, 0.09696969389915466, 0)
+TextBoxTemplate.Size = UDim2.new(1, 0, 0, 50)
+TextBoxTemplate.AnchorPoint = Vector2.new(0, 0)
+TextBoxTemplate.Visible = true
+TextBoxTemplate.ZIndex = 1
+TextBoxTemplate.ClipsDescendants = false
+TextBoxTemplate.LayoutOrder = 0
+TextBoxTemplate.Active = false
+TextBoxTemplate.Active=true
+TextBoxTemplate.Draggable=true
+
+local Box = Instance.new("TextBox")
+Box.Name = "Box"
+Box.Parent = TextBoxTemplate
+Box.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Box.BackgroundTransparency = 0
+Box.BorderColor3 = Color3.fromRGB(30, 30, 30)
+Box.BorderSizePixel = 0
+Box.TextYAlignment = Enum.TextYAlignment.Center
+Box.TextXAlignment = Enum.TextXAlignment.Center
+Box.Position = UDim2.new(0, 5, 0, 62)
+Box.Size = UDim2.new(1, -10, -0.013000000268220901, 25)
+Box.Font = Enum.Font.SourceSans
+Box.Text = "0"
+Box.TextColor3 = Color3.fromRGB(255, 255, 255)
+Box.TextSize = 14
+Box.TextScaled = false
+Box.TextWrapped = false
+Box.TextTransparency = 0
+Box.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Box.TextStrokeTransparency = 1
+Box.AnchorPoint = Vector2.new(0, 0)
+Box.Visible = true
+Box.ZIndex = 1
+Box.ClipsDescendants = false
+Box.LayoutOrder = 0
+Box.ClearTextOnFocus = true
+Box.PlaceholderText = ""
+Box.PlaceholderColor3 = Color3.fromRGB(200, 200, 200)
+Box.MultiLine = false
+Box.Active = true
+Box.LineHeight = 1
+Box.CursorPosition = 1
+Box.TextEditable = true
+Box.MaxVisibleGraphemes = -1
+
+local UICorner = Instance.new("UICorner")
+UICorner.Name = "UICorner"
+UICorner.Parent = Box
+UICorner.CornerRadius = UDim.new(0, 8)
+
+local TextLabel = Instance.new("TextLabel")
+TextLabel.Name = "TextLabel"
+TextLabel.Parent = TextBoxTemplate
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel.BorderSizePixel = 1
+TextLabel.TextYAlignment = Enum.TextYAlignment.Center
+TextLabel.TextXAlignment = Enum.TextXAlignment.Center
+TextLabel.Position = UDim2.new(0, 5, 0, 42)
+TextLabel.Size = UDim2.new(1, -10, 0, 20)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Max Anchored Mass"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14
+TextLabel.TextScaled = false
+TextLabel.TextWrapped = false
+TextLabel.TextTransparency = 0
+TextLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextStrokeTransparency = 1
+TextLabel.AnchorPoint = Vector2.new(0, 0)
+TextLabel.Visible = true
+TextLabel.ZIndex = 1
+TextLabel.ClipsDescendants = false
+TextLabel.LayoutOrder = 0
+TextLabel.Active = false
+TextLabel.LineHeight = 1
+TextLabel.MaxVisibleGraphemes = -1
+
+local UICorner = Instance.new("UICorner")
+UICorner.Name = "UICorner"
+UICorner.Parent = Frame
+UICorner.CornerRadius = UDim.new(0, 8)
+
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.BorderSizePixel = 1
+Title.TextYAlignment = Enum.TextYAlignment.Center
+Title.TextXAlignment = Enum.TextXAlignment.Center
+Title.Position = UDim2.new(0, 5, 0, 0)
+Title.Size = UDim2.new(1, -10, 0, 25)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Mjolnir"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14
+Title.TextScaled = false
+Title.TextWrapped = false
+Title.TextTransparency = 0
+Title.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextStrokeTransparency = 1
+Title.AnchorPoint = Vector2.new(0, 0)
+Title.Visible = true
+Title.ZIndex = 1
+Title.ClipsDescendants = false
+Title.LayoutOrder = 0
+Title.Active = false
+Title.LineHeight = 1
+Title.MaxVisibleGraphemes = -1
+
+local ButtonTemplate = Instance.new("TextButton")
+ButtonTemplate.Name = "ButtonTemplate"
+ButtonTemplate.Parent = Frame
+ButtonTemplate.BackgroundColor3 = Color3.fromRGB(0, 135, 203)
+ButtonTemplate.BackgroundTransparency = 0
+ButtonTemplate.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ButtonTemplate.BorderSizePixel = 1
+ButtonTemplate.TextYAlignment = Enum.TextYAlignment.Center
+ButtonTemplate.TextXAlignment = Enum.TextXAlignment.Center
+ButtonTemplate.Position = UDim2.new(0, 5, 1.646083950996399, -140)
+ButtonTemplate.Size = UDim2.new(1, -10, -0.013475341722369194, 25)
+ButtonTemplate.Font = Enum.Font.SourceSans
+ButtonTemplate.Text = "Destroy Anchored: Off"
+ButtonTemplate.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTemplate.TextSize = 14
+ButtonTemplate.TextScaled = false
+ButtonTemplate.TextWrapped = false
+ButtonTemplate.TextTransparency = 0
+ButtonTemplate.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+ButtonTemplate.TextStrokeTransparency = 1
+ButtonTemplate.AnchorPoint = Vector2.new(0, 0)
+ButtonTemplate.Visible = true
+ButtonTemplate.ZIndex = 1
+ButtonTemplate.ClipsDescendants = false
+ButtonTemplate.LayoutOrder = 0
+ButtonTemplate.Active = true
+ButtonTemplate.LineHeight = 1
+ButtonTemplate.MaxVisibleGraphemes = -1
+ButtonTemplate.MouseButton1Click:Connect(function()
+    if ButtonTemplate.Text == "Destroy Anchored: Off" then
+        ButtonTemplate.Text = "Destroy Anchored: On"
+    else
+        ButtonTemplate.Text = "Destroy Anchored: Off"
+    end
+end)
+
+
+local UICorner = Instance.new("UICorner")
+UICorner.Name = "UICorner"
+UICorner.Parent = ButtonTemplate
+UICorner.CornerRadius = UDim.new(0, 8)
+end)
+
+local mystich = createScriptButton("mystic", function(btn)
+	btn.Text = "Loading... Please Wait"
+	wait(0.5)
+	btn.Text = "mystic"
+	loadstring(game:HttpGet("https://pastefy.app/RyYucajY/raw", true))()
+end)
+
+local r6h = createScriptButton("r6", function(btn)
+	btn.Text = "Loading... Please Wait"
+	wait(0.5)
+	btn.Text = "r6"
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local plr = Players.LocalPlayer
+
+local model = game:GetObjects("rbxassetid://17523790773")[1]
+local monkyContainer = model:FindFirstChild("MonkyContainer")
+local mobChar = monkyContainer and monkyContainer:FindFirstChild("Main") and monkyContainer.Main:FindFirstChild("Monky")
+local swing2 = monkyContainer:WaitForChild("Main"):WaitForChild("Swing2")
+local swing1 = monkyContainer:WaitForChild("Main"):WaitForChild("Swing1")
+
+mobChar.Parent = workspace
+mobChar.Name = plr.Name
+
+local humanoid = mobChar:WaitForChild("Humanoid")
+local hrp = mobChar:WaitForChild("HumanoidRootPart")
+
+hrp.CFrame = plr.Character.HumanoidRootPart.CFrame + Vector3.new(0,40,0)
+
+humanoid.MaxHealth = 999999999
+humanoid.Health = 999999999
+humanoid.WalkSpeed = 32
+humanoid.JumpPower = 200
+humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+
+local oldChar = plr.Character
+plr.Character = mobChar
+
+local cam = workspace.CurrentCamera
+cam.CameraSubject = humanoid
+cam.CFrame = hrp.CFrame
+
+if oldChar and oldChar ~= mobChar then
+    oldChar:Destroy()
+end
+
+if monkyContainer then
+    local mainModule = monkyContainer:FindFirstChild("MainModule")
+    if mainModule then
+        mainModule:Destroy()
+    end
+end
+
+wait(0.6)
+
+local animators = setmetatable({},{__mode = "k"})
+local FPS = 60
+local secsPerFrame = 1/FPS
+local blankPoses = true
+
+local priorityOrder = {
+    [Enum.AnimationPriority.Core] = 1,
+    [Enum.AnimationPriority.Idle] = 2,
+    [Enum.AnimationPriority.Movement] = 3,
+    [Enum.AnimationPriority.Action] = 4,
+    [Enum.AnimationPriority.Action2] = 5,
+    [Enum.AnimationPriority.Action3] = 6,
+    [Enum.AnimationPriority.Action4] = 7,
+}
+
+local ArtificialHB = Instance.new("BindableEvent")
+ArtificialHB.Name = "Heartbeat"
+
+local tf = 0
+local allowframeloss = false
+local tossremainder = false
+local frame = 1/FPS
+local maxFrameFix = 10
+ArtificialHB:Fire()
+local doquick = false
+
+game:GetService("RunService").Heartbeat:Connect(function(s, p)
+    tf += s
+    if tf >= frame then
+        local maxFrames = math.min(maxFrameFix, math.floor(tf / frame))
+        if allowframeloss then
+            ArtificialHB:Fire()
+        else
+            for i = 1, maxFrames do
+                ArtificialHB:Fire()
+            end
+        end
+        if tossremainder then
+            tf = 0
+        else
+            tf -= frame * maxFrames
+        end
+    end
+end)
+
+local function swait(num)
+    if num == 0 or num == nil then
+        ArtificialHB.Event:Wait()
+    else
+        for _ = 1, num do
+            ArtificialHB.Event:Wait()
+        end
+    end
+end
+
+local function cfSort(t1,t2)
+    if t1[3] == t2[3] then
+        return t1[4] < t2[4]
+    else
+        return t1[3] < t2[3]
+    end
+end
+
+local function processAnimators()
+    local toProcess = {}
+    for animator in animators do table.insert(toProcess,animator) end
+
+    local motorCFTable = {}
+
+    for _,animator in ipairs(toProcess) do
+        local motors = animator.Motors
+        local tracksClone = table.clone(animator.Tracks)
+
+        for _,track in pairs(tracksClone) do
+            local weight = track.Weight
+            if weight == 0 then continue end
+            track.StepTime += secsPerFrame*track.Speed
+
+            for _,keyframe in pairs(track.Keyframes) do
+                if keyframe.Time > track.LastStepTime and keyframe.Time <= track.StepTime then
+                    track.KeyframeReached:Fire(keyframe.Name)
+                end
+            end
+
+            if track.StepTime > track.Length then
+                if track.Loop then
+                    track.LastStepTime = 0
+                    track.StepTime = track.StepTime % track.Length
+                    track.KeyframeReached:Fire(track.Keyframes[1].Name)
+                elseif not track.StopFlag then
+                    track:Stop(0.3)
+                end
+            end
+
+            local gotMotors = {}
+            for motorName,poses in pairs(track.Poses) do
+                local workPose = poses[1]
+                local workPoseIndex = 1
+
+                for i = 2,#poses do
+                    local pose = poses[i]
+                    if track.StepTime >= pose[1] then
+                        workPose = pose
+                        workPoseIndex = i
+                    else
+                        break
+                    end
+                end
+
+                local poseTime,poseInst = workPose[1],workPose[2]
+
+                local motor = motors[motorName]
+                local c00 = motor.c
+                local originalmotor = motor
+                motor = motor.m
+                if not motor then continue end
+
+                local poseCF = poseInst.CFrame
+                local motorCFs = motorCFTable[originalmotor]
+                if not motorCFs then
+                    motorCFs = {}
+                    motorCFTable[originalmotor] = motorCFs
+                end
+
+                local lerpedCF
+                local nextPose = poses[workPoseIndex+1]
+                if not nextPose then
+                    lerpedCF = poseCF
+                else
+                    local delta = (track.StepTime - poseTime)/(nextPose[1] - poseTime)
+                    lerpedCF = poseCF:Lerp(nextPose[2].CFrame,delta)
+                end
+
+                table.insert(motorCFs,{weight,lerpedCF,priorityOrder[track.Priority],track.PlayTime})
+                gotMotors[motor] = true
+            end
+
+            if blankPoses then
+                for _,motor in motors do
+                    if gotMotors[motor.m] then continue end
+                    local motorCFs = motorCFTable[motor]
+                    if not motorCFs then
+                        motorCFs = {}
+                        motorCFTable[motor] = motorCFs
+                    end
+                    table.insert(motorCFs,{weight,CFrame.identity,priorityOrder[track.Priority],track.PlayTime})
+                end
+            end
+
+            track.LastStepTime = track.StepTime
+        end
+    end
+
+    for motor,cframes in pairs(motorCFTable) do
+        table.sort(cframes,cfSort)
+        local c00 = motor.c
+        local motor6d = motor.m
+
+        for _,cframe in ipairs(cframes) do
+            local speed = math.clamp(cframe[1],0,1)
+            if doquick then speed = 1 end
+            motor6d.C0 = motor6d.C0:Lerp(c00 * cframe[2],speed)
+        end
+    end
+    doquick = false
+end
+
+ArtificialHB.Event:Connect(processAnimators)
+
+local classes = {}
+
+classes.Signal = (function()
+    local funcs = {}
+    local disconnect = function(con)
+        local pos = table.find(con.Signal.Connections,con)
+        if pos then table.remove(con.Signal.Connections,pos) end
+    end
+    funcs.Connect = function(self,func)
+        local con = {Signal=self,Func=func,Disconnect=disconnect}
+        self.Connections[#self.Connections+1] = con
+        return con
+    end
+    funcs.Fire = function(self,...)
+        for _,v in next,self.Connections do
+            task.spawn(v.Func,...)
+        end
+    end
+    local mt = {__index = funcs}
+    local function new()
+        local self = {Connections={}}
+        return setmetatable(self,mt)
+    end
+    return {new = new}
+end)()
+
+classes.Track = (function()
+    local funcs = {}
+    local mt = {__index = funcs}
+
+    local function initPoses(self)
+        local poses = self.Poses
+        for _,v in pairs(self.KeyframeSequence:GetChildren()) do
+            local keyTime = v.Time
+            for _,pose in pairs(v:GetDescendants()) do
+                if pose:IsA("Pose") and pose.Weight > 0 then
+                    local poseTable = poses[pose.Name]
+                    if not poseTable then
+                        poseTable = {}
+                        poses[pose.Name] = poseTable
+                    end
+                    table.insert(poseTable,{keyTime,pose})
+                end
+            end
+            if keyTime > self.Length then
+                self.Length = keyTime
+            end
+            table.insert(self.Keyframes,v)
+        end
+        for _,v in pairs(poses) do
+            table.sort(v,function(a,b) return a[1] < b[1] end)
+        end
+    end
+
+    local function fadeWeight(self,target,secs)
+        local startTime = tick()
+        local endTime = startTime+secs
+        local startWeight = self.Weight
+        self.LastFade = startTime
+        task.spawn(function()
+            while true do
+                if self.LastFade ~= startTime then return end
+                local curTime = tick()
+                if curTime >= endTime then break end
+                local frac = (curTime - startTime)/(endTime - startTime)
+                self.Weight = startWeight + (target - startWeight)*frac
+                task.wait()
+            end
+            self.Weight = target
+            if target == 0 then
+                local foundInd = table.find(self.Animator.Tracks,self)
+                if foundInd then
+                    table.remove(self.Animator.Tracks,foundInd)
+                end
+            end
+        end)
+    end
+
+    funcs.Play = function(self,fadeTime,weight,speed)
+        self.Speed = speed or 1
+        self.PlayTime = tick()
+        if not self.Loop or self.Weight == 0 then
+            self.LastStepTime = 0
+            self.StepTime = 0
+        end
+        self.StopFlag = false
+        self.IsPlaying = true
+        fadeWeight(self,weight or 1,fadeTime or 0.1)
+        doquick = true
+        if not table.find(self.Animator.Tracks,self) then
+            table.insert(self.Animator.Tracks,self)
+        end
+    end
+
+    funcs.Stop = function(self,fadeTime)
+        self.StopFlag = true
+        self.IsPlaying = false
+        fadeWeight(self,0,fadeTime or 0.1)
+        self.Stopped:Fire()
+    end
+
+    local function new(animator,keyframeSeq)
+        local self = setmetatable({
+            Poses = {},
+            Keyframes = {},
+            Speed = 1,
+            Weight = 0,
+            LastStepTime = 0,
+            StepTime = 0,
+            Length = 0,
+            Loop = keyframeSeq.Loop,
+            LastFade = 0,
+            PlayTime = 0,
+            Priority = keyframeSeq.Priority,
+            KeyframeReached = classes.Signal.new(),
+            KeyframeSequence = keyframeSeq,
+            Animator = animator,
+            IsPlaying = false,
+            Stopped = classes.Signal.new()
+        },mt)
+        initPoses(self)
+        return self
+    end
+
+    return {new = new}
+end)()
+
+classes.Animator = (function()
+    local funcs = {}
+    local mt = {__index = funcs}
+
+    funcs.InitMotors = function(self)
+        for _,v in pairs(self.Model:GetDescendants()) do
+            if v:IsA("Motor6D") then
+                self.Motors[v.Part1.Name] = {m=v,c=v.C0}
+            elseif v:IsA("Bone") then
+                self.Motors[v.Name] = {m=v,c=CFrame.new()}
+            end
+        end
+    end
+
+    funcs.LoadAnimation = function(self,keyframeSeq)
+        local newTrack = classes.Track.new(self,keyframeSeq)
+        return newTrack
+    end
+
+    local function new(model)
+        local self = setmetatable({
+            Tracks = {},
+            Motors = {},
+            Model = model
+        },mt)
+        self:InitMotors()
+        animators[self] = true
+        return self
+    end
+
+    return {new = new}
+end)()
+
+local function createAnimator(model)
+    return classes.Animator.new(model)
+end
+
+local char = plr.Character or plr.CharacterAdded:Wait()
+local humanoid = char:WaitForChild("Humanoid")
+local mobChar = char
+local animsFolder = mobChar:WaitForChild("Anims")
+local animator = createAnimator(mobChar)
+
+local currentTrack
+local currentAnimName
+
+local function playKeyframeSequence(seq)
+    if currentAnimName == seq.Name then
+        return
+    end
+    if currentTrack then
+        currentTrack:Stop(0.2)
+    end
+    local track = animator:LoadAnimation(seq)
+    track:Play(0.2,1,1)
+    currentTrack = track
+    currentAnimName = seq.Name
+    return track
+end
+
+local function updateAnimation()
+    local state = humanoid:GetState()
+    if humanoid.MoveDirection.Magnitude > 0 then
+        playKeyframeSequence(animsFolder:WaitForChild("Walk"))
+    elseif state == Enum.HumanoidStateType.Jumping or state == Enum.HumanoidStateType.Freefall then
+        playKeyframeSequence(animsFolder:WaitForChild("Fall"))
+    else
+        playKeyframeSequence(animsFolder:WaitForChild("Idle"))
+    end
+end
+
+local function Finished()
+    local state = humanoid:GetState()
+    if humanoid.MoveDirection.Magnitude > 0 then
+        playKeyframeSequence(animsFolder:WaitForChild("Walk"))
+    elseif state == Enum.HumanoidStateType.Jumping or state == Enum.HumanoidStateType.Freefall then
+        playKeyframeSequence(animsFolder:WaitForChild("Fall"))
+    else
+        playKeyframeSequence(animsFolder:WaitForChild("Idle"))
+    end
+end
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.Z then
+        local stompSeq = animsFolder:FindFirstChild("Stomp")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.X then
+        local stompSeq = animsFolder:FindFirstChild("Swipe")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.F then
+        local stompSeq = animsFolder:FindFirstChild("Hurl")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.C then
+        local stompSeq = animsFolder:FindFirstChild("Grab")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.V then
+        local stompSeq = animsFolder:FindFirstChild("Throw")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.B then
+        local stompSeq = animsFolder:FindFirstChild("Punt")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.N then
+        local stompSeq = animsFolder:FindFirstChild("TripleStomp")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.M then
+        local stompSeq = animsFolder:FindFirstChild("Execute")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.G then
+        local stompSeq = animsFolder:FindFirstChild("LeapHurl")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.J then
+        local stompSeq = animsFolder:FindFirstChild("Awaken")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+    if input.KeyCode == Enum.KeyCode.H then
+        local stompSeq = animsFolder:FindFirstChild("MidPunch")
+        if not stompSeq then return end
+        local stompTrack = playKeyframeSequence(stompSeq)
+        if stompTrack then
+            stompTrack.Loop = false
+            local conn
+            conn = stompTrack.Stopped:Connect(function()
+                conn:Disconnect()
+                task.spawn(function()
+                    if currentTrack == stompTrack then
+                        Finished()
+                    end
+                end)
+            end)
+        end
+    end
+end)
+
+humanoid.Running:Connect(updateAnimation)
+humanoid.StateChanged:Connect(updateAnimation)
+updateAnimation()
+
+-- Gui
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local ControllerGui = Instance.new("ScreenGui")
+ControllerGui.Name = "ControllerGui"
+ControllerGui.Parent = player:WaitForChild("PlayerGui")
+
+local TextBoxTemplate = Instance.new("Frame")
+TextBoxTemplate.Name = "TextBoxTemplate"
+TextBoxTemplate.Parent = ControllerGui
+TextBoxTemplate.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBoxTemplate.BackgroundTransparency = 1
+TextBoxTemplate.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextBoxTemplate.BorderSizePixel = 1
+TextBoxTemplate.Position = UDim2.new(0, 0, 0, 0)
+TextBoxTemplate.Size = UDim2.new(1, 0, 0, 50)
+TextBoxTemplate.AnchorPoint = Vector2.new(0, 0)
+TextBoxTemplate.Visible = false
+TextBoxTemplate.ZIndex = 1
+TextBoxTemplate.ClipsDescendants = false
+TextBoxTemplate.LayoutOrder = 0
+TextBoxTemplate.Active = false
+
+local Box = Instance.new("TextBox")
+Box.Name = "Box"
+Box.Parent = TextBoxTemplate
+Box.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Box.BackgroundTransparency = 0
+Box.BorderColor3 = Color3.fromRGB(30, 30, 30)
+Box.BorderSizePixel = 0
+Box.Position = UDim2.new(0, 5, 0, 20)
+Box.Size = UDim2.new(1, -10, 0, 25)
+Box.Font = Enum.Font.SourceSans
+Box.Text = ""
+Box.TextColor3 = Color3.fromRGB(255, 255, 255)
+Box.TextSize = 14
+Box.TextScaled = false
+Box.TextWrapped = false
+Box.TextTransparency = 0
+Box.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Box.TextStrokeTransparency = 1
+Box.AnchorPoint = Vector2.new(0, 0)
+Box.Visible = true
+Box.ZIndex = 1
+Box.ClipsDescendants = false
+Box.LayoutOrder = 0
+Box.ClearTextOnFocus = true
+Box.PlaceholderText = ""
+Box.PlaceholderColor3 = Color3.fromRGB(200, 200, 200)
+Box.MultiLine = false
+Box.Active = true
+Box.LineHeight = 1
+Box.CursorPosition = 1
+Box.TextEditable = true
+Box.MaxVisibleGraphemes = -1
+
+local UICorner = Instance.new("UICorner")
+UICorner.Name = "UICorner"
+UICorner.Parent = Box
+
+local TextLabel = Instance.new("TextLabel")
+TextLabel.Name = "TextLabel"
+TextLabel.Parent = TextBoxTemplate
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1
+TextLabel.BorderColor3 = Color3.fromRGB(27, 42, 53)
+TextLabel.BorderSizePixel = 1
+TextLabel.Position = UDim2.new(0, 5, 0, 0)
+TextLabel.Size = UDim2.new(1, -10, 0, 20)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Speed"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14
+TextLabel.TextScaled = false
+TextLabel.TextWrapped = false
+TextLabel.TextTransparency = 0
+TextLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextStrokeTransparency = 1
+TextLabel.AnchorPoint = Vector2.new(0, 0)
+TextLabel.Visible = true
+TextLabel.ZIndex = 1
+TextLabel.ClipsDescendants = false
+TextLabel.LayoutOrder = 0
+TextLabel.Active = false
+TextLabel.LineHeight = 1
+TextLabel.MaxVisibleGraphemes = -1
+
+local Frame = Instance.new("Frame")
+Frame.Name = "Frame"
+Frame.Parent = ControllerGui
+Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+Frame.BackgroundTransparency = 0
+Frame.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.05000000074505806, 0, 0.6000000238418579, 0)
+Frame.Size = UDim2.new(0, 150, 0, 165)
+Frame.AnchorPoint = Vector2.new(0, 0)
+Frame.Visible = true
+Frame.ZIndex = 1
+Frame.ClipsDescendants = false
+Frame.LayoutOrder = 0
+Frame.Active = true
+
+local UICorner = Instance.new("UICorner")
+UICorner.Name = "UICorner"
+UICorner.Parent = Frame
+
+local Title = Instance.new("TextLabel")
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1
+Title.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Title.BorderSizePixel = 1
+Title.Position = UDim2.new(0, 5, 0, 0)
+Title.Size = UDim2.new(1, -10, 0, 25)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Grandosla"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 14
+Title.TextScaled = false
+Title.TextWrapped = false
+Title.TextTransparency = 0
+Title.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextStrokeTransparency = 1
+Title.AnchorPoint = Vector2.new(0, 0)
+Title.Visible = true
+Title.ZIndex = 1
+Title.ClipsDescendants = false
+Title.LayoutOrder = 0
+Title.Active = false
+Title.LineHeight = 1
+Title.MaxVisibleGraphemes = -1
+
+local ButtonTemplate = Instance.new("TextButton")
+ButtonTemplate.Name = "ButtonTemplate"
+ButtonTemplate.Parent = ControllerGui
+ButtonTemplate.BackgroundColor3 = Color3.fromRGB(0, 135, 203)
+ButtonTemplate.BackgroundTransparency = 0
+ButtonTemplate.BorderColor3 = Color3.fromRGB(27, 42, 53)
+ButtonTemplate.BorderSizePixel = 1
+ButtonTemplate.Position = UDim2.new(0, 5, 1, -140)
+ButtonTemplate.Size = UDim2.new(1, -10, 0, 25)
+ButtonTemplate.Font = Enum.Font.SourceSans
+ButtonTemplate.Text = "Power On/Off"
+ButtonTemplate.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonTemplate.TextSize = 14
+ButtonTemplate.TextScaled = false
+ButtonTemplate.TextWrapped = false
+ButtonTemplate.TextTransparency = 0
+ButtonTemplate.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+ButtonTemplate.TextStrokeTransparency = 1
+ButtonTemplate.AnchorPoint = Vector2.new(0, 0)
+ButtonTemplate.Visible = false
+ButtonTemplate.ZIndex = 1
+ButtonTemplate.ClipsDescendants = false
+ButtonTemplate.LayoutOrder = 0
+ButtonTemplate.Active = true
+ButtonTemplate.LineHeight = 1
+ButtonTemplate.MaxVisibleGraphemes = -1
+
+local UICorner = Instance.new("UICorner")
+UICorner.Name = "UICorner"
+UICorner.Parent = ButtonTemplate
+
+wait(0.1)
+ 
+local plr = game:GetService("Players").LocalPlayer
+local mouse = plr:GetMouse()
+local char = plr.Character
+ 
+local UIS = game:GetService("UserInputService")
+ 
+-- Gui Lib --
+local gui = player:WaitForChild("PlayerGui"):WaitForChild("ControllerGui")
+local frame = gui:WaitForChild("Frame")
+ 
+local initSize = 25
+local buttonSize = 30
+local textBoxSize = 50
+local baseWidth = 150
+local buttonTemplate = gui:WaitForChild("ButtonTemplate")
+local textBoxTemplate = gui:WaitForChild("TextBoxTemplate")
+local nextPosition = initSize
+ 
+local function setTitle(text)
+    frame:WaitForChild("Title").Text = text
+end
+ 
+local function newButton(text,clickFunc)
+    local newButtonGui = buttonTemplate:Clone()
+    newButtonGui.Position = UDim2.new(0,5,0,nextPosition)
+    nextPosition = nextPosition + buttonSize
+    
+    newButtonGui.Text = text
+    newButtonGui.Visible = true
+    
+    if clickFunc then
+        newButtonGui.MouseButton1Click:Connect(clickFunc)
+    end
+    
+    frame.Size = UDim2.new(0,150,0,nextPosition)
+    newButtonGui.Parent = frame
+    
+    return newButtonGui
+end
+ 
+local function newTextBox(label,defaultText,changedFunc)
+    local newFrame = textBoxTemplate:Clone()
+    newFrame.Position = UDim2.new(0,0,0,nextPosition)
+    nextPosition = nextPosition + textBoxSize
+    
+    newFrame.TextLabel.Text = label
+    newFrame.Box.Text = defaultText or ""
+    newFrame.Visible = true
+    
+    if changedFunc then
+        newFrame.Box.FocusLost:Connect(function()
+            changedFunc(newFrame.Box.Text)
+        end)
+    end
+    
+    frame.Size = UDim2.new(0,150,0,nextPosition)
+    newFrame.Parent = frame
+    
+    return newFrame
+end
+ 
+local mouse = game:GetService("Players").LocalPlayer:GetMouse()
+frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        local releaseEvent,mouseEvent
+        
+        local initX = frame.AbsolutePosition.X
+        local initY = frame.AbsolutePosition.Y
+        local offX = mouse.X - initX
+        local offY = mouse.Y - initY
+        
+        releaseEvent = UIS.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                releaseEvent:Disconnect()
+                mouseEvent:Disconnect()
+            end
+        end)
+        
+        mouseEvent = UIS.InputChanged:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseMovement then
+                local inputX,inputY = input.Position.X,input.Position.Y
+                local posX,posY = inputX-offX,inputY-offY
+                frame.Position = UDim2.new(0,posX,0,posY)
+            end
+        end)
+    end
+end)
+ 
+----------------------------------------------
+ 
+local sets = {
+DestroyParts = true,
+DestroyAnchored = false,
+MaxMass = 0,
+SplitParts = true,
+DestructiveWalk = false,
+}
+ 
+local anchoredButton,anchoredBox,splitButton,walkButton,partsButton
+local function updateButtons()
+    anchoredButton.Text = "Destroyed Anchored: "..tostring(sets.DestroyAnchored)
+    anchoredBox.Box.Text = tostring(sets.MaxMass)
+    splitButton.Text = "Split Parts: "..tostring(sets.SplitParts)
+    walkButton.Text = "Destructive Walk: "..tostring(sets.DestructiveWalk)
+    partsButton.Text = "Destroy Parts: "..tostring(sets.DestroyParts)
+end
+ 
+setTitle("Monky")
+ 
+cleanButton = newButton("Clean Parts",function()
+    print(" ")
+end)
+ 
+partsButton = newButton("Destroy Parts",function()
+    sets.DestroyParts = not sets.DestroyParts
+    partsButton.Text = "Destroy Parts: "..tostring(sets.DestroyParts)
+end)
+ 
+splitButton = newButton("Split Parts",function()
+    sets.SplitParts = not sets.SplitParts
+    splitButton.Text = "Split Parts: "..tostring(sets.SplitParts)
+end)
+ 
+walkButton = newButton("Destructive Walk",function()
+    sets.DestructiveWalk = not sets.DestructiveWalk
+    walkButton.Text = "Destructive Walk: "..tostring(sets.DestructiveWalk)
+end)
+ 
+anchoredButton = newButton("Destroyed Anchored",function()
+    sets.DestroyAnchored = not sets.DestroyAnchored
+    anchoredButton.Text = "Destroyed Anchored: "..tostring(sets.DestroyAnchored)
+end)
+ 
+anchoredBox = newTextBox("Max Anchored Mass","",function()
+    sets.MaxMass = tonumber(anchoredBox.Box.Text) or 0
+    anchoredBox.Box.Text = tostring(sets.MaxMass)
+end)
+ 
+updateButtons()
+ 
+ 
+ 
+local h,t
+local normalMap = {}
+ 
+for i,v in pairs(Enum.NormalId:GetEnumItems()) do
+    local vec = Vector3.FromNormalId(v)
+    normalMap[vec] = v
+end
+ 
+local function isFiltered(obj)
+    return not obj.CanCollide
+end
+ 
+while task.wait(1/60) do
+    local Mouse = mouse
+    local Target,Hit
+    local TargetSurface = Enum.NormalId.Right
+    
+    local filterList = {plr.Character}
+    
+    while true do
+        local params = RaycastParams.new()
+        params.FilterType = Enum.RaycastFilterType.Blacklist
+        params.FilterDescendantsInstances = filterList
+        
+        local res = workspace:Raycast(Mouse.Origin.Position,Mouse.Origin.LookVector*100000,params)
+        if res then
+            local objectNormal = res.Instance.CFrame:ToObjectSpace(res.Instance.CFrame + res.Normal).p
+            objectNormal = Vector3.new(math.round(objectNormal.X), math.round(objectNormal.Y), math.round(objectNormal.Z))
+            
+            local inst = res.Instance
+            if isFiltered(inst) then
+                table.insert(filterList,inst)
+                continue
+            else
+                Target = inst
+                
+                if objectNormal.Magnitude > 1 then
+                    objectNormal = objectNormal * Vector3.new(0,1,1)
+                    if objectNormal.Magnitude > 1 then
+                        objectNormal = objectNormal * Vector3.new(0,0,1)
+                    end
+                end
+                
+                TargetSurface = normalMap[objectNormal]
+                Hit = CFrame.new(res.Position,res.Position + Mouse.Origin.LookVector)
+                break
+            end
+        else
+            break
+        end
+    end
+    
+    Hit = Hit or Mouse.Hit
+    
+    if h~=Hit or t~=Target then
+        event:Fire("MousePos",Hit,Target)
+        h,t=Hit,Target
+    end
+end
+end)
+
+local tah = createScriptButton("ta", function(btn)
+	btn.Text = "Loading... Please Wait"
+	wait(0.5)
+	btn.Text = "ta"
+	loadstring(game:HttpGet("https://pastefy.app/q74DFYYz/raw", true))()
+end)
+
 -- Player
 local PlayerFrame = Instance.new("Frame", adm);
 PlayerFrame.Visible = false;
@@ -13717,30 +16997,47 @@ R6.Text = "R6";
 R6.Name = "R6";
 R6.Position = UDim2.new(0.36586, 0, 0.08474, 0);
 R6.MouseButton1Click:Connect(function()
-------------------------------------------------------------
-----        R6 Character            ----
-------------------------------------------------------------
+function oof()
+local Players = game:GetService("Players")
+local plr = Players.LocalPlayer
+local char = plr.Character or plr.CharacterAdded:Wait()
 
-local plr = game.Players.LocalPlayer
+if char:FindFirstChild("Humanoid") and char.Humanoid.RigType == Enum.HumanoidRigType.R15 then
+    local desc = Players:GetHumanoidDescriptionFromUserId(plr.CharacterAppearanceId)
+    local newChar = Players:CreateHumanoidModelFromDescription(desc, Enum.HumanoidRigType.R6)
+    newChar.Name = plr.Name
 
-local Main = game.Players:GetHumanoidDescriptionFromUserId(plr.CharacterAppearanceId)
-local morph = game.Players:CreateHumanoidModelFromDescription(Main, Enum.HumanoidRigType.R6)
-local oldchar = plr.Character
+    if not newChar.PrimaryPart and newChar:FindFirstChild("HumanoidRootPart") then
+        newChar.PrimaryPart = newChar:FindFirstChild("HumanoidRootPart")
+    end
+    if newChar.PrimaryPart and char:FindFirstChild("HumanoidRootPart") then
+        newChar:SetPrimaryPartCFrame(char.PrimaryPart.CFrame)
+    end
 
-morph:SetPrimaryPartCFrame(plr.Character.PrimaryPart.CFrame)
-morph.Name = plr.Name
-plr.Character = morph
-morph.Parent = workspace
+    char:Destroy()
 
-oldchar:Destroy()
+    newChar.Parent = workspace
+    plr.Character = newChar
 
-------------------------------------------------------------
-----        R6 Animation           ----
-------------------------------------------------------------
+    local cam = workspace.CurrentCamera
+    cam.CameraSubject = newChar:WaitForChild("Humanoid")
+    cam.CameraType = Enum.CameraType.Custom
 
-wait(.1)
+    local head = newChar:FindFirstChild("Head")
+    if head then
+        for _, v in ipairs(head:GetChildren()) do
+            if v:IsA("BillboardGui") then v:Destroy() end
+        end
+    end
+    if newChar:FindFirstChild("Humanoid") then
+        newChar.Humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+    end
 
-local Figure = morph
+end
+
+local c = game.Workspace:WaitForChild(plr.Name)
+
+local Figure = c
 local Torso = Figure:WaitForChild("Torso")
 local RightShoulder = Torso:WaitForChild("Right Shoulder")
 local LeftShoulder = Torso:WaitForChild("Left Shoulder")
@@ -13749,600 +17046,560 @@ local LeftHip = Torso:WaitForChild("Left Hip")
 local Neck = Torso:WaitForChild("Neck")
 local Humanoid = Figure:WaitForChild("Humanoid")
 local pose = "Standing"
- 
+
 local currentAnim = ""
 local currentAnimInstance = nil
 local currentAnimTrack = nil
 local currentAnimKeyframeHandler = nil
 local currentAnimSpeed = 1.0
 local animTable = {}
-local animNames = { 
-idle =     {    
+local animNames = {
+idle = {
 { id = "http://www.roblox.com/asset/?id=180435571", weight = 9 },
 { id = "http://www.roblox.com/asset/?id=180435792", weight = 1 }
 },
-walk =     {     
-{ id = "http://www.roblox.com/asset/?id=180426354", weight = 10 } 
-}, 
-run =     {
-{ id = "run.xml", weight = 10 } 
-}, 
-jump =     {
-{ id = "http://www.roblox.com/asset/?id=125750702", weight = 10 } 
-}, 
-fall =     {
-{ id = "http://www.roblox.com/asset/?id=180436148", weight = 10 } 
-}, 
+walk = {
+{ id = "http://www.roblox.com/asset/?id=180426354", weight = 10 }
+},
+run = {
+{ id = "run.xml", weight = 10 }
+},
+jump = {
+{ id = "http://www.roblox.com/asset/?id=125750702", weight = 10 }
+},
+fall = {
+{ id = "http://www.roblox.com/asset/?id=180436148", weight = 10 }
+},
 climb = {
-{ id = "http://www.roblox.com/asset/?id=180436334", weight = 10 } 
-}, 
-sit =     {
-{ id = "http://www.roblox.com/asset/?id=178130996", weight = 10 } 
-},    
+{ id = "http://www.roblox.com/asset/?id=180436334", weight = 10 }
+},
+sit = {
+{ id = "http://www.roblox.com/asset/?id=178130996", weight = 10 }
+},
 toolnone = {
-{ id = "http://www.roblox.com/asset/?id=182393478", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=182393478", weight = 10 }
 },
 toolslash = {
-{ id = "http://www.roblox.com/asset/?id=129967390", weight = 10 } 
---                { id = "slash.xml", weight = 10 } 
- 
+{ id = "http://www.roblox.com/asset/?id=129967390", weight = 10 }
+-- { id = "slash.xml", weight = 10 }
 },
 toollunge = {
-{ id = "http://www.roblox.com/asset/?id=129967478", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=129967478", weight = 10 }
 },
 wave = {
-{ id = "http://www.roblox.com/asset/?id=128777973", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=128777973", weight = 10 }
 },
 point = {
-{ id = "http://www.roblox.com/asset/?id=128853357", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=128853357", weight = 10 }
 },
 dance1 = {
-{ id = "http://www.roblox.com/asset/?id=182435998", weight = 10 }, 
-{ id = "http://www.roblox.com/asset/?id=182491037", weight = 10 }, 
-{ id = "http://www.roblox.com/asset/?id=182491065", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=182435998", weight = 10 },
+{ id = "http://www.roblox.com/asset/?id=182491037", weight = 10 },
+{ id = "http://www.roblox.com/asset/?id=182491065", weight = 10 }
 },
 dance2 = {
-{ id = "http://www.roblox.com/asset/?id=182436842", weight = 10 }, 
-{ id = "http://www.roblox.com/asset/?id=182491248", weight = 10 }, 
-{ id = "http://www.roblox.com/asset/?id=182491277", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=182436842", weight = 10 },
+{ id = "http://www.roblox.com/asset/?id=182491248", weight = 10 },
+{ id = "http://www.roblox.com/asset/?id=182491277", weight = 10 }
 },
 dance3 = {
-{ id = "http://www.roblox.com/asset/?id=182436935", weight = 10 }, 
-{ id = "http://www.roblox.com/asset/?id=182491368", weight = 10 }, 
-{ id = "http://www.roblox.com/asset/?id=182491423", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=182436935", weight = 10 },
+{ id = "http://www.roblox.com/asset/?id=182491368", weight = 10 },
+{ id = "http://www.roblox.com/asset/?id=182491423", weight = 10 }
 },
 laugh = {
-{ id = "http://www.roblox.com/asset/?id=129423131", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=129423131", weight = 10 }
 },
 cheer = {
-{ id = "http://www.roblox.com/asset/?id=129423030", weight = 10 } 
+{ id = "http://www.roblox.com/asset/?id=129423030", weight = 10 }
 },
 }
 local dances = {"dance1", "dance2", "dance3"}
- 
+
 -- Existance in this list signifies that it is an emote, the value indicates if it is a looping emote
- 
 local emoteNames = { wave = false, point = false, dance1 = true, dance2 = true, dance3 = true, laugh = false, cheer = false}
- 
+
 function configureAnimationSet(name, fileList)
-    if (animTable[name] ~= nil) then
-        for _, connection in pairs(animTable[name].connections) do
-            connection:disconnect()
-        end
-    end
-    animTable[name] = {}
-    animTable[name].count = 0
-    animTable[name].totalWeight = 0    
-    animTable[name].connections = {}
-    
-    -- check for config values
-    
-    local config = morph:FindFirstChild(name)
-    if (config ~= nil) then
-        --        print("Loading anims " .. name)
-        
-        table.insert(animTable[name].connections, config.ChildAdded:connect(function(child) configureAnimationSet(name, fileList) end))
-            table.insert(animTable[name].connections, config.ChildRemoved:connect(function(child) configureAnimationSet(name, fileList) end))
-                local idx = 1
-                for _, childPart in pairs(config:GetChildren()) do
-                    if (childPart:IsA("Animation")) then
-                        table.insert(animTable[name].connections, childPart.Changed:connect(function(property) configureAnimationSet(name, fileList) end))
-                            animTable[name][idx] = {}
-                            animTable[name][idx].anim = childPart
-                            local weightObject = childPart:FindFirstChild("Weight")
-                            if (weightObject == nil) then
-                                animTable[name][idx].weight = 1
-                            else
-                                animTable[name][idx].weight = weightObject.Value
-                            end
-                            animTable[name].count = animTable[name].count + 1
-                            animTable[name].totalWeight = animTable[name].totalWeight + animTable[name][idx].weight
-                            --            print(name .. " [" .. idx .. "] " .. animTable[name][idx].anim.AnimationId .. " (" .. animTable[name][idx].weight .. ")")
-                            
-                            idx = idx + 1
-                        end
-                    end
-                end
-                
-                -- fallback to defaults
-                
-                if (animTable[name].count <= 0) then
-                    for idx, anim in pairs(fileList) do
-                        animTable[name][idx] = {}
-                        animTable[name][idx].anim = Instance.new("Animation")
-                        animTable[name][idx].anim.Name = name
-                        animTable[name][idx].anim.AnimationId = anim.id
-                        animTable[name][idx].weight = anim.weight
-                        animTable[name].count = animTable[name].count + 1
-                        animTable[name].totalWeight = animTable[name].totalWeight + anim.weight
-                        --            print(name .. " [" .. idx .. "] " .. anim.id .. " (" .. anim.weight .. ")")
-                        
-                    end
-                end
-            end
-            
-            -- Setup animation objects
-            
-            function scriptChildModified(child)
-                local fileList = animNames[child.Name]
-                if (fileList ~= nil) then
-                    configureAnimationSet(child.Name, fileList)
-                end    
-            end
-            
-            morph.ChildAdded:connect(scriptChildModified)
-            morph.ChildRemoved:connect(scriptChildModified)
-            
-            
-            for name, fileList in pairs(animNames) do 
-                configureAnimationSet(name, fileList)
-            end    
-            
-            -- ANIMATION
-            
-            
-            -- declarations
-            
-            local toolAnim = "None"
-            local toolAnimTime = 0
-            
-            local jumpAnimTime = 0
-            local jumpAnimDuration = 0.3
-            
-            local toolTransitionTime = 0.1
-            local fallTransitionTime = 0.3
-            local jumpMaxLimbVelocity = 0.75
-            
-            -- functions
-            
-            
-            function stopAllAnimations()
-                local oldAnim = currentAnim
-                
-                -- return to idle if finishing an emote
-                
-                if (emoteNames[oldAnim] ~= nil and emoteNames[oldAnim] == false) then
-                    oldAnim = "idle"
-                end
-                
-                currentAnim = ""
-                currentAnimInstance = nil
-                if (currentAnimKeyframeHandler ~= nil) then
-                    currentAnimKeyframeHandler:disconnect()
-                end
-                
-                if (currentAnimTrack ~= nil) then
-                    currentAnimTrack:Stop()
-                    currentAnimTrack:Destroy()
-                    currentAnimTrack = nil
-                end
-                return oldAnim
-            end
-            
-            function setAnimationSpeed(speed)
-                if speed ~= currentAnimSpeed then
-                    currentAnimSpeed = speed
-                    currentAnimTrack:AdjustSpeed(currentAnimSpeed)
-                end
-            end
-            
-            function keyFrameReachedFunc(frameName)
-                if (frameName == "End") then
-                    
-                    local repeatAnim = currentAnim
-                    -- return to idle if finishing an emote
-                    
-                    if (emoteNames[repeatAnim] ~= nil and emoteNames[repeatAnim] == false) then
-                        repeatAnim = "idle"
-                    end
-                    
-                    local animSpeed = currentAnimSpeed
-                    playAnimation(repeatAnim, 0.0, Humanoid)
-                    setAnimationSpeed(animSpeed)
-                end
-            end
-            
-            -- Preload animations
-            
-            function playAnimation(animName, transitionTime, humanoid) 
-                
-                local roll = math.random(1, animTable[animName].totalWeight) 
-                local origRoll = roll
-                local idx = 1
-                while (roll > animTable[animName][idx].weight) do
-                    roll = roll - animTable[animName][idx].weight
-                    idx = idx + 1
-                end
-                --        print(animName .. " " .. idx .. " [" .. origRoll .. "]")
-                
-                local anim = animTable[animName][idx].anim
-                
-                -- switch animation        
-                
-                if (anim ~= currentAnimInstance) then
-                    
-                    if (currentAnimTrack ~= nil) then
-                        currentAnimTrack:Stop(transitionTime)
-                        currentAnimTrack:Destroy()
-                    end
-                    
-                    currentAnimSpeed = 1.0
-                    
-                    -- load it to the humanoid; get AnimationTrack
-                    
-                    currentAnimTrack = humanoid:LoadAnimation(anim)
-                    currentAnimTrack.Priority = Enum.AnimationPriority.Core
-                    
-                    -- play the animation
-                    
-                    currentAnimTrack:Play(transitionTime)
-                    currentAnim = animName
-                    currentAnimInstance = anim
-                    
-                    -- set up keyframe name triggers
-                    
-                    if (currentAnimKeyframeHandler ~= nil) then
-                        currentAnimKeyframeHandler:disconnect()
-                    end
-                    currentAnimKeyframeHandler = currentAnimTrack.KeyframeReached:connect(keyFrameReachedFunc)
-                    
-                end
-                
-            end
-            
-            -------------------------------------------------------------------------------------------
-            
-            -------------------------------------------------------------------------------------------
-            
-            
-            local toolAnimName = ""
-            local toolAnimTrack = nil
-            local toolAnimInstance = nil
-            local currentToolAnimKeyframeHandler = nil
-            
-            function toolKeyFrameReachedFunc(frameName)
-                if (frameName == "End") then
-                    --        print("Keyframe : ".. frameName)    
-                    
-                    playToolAnimation(toolAnimName, 0.0, Humanoid)
-                end
-            end
-            
-            
-            function playToolAnimation(animName, transitionTime, humanoid, priority)     
-                
-                local roll = math.random(1, animTable[animName].totalWeight) 
-                local origRoll = roll
-                local idx = 1
-                while (roll > animTable[animName][idx].weight) do
-                    roll = roll - animTable[animName][idx].weight
-                    idx = idx + 1
-                end
-                --        print(animName .. " * " .. idx .. " [" .. origRoll .. "]")
-                
-                local anim = animTable[animName][idx].anim
-                
-                if (toolAnimInstance ~= anim) then
-                    
-                    if (toolAnimTrack ~= nil) then
-                        toolAnimTrack:Stop()
-                        toolAnimTrack:Destroy()
-                        transitionTime = 0
-                    end
-                    
-                    -- load it to the humanoid; get AnimationTrack
-                    
-                    toolAnimTrack = humanoid:LoadAnimation(anim)
-                    if priority then
-                        toolAnimTrack.Priority = priority
-                    end
-                    
-                    -- play the animation
-                    
-                    toolAnimTrack:Play(transitionTime)
-                    toolAnimName = animName
-                    toolAnimInstance = anim
-                    
-                    currentToolAnimKeyframeHandler = toolAnimTrack.KeyframeReached:connect(toolKeyFrameReachedFunc)
-                end
-            end
-            
-            function stopToolAnimations()
-                local oldAnim = toolAnimName
-                
-                if (currentToolAnimKeyframeHandler ~= nil) then
-                    currentToolAnimKeyframeHandler:disconnect()
-                end
-                
-                toolAnimName = ""
-                toolAnimInstance = nil
-                if (toolAnimTrack ~= nil) then
-                    toolAnimTrack:Stop()
-                    toolAnimTrack:Destroy()
-                    toolAnimTrack = nil
-                end
-                
-                
-                return oldAnim
-            end
-            
-            -------------------------------------------------------------------------------------------
-            
-            -------------------------------------------------------------------------------------------
-            
-            
-            
-            function onRunning(speed)
-                if speed > 0.01 then
-                    playAnimation("walk", 0.1, Humanoid)
-                    if currentAnimInstance and currentAnimInstance.AnimationId == "http://www.roblox.com/asset/?id=180426354" then
-                        setAnimationSpeed(speed / 14.5)
-                    end
-                    pose = "Running"
-                else
-                    if emoteNames[currentAnim] == nil then
-                        playAnimation("idle", 0.1, Humanoid)
-                        pose = "Standing"
-                    end
-                end
-            end
-            
-            function onDied()
-                pose = "Dead"
-            end
-            
-            function onJumping()
-                playAnimation("jump", 0.1, Humanoid)
-                jumpAnimTime = jumpAnimDuration
-                pose = "Jumping"
-            end
-            
-            function onClimbing(speed)
-                playAnimation("climb", 0.1, Humanoid)
-                setAnimationSpeed(speed / 12.0)
-                pose = "Climbing"
-            end
-            
-            function onGettingUp()
-                pose = "GettingUp"
-            end
-            
-            function onFreeFall()
-                if (jumpAnimTime <= 0) then
-                    playAnimation("fall", fallTransitionTime, Humanoid)
-                end
-                pose = "FreeFall"
-            end
-            
-            function onFallingDown()
-                pose = "FallingDown"
-            end
-            
-            function onSeated()
-                pose = "Seated"
-            end
-            
-            function onPlatformStanding()
-                pose = "PlatformStanding"
-            end
-            
-            function onSwimming(speed)
-                if speed > 0 then
-                    pose = "Running"
-                else
-                    pose = "Standing"
-                end
-            end
-            
-            function getTool()    
-                for _, kid in ipairs(Figure:GetChildren()) do
-                    if kid.className == "Tool" then return kid end
-                end
-                return nil
-            end
-            
-            function getToolAnim(tool)
-                for _, c in ipairs(tool:GetChildren()) do
-                    if c.Name == "toolanim" and c.className == "StringValue" then
-                        return c
-                    end
-                end
-                return nil
-            end
-            
-            function animateTool()
-                
-                if (toolAnim == "None") then
-                    playToolAnimation("toolnone", toolTransitionTime, Humanoid, Enum.AnimationPriority.Idle)
-                    return
-                end
-                
-                if (toolAnim == "Slash") then
-                    playToolAnimation("toolslash", 0, Humanoid, Enum.AnimationPriority.Action)
-                    return
-                end
-                
-                if (toolAnim == "Lunge") then
-                    playToolAnimation("toollunge", 0, Humanoid, Enum.AnimationPriority.Action)
-                    return
-                end
-            end
-            
-            function moveSit()
-                RightShoulder.MaxVelocity = 0.15
-                LeftShoulder.MaxVelocity = 0.15
-                RightShoulder:SetDesiredAngle(3.14 /2)
-                LeftShoulder:SetDesiredAngle(-3.14 /2)
-                RightHip:SetDesiredAngle(3.14 /2)
-                LeftHip:SetDesiredAngle(-3.14 /2)
-            end
-            
-            local lastTick = 0
-            
-            function move(time)
-                local amplitude = 1
-                local frequency = 1
-                local deltaTime = time - lastTick
-                lastTick = time
-                
-                local climbFudge = 0
-                local setAngles = false
-                
-                if (jumpAnimTime > 0) then
-                    jumpAnimTime = jumpAnimTime - deltaTime
-                end
-                
-                if (pose == "FreeFall" and jumpAnimTime <= 0) then
-                    playAnimation("fall", fallTransitionTime, Humanoid)
-                elseif (pose == "Seated") then
-                    playAnimation("sit", 0.5, Humanoid)
-                    return
-                elseif (pose == "Running") then
-                    playAnimation("walk", 0.1, Humanoid)
-                elseif (pose == "Dead" or pose == "GettingUp" or pose == "FallingDown" or pose == "Seated" or pose == "PlatformStanding") then
-                    --        print("Wha " .. pose)
-                    
-                    stopAllAnimations()
-                    amplitude = 0.1
-                    frequency = 1
-                    setAngles = true
-                end
-                
-                if (setAngles) then
-                    local desiredAngle = amplitude * math.sin(time * frequency)
-                    
-                    RightShoulder:SetDesiredAngle(desiredAngle + climbFudge)
-                    LeftShoulder:SetDesiredAngle(desiredAngle - climbFudge)
-                    RightHip:SetDesiredAngle(-desiredAngle)
-                    LeftHip:SetDesiredAngle(-desiredAngle)
-                end
-                
-                -- Tool Animation handling
-                
-                local tool = getTool()
-                if tool and tool:FindFirstChild("Handle") then
-                    
-                    local animStringValueObject = getToolAnim(tool)
-                    
-                    if animStringValueObject then
-                        toolAnim = animStringValueObject.Value
-                        -- message recieved, delete StringValue
-                        
-                        animStringValueObject.Parent = nil
-                        toolAnimTime = time + .3
-                    end
-                    
-                    if time > toolAnimTime then
-                        toolAnimTime = 0
-                        toolAnim = "None"
-                    end
-                    
-                    animateTool()        
-                else
-                    stopToolAnimations()
-                    toolAnim = "None"
-                    toolAnimInstance = nil
-                    toolAnimTime = 0
-                end
-            end
-            
-            -- connect events
-            
-            Humanoid.Died:connect(onDied)
-            Humanoid.Running:connect(onRunning)
-            Humanoid.Jumping:connect(onJumping)
-            Humanoid.Climbing:connect(onClimbing)
-            Humanoid.GettingUp:connect(onGettingUp)
-            Humanoid.FreeFalling:connect(onFreeFall)
-            Humanoid.FallingDown:connect(onFallingDown)
-            Humanoid.Seated:connect(onSeated)
-            Humanoid.PlatformStanding:connect(onPlatformStanding)
-            Humanoid.Swimming:connect(onSwimming)
-            
-            -- setup emote chat hook
-            
-            game:GetService("Players").LocalPlayer.Chatted:connect(function(msg)
-                local emote = ""
-                if msg == "/e dance" then
-                    emote = dances[math.random(1, #dances)]
-                elseif (string.sub(msg, 1, 3) == "/e ") then
-                    emote = string.sub(msg, 4)
-                elseif (string.sub(msg, 1, 7) == "/emote ") then
-                    emote = string.sub(msg, 8)
-                end
-                
-                if (pose == "Standing" and emoteNames[emote] ~= nil) then
-                    playAnimation(emote, 0.1, Humanoid)
-                end
-                
-            end)
-            
-            
-            -- main program
-            
-            
-            -- initialize to idle
-            
-            playAnimation("idle", 0.1, Humanoid)
-            pose = "Standing"
-            
-            while Figure.Parent ~= nil do
-                local _, time = wait(0.1)
-                move(time)
-            end
-           
-------------------------------------------------------------
-----        Humanoid Health       ----
-------------------------------------------------------------
+if (animTable[name] ~= nil) then
+for _, connection in pairs(animTable[name].connections) do
+connection:disconnect()
+end
+end
+animTable[name] = {}
+animTable[name].count = 0
+animTable[name].totalWeight = 0
+animTable[name].connections = {}
 
-
--- Gradually regenerates the Humanoid's Health over time.
- 
- 
-local REGEN_RATE = 1/100 -- Regenerate this fraction of MaxHealth per second.
- 
-local REGEN_STEP = 1 -- Wait this long between each regeneration step.
- 
- 
---------------------------------------------------------------------------------
- 
- 
-local Character = morph
-local Humanoid = Character:WaitForChild'Humanoid'
- 
---------------------------------------------------------------------------------
- 
- 
-while true do
-    while Humanoid.Health < Humanoid.MaxHealth do
-        local dt = wait(REGEN_STEP)
-        local dh = dt*REGEN_RATE*Humanoid.MaxHealth
-        Humanoid.Health = math.min(Humanoid.Health + dh, Humanoid.MaxHealth)
-    end
-    Humanoid.HealthChanged:Wait()
+-- check for config values
+local config = c.Animate:FindFirstChild(name)
+if (config ~= nil) then
+-- print("Loading anims " .. name)
+table.insert(animTable[name].connections, config.ChildAdded:connect(function(child) configureAnimationSet(name, fileList) end))
+table.insert(animTable[name].connections, config.ChildRemoved:connect(function(child) configureAnimationSet(name, fileList) end))
+local idx = 1
+for _, childPart in pairs(config:GetChildren()) do
+if (childPart:IsA("Animation")) then
+table.insert(animTable[name].connections, childPart.Changed:connect(function(property) configureAnimationSet(name, fileList) end))
+animTable[name][idx] = {}
+animTable[name][idx].anim = childPart
+local weightObject = childPart:FindFirstChild("Weight")
+if (weightObject == nil) then
+animTable[name][idx].weight = 1
+else
+animTable[name][idx].weight = weightObject.Value
+end
+animTable[name].count = animTable[name].count + 1
+animTable[name].totalWeight = animTable[name].totalWeight + animTable[name][idx].weight
+-- print(name .. " [" .. idx .. "] " .. animTable[name][idx].anim.AnimationId .. " (" .. animTable[name][idx].weight .. ")")
+idx = idx + 1
+end
+end
 end
 
--- This Is All R6 Function Made By 00de0l end end
+-- fallback to defaults
+if (animTable[name].count <= 0) then
+for idx, anim in pairs(fileList) do
+animTable[name][idx] = {}
+animTable[name][idx].anim = Instance.new("Animation")
+animTable[name][idx].anim.Name = name
+animTable[name][idx].anim.AnimationId = anim.id
+animTable[name][idx].weight = anim.weight
+animTable[name].count = animTable[name].count + 1
+animTable[name].totalWeight = animTable[name].totalWeight + anim.weight
+-- print(name .. " [" .. idx .. "] " .. anim.id .. " (" .. anim.weight .. ")")
+end
+end
+end
+
+-- Setup animation objects
+function scriptChildModified(child)
+local fileList = animNames[child.Name]
+if (fileList ~= nil) then
+configureAnimationSet(child.Name, fileList)
+end
+end
+
+c.Animate.ChildAdded:connect(scriptChildModified)
+c.Animate.ChildRemoved:connect(scriptChildModified)
+
+
+for name, fileList in pairs(animNames) do
+configureAnimationSet(name, fileList)
+end
+
+-- ANIMATION
+
+-- declarations
+local toolAnim = "None"
+local toolAnimTime = 0
+
+local jumpAnimTime = 0
+local jumpAnimDuration = 0.3
+
+local toolTransitionTime = 0.1
+local fallTransitionTime = 0.3
+local jumpMaxLimbVelocity = 0.75
+
+-- functions
+
+function stopAllAnimations()
+local oldAnim = currentAnim
+
+-- return to idle if finishing an emote
+if (emoteNames[oldAnim] ~= nil and emoteNames[oldAnim] == false) then
+oldAnim = "idle"
+end
+
+currentAnim = ""
+currentAnimInstance = nil
+if (currentAnimKeyframeHandler ~= nil) then
+currentAnimKeyframeHandler:disconnect()
+end
+
+if (currentAnimTrack ~= nil) then
+currentAnimTrack:Stop()
+currentAnimTrack:Destroy()
+currentAnimTrack = nil
+end
+return oldAnim
+end
+
+function setAnimationSpeed(speed)
+if speed ~= currentAnimSpeed then
+currentAnimSpeed = speed
+currentAnimTrack:AdjustSpeed(currentAnimSpeed)
+end
+end
+
+function keyFrameReachedFunc(frameName)
+if (frameName == "End") then
+
+local repeatAnim = currentAnim
+-- return to idle if finishing an emote
+if (emoteNames[repeatAnim] ~= nil and emoteNames[repeatAnim] == false) then
+repeatAnim = "idle"
+end
+
+local animSpeed = currentAnimSpeed
+playAnimation(repeatAnim, 0.0, Humanoid)
+setAnimationSpeed(animSpeed)
+end
+end
+
+-- Preload animations
+function playAnimation(animName, transitionTime, humanoid)
+
+local roll = math.random(1, animTable[animName].totalWeight)
+local origRoll = roll
+local idx = 1
+while (roll > animTable[animName][idx].weight) do
+roll = roll - animTable[animName][idx].weight
+idx = idx + 1
+end
+-- print(animName .. " " .. idx .. " [" .. origRoll .. "]")
+local anim = animTable[animName][idx].anim
+
+-- switch animation
+if (anim ~= currentAnimInstance) then
+
+if (currentAnimTrack ~= nil) then
+currentAnimTrack:Stop(transitionTime)
+currentAnimTrack:Destroy()
+end
+
+currentAnimSpeed = 1.0
+
+-- load it to the humanoid; get AnimationTrack
+currentAnimTrack = humanoid:LoadAnimation(anim)
+currentAnimTrack.Priority = Enum.AnimationPriority.Core
+
+-- play the animation
+currentAnimTrack:Play(transitionTime)
+currentAnim = animName
+currentAnimInstance = anim
+
+-- set up keyframe name triggers
+if (currentAnimKeyframeHandler ~= nil) then
+currentAnimKeyframeHandler:disconnect()
+end
+currentAnimKeyframeHandler = currentAnimTrack.KeyframeReached:connect(keyFrameReachedFunc)
+
+end
+
+end
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+local toolAnimName = ""
+local toolAnimTrack = nil
+local toolAnimInstance = nil
+local currentToolAnimKeyframeHandler = nil
+
+function toolKeyFrameReachedFunc(frameName)
+if (frameName == "End") then
+-- print("Keyframe : ".. frameName)
+playToolAnimation(toolAnimName, 0.0, Humanoid)
+end
+end
+
+
+function playToolAnimation(animName, transitionTime, humanoid, priority)
+
+local roll = math.random(1, animTable[animName].totalWeight)
+local origRoll = roll
+local idx = 1
+while (roll > animTable[animName][idx].weight) do
+roll = roll - animTable[animName][idx].weight
+idx = idx + 1
+end
+-- print(animName .. " * " .. idx .. " [" .. origRoll .. "]")
+local anim = animTable[animName][idx].anim
+
+if (toolAnimInstance ~= anim) then
+
+if (toolAnimTrack ~= nil) then
+toolAnimTrack:Stop()
+toolAnimTrack:Destroy()
+transitionTime = 0
+end
+
+-- load it to the humanoid; get AnimationTrack
+toolAnimTrack = humanoid:LoadAnimation(anim)
+if priority then
+toolAnimTrack.Priority = priority
+end
+
+-- play the animation
+toolAnimTrack:Play(transitionTime)
+toolAnimName = animName
+toolAnimInstance = anim
+
+currentToolAnimKeyframeHandler = toolAnimTrack.KeyframeReached:connect(toolKeyFrameReachedFunc)
+end
+end
+
+function stopToolAnimations()
+local oldAnim = toolAnimName
+
+if (currentToolAnimKeyframeHandler ~= nil) then
+currentToolAnimKeyframeHandler:disconnect()
+end
+
+toolAnimName = ""
+toolAnimInstance = nil
+if (toolAnimTrack ~= nil) then
+toolAnimTrack:Stop()
+toolAnimTrack:Destroy()
+toolAnimTrack = nil
+end
+
+
+return oldAnim
+end
+
+-------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------
+
+
+function onRunning(speed)
+if speed > 0.01 then
+playAnimation("walk", 0.1, Humanoid)
+if currentAnimInstance and currentAnimInstance.AnimationId == "http://www.roblox.com/asset/?id=180426354" then
+setAnimationSpeed(speed / 14.5)
+end
+pose = "Running"
+else
+if emoteNames[currentAnim] == nil then
+playAnimation("idle", 0.1, Humanoid)
+pose = "Standing"
+end
+end
+end
+
+function onDied()
+pose = "Dead"
+end
+
+function onJumping()
+playAnimation("jump", 0.1, Humanoid)
+jumpAnimTime = jumpAnimDuration
+pose = "Jumping"
+end
+
+function onClimbing(speed)
+playAnimation("climb", 0.1, Humanoid)
+setAnimationSpeed(speed / 12.0)
+pose = "Climbing"
+end
+
+function onGettingUp()
+pose = "GettingUp"
+end
+
+function onFreeFall()
+if (jumpAnimTime <= 0) then
+playAnimation("fall", fallTransitionTime, Humanoid)
+end
+pose = "FreeFall"
+end
+
+function onFallingDown()
+pose = "FallingDown"
+end
+
+function onSeated()
+pose = "Seated"
+end
+
+function onPlatformStanding()
+pose = "PlatformStanding"
+end
+
+function onSwimming(speed)
+if speed > 0 then
+pose = "Running"
+else
+pose = "Standing"
+end
+end
+
+function getTool()
+for _, kid in ipairs(Figure:GetChildren()) do
+if kid.className == "Tool" then return kid end
+end
+return nil
+end
+
+function getToolAnim(tool)
+for _, c in ipairs(tool:GetChildren()) do
+if c.Name == "toolanim" and c.className == "StringValue" then
+return c
+end
+end
+return nil
+end
+
+function animateTool()
+
+if (toolAnim == "None") then
+playToolAnimation("toolnone", toolTransitionTime, Humanoid, Enum.AnimationPriority.Idle)
+return
+end
+
+if (toolAnim == "Slash") then
+playToolAnimation("toolslash", 0, Humanoid, Enum.AnimationPriority.Action)
+return
+end
+
+if (toolAnim == "Lunge") then
+playToolAnimation("toollunge", 0, Humanoid, Enum.AnimationPriority.Action)
+return
+end
+end
+
+function moveSit()
+RightShoulder.MaxVelocity = 0.15
+LeftShoulder.MaxVelocity = 0.15
+RightShoulder:SetDesiredAngle(3.14 /2)
+LeftShoulder:SetDesiredAngle(-3.14 /2)
+RightHip:SetDesiredAngle(3.14 /2)
+LeftHip:SetDesiredAngle(-3.14 /2)
+end
+
+local lastTick = 0
+
+function move(time)
+local amplitude = 1
+local frequency = 1
+  local deltaTime = time - lastTick
+  lastTick = time
+
+local climbFudge = 0
+local setAngles = false
+
+  if (jumpAnimTime > 0) then
+  jumpAnimTime = jumpAnimTime - deltaTime
+  end
+
+if (pose == "FreeFall" and jumpAnimTime <= 0) then
+playAnimation("fall", fallTransitionTime, Humanoid)
+elseif (pose == "Seated") then
+playAnimation("sit", 0.5, Humanoid)
+return
+elseif (pose == "Running") then
+playAnimation("walk", 0.1, Humanoid)
+elseif (pose == "Dead" or pose == "GettingUp" or pose == "FallingDown" or pose == "Seated" or pose == "PlatformStanding") then
+-- print("Wha " .. pose)
+stopAllAnimations()
+amplitude = 0.1
+frequency = 1
+setAngles = true
+end
+
+if (setAngles) then
+local desiredAngle = amplitude * math.sin(time * frequency)
+
+RightShoulder:SetDesiredAngle(desiredAngle + climbFudge)
+LeftShoulder:SetDesiredAngle(desiredAngle - climbFudge)
+RightHip:SetDesiredAngle(-desiredAngle)
+LeftHip:SetDesiredAngle(-desiredAngle)
+end
+
+-- Tool Animation handling
+local tool = getTool()
+if tool and tool:FindFirstChild("Handle") then
+
+local animStringValueObject = getToolAnim(tool)
+
+if animStringValueObject then
+toolAnim = animStringValueObject.Value
+-- message recieved, delete StringValue
+animStringValueObject.Parent = nil
+toolAnimTime = time + .3
+end
+
+if time > toolAnimTime then
+toolAnimTime = 0
+toolAnim = "None"
+end
+
+animateTool()
+else
+stopToolAnimations()
+toolAnim = "None"
+toolAnimInstance = nil
+toolAnimTime = 0
+end
+end
+
+-- connect events
+Humanoid.Died:connect(onDied)
+Humanoid.Running:connect(onRunning)
+Humanoid.Jumping:connect(onJumping)
+Humanoid.Climbing:connect(onClimbing)
+Humanoid.GettingUp:connect(onGettingUp)
+Humanoid.FreeFalling:connect(onFreeFall)
+Humanoid.FallingDown:connect(onFallingDown)
+Humanoid.Seated:connect(onSeated)
+Humanoid.PlatformStanding:connect(onPlatformStanding)
+Humanoid.Swimming:connect(onSwimming)
+
+-- setup emote chat hook
+game:GetService("Players").LocalPlayer.Chatted:connect(function(msg)
+local emote = ""
+if msg == "/e dance" then
+emote = dances[math.random(1, #dances)]
+elseif (string.sub(msg, 1, 3) == "/e ") then
+emote = string.sub(msg, 4)
+elseif (string.sub(msg, 1, 7) == "/emote ") then
+emote = string.sub(msg, 8)
+end
+
+if (pose == "Standing" and emoteNames[emote] ~= nil) then
+playAnimation(emote, 0.1, Humanoid)
+end
+
+end)
+
+
+-- main program
+
+-- initialize to idle
+playAnimation("idle", 0.1, Humanoid)
+pose = "Standing"
+
+while Figure.Parent ~= nil do
+local _, time = wait(0.1)
+move(time)
+end
+
+if Humanoid.Health == 0
+then
+print("death occured, waiting for respawn")
+Figure:WaitForChild("Humanoid")
+print("making r6 again")
+oof()
+end
+end
+oof()
+
+local UIS = game:GetService("UserInputService")
+
+while true do wait()
+if humanoid.health < 1 then
+local deathposition = c.HumanoidRootPart.CFrame
+end
+end
+
+
+function InputBegan(Input)
+if Input.KeyCode == Enum.KeyCode.Insert then
+game.Players.LocalPlayer.HumanoidRootPart.CFrame = deathposition
+end
+end
+
+UIS.InputBegan:Connect(InputBegan)
 end)
 
 -- Hidden
@@ -14504,7 +17761,7 @@ scrollingframe.TopImage = "rbxassetid://0";
 scrollingframe.BackgroundColor3 = Color3.fromRGB(255, 255, 255);
 scrollingframe.Name = "scrollingframe";
 scrollingframe.BottomImage = "rbxassetid://0";
-scrollingframe.Size = UDim2.new(0, 398, 0, 120);
+scrollingframe.Size = UDim2.new(0, 398, 0, 134);
 scrollingframe.ScrollBarImageColor3 = Color3.fromRGB(85, 85, 85);
 scrollingframe.Position = UDim2.new(0.01, 0, 0.52, 0);
 scrollingframe.BorderColor3 = Color3.fromRGB(0, 0, 0);
@@ -16170,128 +19427,7 @@ TextButton_100.BorderColor3 = Color3.fromRGB(0, 0, 0);
 TextButton_100.Text = "n00t noot.txt";
 TextButton_100.Position = UDim2.new(0, 0, 0.44776, 0);
 TextButton_100.MouseButton1Click:Connect(function()
-local msg = Instance.new("Message",workspace)
-msg.Text = "Subscribe To Syntax 64 For More!"
-wait(2)
-msg:Destroy()
-pingudecal = "http://www.roblox.com/asset/?id=382332426"
-local didpingu = false
-local ScreenGui = Instance.new("ScreenGui",game.Players.LocalPlayer.PlayerGui)
-ScreenGui.Name = "nooties"
-local asd = Instance.new("TextButton",ScreenGui)
-asd.BackgroundColor3 = Color3.new(0,0,0)
-asd.BorderColor3 = Color3.new(0,0,0)
-asd.Name = "nooties"
-asd.Position = UDim2.new(1,-150,1,-90)
-asd.Size = UDim2.new(0,150,0,45)
-asd.Font = "SourceSansBold"
-asd.FontSize = "Size32"
-asd.Text = "Noot Noot!"
-asd.TextColor3 = Color3.new(255,255,255)
-asd.MouseButton1Down:connect(function()
-if didpingu == false then
-didpingu = true
-for i,v in pairs(game.Players:GetChildren()) do
-if v:IsA("Player") then
-local nooties = Instance.new("Sound",workspace)
-nooties.SoundId = "https://www.roblox.com/library/5332890821/Free-noots"
-nooties.Volume = 1
-nooties.Looped = true
-nooties:Play()
-end 
-end 
-wait(1) 
-local Sky = Instance.new("Sky",game.Lighting) 
-Sky.SkyboxBk = pingudecal 
-Sky.SkyboxDn = pingudecal 
-Sky.SkyboxFt = pingudecal 
-Sky.SkyboxLf = pingudecal 
-Sky.SkyboxRt = pingudecal 
-Sky.SkyboxUp = pingudecal 
-local function modelasd() 
-for i,v in pairs(workspace:GetChildren()) do 
-if v:IsA("Model") then 
-for i,a in pairs(v:GetChildren()) do 
-local top = Instance.new("Decal",a) 
-top.Face = "Top" 
-top.Texture = pingudecal 
-local btm = Instance.new("Decal",a) 
-btm.Face = "Bottom" 
-btm.Texture = pingudecal 
-local lft = Instance.new("Decal",a) 
-lft.Face = "Left" 
-lft.Texture = pingudecal 
-local rft = Instance.new("Decal",a) 
-rft.Face = "Right" 
-rft.Texture = pingudecal 
-local frnt = Instance.new("Decal",a) 
-frnt.Face = "Front" 
-frnt.Texture = pingudecal 
-local bk = Instance.new("Decal",a) 
-bk.Face = "Back" 
-bk.Texture = pingudecal 
-local VTest = Instance.new("ParticleEmitter")  
-VTest.Parent = a 
-VTest.Texture = pingudecal 
-VTest.Speed = NumberRange.new(200) 
-VTest.Rate = 200 
-VTest.Size = NumberSequence.new(10000,10000) 
-VTest.Lifetime = NumberRange.new(1000) 
-local pepe = coroutine.create(function() 
-while wait() do 
-local Explosion = Instance.new("Explosion",a) 
-Explosion.BlastRadius = 10000 
-end 
-end) 
-coroutine.resume(pepe) 
-end 
-end 
-end 
-end 
-local function partasd() 
-for i,a in pairs(workspace:GetChildren()) do 
-local top = Instance.new("Decal",a) 
-top.Face = "Top" 
-top.Texture = pingudecal 
-local btm = Instance.new("Decal",a) 
-btm.Face = "Bottom" 
-btm.Texture = pingudecal 
-local lft = Instance.new("Decal",a) 
-lft.Face = "Left" 
-lft.Texture = pingudecal 
-local rft = Instance.new("Decal",a) 
-rft.Face = "Right" 
-rft.Texture = pingudecal 
-local frnt = Instance.new("Decal",a) 
-frnt.Face = "Front" 
-frnt.Texture = pingudecal 
-local bk = Instance.new("Decal",a) 
-bk.Face = "Back" 
-bk.Texture = pingudecal 
-local VTest = Instance.new("ParticleEmitter")  
-VTest.Parent = a 
-VTest.Texture = pingudecal 
-VTest.Speed = NumberRange.new(200) 
-VTest.Rate = 200 
-VTest.Lifetime = NumberRange.new(1000) 
-VTest.Size = NumberSequence.new(10000,10000) 
-local pepe = coroutine.create(function() 
-while wait() do 
-if a.Name ~= "Head" or "Torso" or "Left Arm" or "Right Arm" or "Left Leg" or "Right Leg" then 
-local Explosion = Instance.new("Explosion",a) 
-Explosion.BlastRadius = 10000 
-end 
-end 
-end) 
-coroutine.resume(pepe) 
-end 
-end 
-partasd() 
-modelasd() 
-else 
-warn("Already Ran! Did not execute the script!") 
-end 
-end)
+    loadstring(game:HttpGet("https://pastebin.com/raw/SgZBe9Ha"))()
 end)
 
 -- TextButton
@@ -18784,7 +21920,7 @@ Main = (function()
 			{8,"Frame",{BackgroundColor3=Color3.new(0.20392157137394,0.20392157137394,0.20392157137394),BorderSizePixel=0,Name="ProgressBar",Parent={3},Position=UDim2.new(0,110,0,145),Size=UDim2.new(0,0,0,4),}},
 			{9,"Frame",{BackgroundColor3=Color3.new(0.2392156869173,0.56078433990479,0.86274510622025),BorderSizePixel=0,Name="Bar",Parent={8},Size=UDim2.new(0,0,1,0),}},
 			{10,"ImageLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Image="rbxassetid://2764171053",ImageColor3=Color3.new(0.17647059261799,0.17647059261799,0.17647059261799),Parent={8},ScaleType=1,Size=UDim2.new(1,0,1,0),SliceCenter=Rect.new(2,2,254,254),}},
-			{11,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Creator",Parent={2},Position=UDim2.new(1,-110,1,-20),Size=UDim2.new(0,105,0,20),Text="Agent Edition",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=1,}},
+			{11,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Creator",Parent={2},Position=UDim2.new(1,-110,1,-20),Size=UDim2.new(0,105,0,20),Text="Developed by Moon",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=1,}},
 			{12,"UIGradient",{Parent={11},Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1,0),NumberSequenceKeypoint.new(1,1,0),}),}},
 			{13,"TextLabel",{BackgroundColor3=Color3.new(1,1,1),BackgroundTransparency=1,Font=3,Name="Version",Parent={2},Position=UDim2.new(1,-110,1,-35),Size=UDim2.new(0,105,0,20),Text="V2.0.0",TextColor3=Color3.new(1,1,1),TextSize=14,TextXAlignment=1,}},
 			{14,"UIGradient",{Parent={13},Transparency=NumberSequence.new({NumberSequenceKeypoint.new(0,1,0),NumberSequenceKeypoint.new(1,1,0),}),}},
