@@ -16957,6 +16957,18 @@ DecalSpamTextBox.Size = UDim2.new(0, 20, 0, 28);
 DecalSpamTextBox.Position = UDim2.new(1.05, 0, 0.03571, 0);
 DecalSpamTextBox.BorderColor3 = Color3.fromRGB(0, 0, 0);
 DecalSpamTextBox.Text = "";
+DecalSpamTextBox.FocusLost:Connect(function(enterPressed)
+	if enterPressed then
+		local decalId = DecalSpamTextBox.Text
+		if decalId and tonumber(decalId) then
+			-- Example action: print decal ID (replace with your spam logic)
+			print("Decal Asset ID entered:", decalId)
+			-- Add your decal spam code here using decalId
+		else
+			DecalSpamTextBox.Text = ""
+		end
+	end
+end)
 
 -- UIListLayout (Classics)
 local UIListLayout_Classics = Instance.new("UIListLayout", Classics);
@@ -16990,6 +17002,21 @@ PlayTextBox.Size = UDim2.new(0, 20, 0, 28);
 PlayTextBox.Position = UDim2.new(1.05, 0, 0, 0);
 PlayTextBox.BorderColor3 = Color3.fromRGB(0, 0, 0);
 PlayTextBox.Text = "";
+PlayTextBox.FocusLost:Connect(function(enterPressed)
+	if enterPressed then
+		local assetId = PlayTextBox.Text
+		if assetId and tonumber(assetId) then
+			local sound = Instance.new("Sound", workspace)
+			sound.SoundId = "rbxassetid://" .. assetId
+			sound:Play()
+			sound.Ended:Connect(function()
+				sound:Destroy()
+			end)
+		else
+			PlayTextBox.Text = ""
+		end
+	end
+end)
 
 -- Duck rain
 local DuckRain = Instance.new("TextButton", Classics);
@@ -17004,6 +17031,23 @@ DuckRain.BorderColor3 = Color3.fromRGB(0, 0, 0);
 DuckRain.Text = "Duck rain";
 DuckRain.Name = "Duck rain";
 DuckRain.Position = UDim2.new(0.19549, 0, 0.28205, 0);
+DuckRain.MouseButton1Click:Connect(function()
+	while wait(.1) do
+    local duck = Instance.new("Part", game.Workspace)
+    duck.Size = Vector3.new(40,40,40)
+    local asd = Instance.new("FileMesh", duck)
+    asd.MeshId = "rbxassetid://521754610"
+    asd.TextureId = "rbxassetid://521754612"
+    asd.Scale = Vector3.new(40,40,40)
+    duck.CanCollide = false
+    duck.CFrame = CFrame.new(math.random(-1000,1000), math.random(300,700), math.random(-1000,1000))
+    local quack = Instance.new("Sound", duck)
+    quack.SoundId = "rbxassetid://198462271"
+    quack.Volume = 5
+    quack:Play()
+    game.Debris:AddItem(quack, 0.5)
+end
+end)
 
 -- Taco rain
 local TacoRain = Instance.new("TextButton", Classics);
@@ -17018,6 +17062,36 @@ TacoRain.BorderColor3 = Color3.fromRGB(0, 0, 0);
 TacoRain.Text = "Taco rain";
 TacoRain.Name = "Taco rain";
 TacoRain.Position = UDim2.new(0.19549, 0, 0.42308, 0);
+TacoRain.MouseButton1Click:Connect(function()
+	while true do
+wait(0.01)
+for i,v in pairs(game.Players:GetChildren()) do
+pcall(function ()
+local taco = Instance.new("Part",Workspace)
+taco.CanCollide = true
+local m = Instance.new("SpecialMesh",taco)
+m.MeshId = "http://www.roblox.com/asset/?id=14846869"
+m.TextureId = "http://www.roblox.com/asset/?id=14846834"
+taco.CFrame = v.Character.Torso.CFrame + Vector3.new(math.random(-50,50),100,math.random(-50,50))
+end)
+end
+end
+ 
+while wait() do
+if Workspace:FindFirstChild("L0L0LW0T?") then
+wait()
+else
+z = Instance.new("Sound")
+z.Parent = Workspace
+z.SoundId = "http://www.roblox.com/asset/?id=142295308"
+z.Looped = true
+z.Volume = math.huge
+z.Pitch = 1
+z.Name="L0L0LW0T?"
+z:Play()
+end
+end
+end)
 
 -- c00lkidd
 local c00lkidd = Instance.new("TextButton", Classics);
@@ -17032,6 +17106,9 @@ c00lkidd.BorderColor3 = Color3.fromRGB(0, 0, 0);
 c00lkidd.Text = "c00lkidd";
 c00lkidd.Name = "c00lkidd";
 c00lkidd.Position = UDim2.new(0.19549, 0, 0.5641, 0);
+c00lkidd.MouseButton1Click:Connect(function()
+	loadstring(game:GetObjects("rbxassetid://9827584846")[1].Source)()
+end)
 
 -- Inferno
 local Inferno = Instance.new("TextButton", Classics);
@@ -17112,6 +17189,16 @@ FogEndTextBox.Size = UDim2.new(0, 20, 0, 28);
 FogEndTextBox.Position = UDim2.new(1.05, 0, 0, 0);
 FogEndTextBox.BorderColor3 = Color3.fromRGB(0, 0, 0);
 FogEndTextBox.Text = "";
+FogEndTextBox.FocusLost:Connect(function(enterPressed)
+	if enterPressed then
+		local val = tonumber(FogEndTextBox.Text)
+		if val and val >= 0 then
+			game:GetService("Lighting").FogEnd = val
+		else
+			FogEndTextBox.Text = ""
+		end
+	end
+end)
 
 -- UIListLayout (Environment)
 local UIListLayout_Environment = Instance.new("UIListLayout", Environment);
@@ -17145,6 +17232,18 @@ FogColorTextBox.Size = UDim2.new(0, 20, 0, 28);
 FogColorTextBox.Position = UDim2.new(1.05, 0, 0, 0);
 FogColorTextBox.BorderColor3 = Color3.fromRGB(0, 0, 0);
 FogColorTextBox.Text = "";
+FogColorTextBox.FocusLost:Connect(function(enterPressed)
+	if enterPressed then
+		local text = FogColorTextBox.Text
+		local r, g, b = text:match("^(%d+),%s*(%d+),%s*(%d+)$")
+		r, g, b = tonumber(r), tonumber(g), tonumber(b)
+		if r and g and b and r >=0 and r <=255 and g >=0 and g <=255 and b >=0 and b <=255 then
+			game:GetService("Lighting").FogColor = Color3.fromRGB(r, g, b)
+		else
+			FogColorTextBox.Text = ""
+		end
+	end
+end)
 
 -- Time
 local Time = Instance.new("TextButton", Environment);
@@ -17173,6 +17272,18 @@ TimeTextBox.Size = UDim2.new(0, 20, 0, 28);
 TimeTextBox.Position = UDim2.new(1.05, 0, 0, 0);
 TimeTextBox.BorderColor3 = Color3.fromRGB(0, 0, 0);
 TimeTextBox.Text = "";
+TimeTextBox.FocusLost:Connect(function(enterPressed)
+    if enterPressed then
+        local timeString = TimeTextBox.Text
+        -- Validate format "HH:MM:SS" (simple check)
+        if timeString:match("^%d%d?:%d%d:%d%d$") then
+            game:GetService("Lighting").TimeOfDay = timeString
+        else
+            -- Invalid input, clear or reset
+            TimeTextBox.Text = ""
+        end
+    end
+end)
 
 -- Light color
 local LightColor = Instance.new("TextButton", Environment);
@@ -17201,6 +17312,18 @@ LightColorTextBox.Size = UDim2.new(0, 20, 0, 28);
 LightColorTextBox.Position = UDim2.new(1.05, 0, 0, 0);
 LightColorTextBox.BorderColor3 = Color3.fromRGB(0, 0, 0);
 LightColorTextBox.Text = "";
+LightColorTextBox.FocusLost:Connect(function(enterPressed)
+	if enterPressed then
+		local text = LightColorTextBox.Text
+		local r, g, b = text:match("^(%d+),%s*(%d+),%s*(%d+)$")
+		r, g, b = tonumber(r), tonumber(g), tonumber(b)
+		if r and g and b and r >=0 and r <=255 and g >=0 and g <=255 and b >=0 and b <=255 then
+			game:GetService("Lighting").Ambient = Color3.fromRGB(r, g, b)
+		else
+			LightColorTextBox.Text = ""
+		end
+	end
+end)
 
 -- Brightness
 local Brightness = Instance.new("TextButton", Environment);
@@ -17229,6 +17352,17 @@ BrightnessTextBox.Size = UDim2.new(0, 20, 0, 28);
 BrightnessTextBox.Position = UDim2.new(1.05, 0, 0, 0);
 BrightnessTextBox.BorderColor3 = Color3.fromRGB(0, 0, 0);
 BrightnessTextBox.Text = "";
+BrightnessTextBox.FocusLost:Connect(function(enterPressed)
+	if enterPressed then
+		local val = tonumber(BrightnessTextBox.Text)
+		if val and val >= -2048 and val <= 2048 then
+			game:GetService("Lighting").Brightness = val
+		else
+			-- invalid input: reset TextBox or give feedback
+			BrightnessTextBox.Text = ""
+		end
+	end
+end)
 
 -- Flood
 local Flood = Instance.new("TextButton", Environment);
@@ -17243,6 +17377,14 @@ Flood.BorderColor3 = Color3.fromRGB(0, 0, 0);
 Flood.Text = "Flood";
 Flood.Name = "Flood";
 Flood.Position = UDim2.new(0.05263, 0, 0.09274, 0);
+Flood.MouseButton1Click:Connect(function()
+    local Terrain = workspace.Terrain
+    Terrain:FillBlock(
+        CFrame.new(0, 128, 0), -- Position water so the top is at Y=256 (half height = 128)
+        Vector3.new(2048, 256, 2048), -- Size of water block
+        Enum.Material.Water
+    )
+end)
 
 -- Clear Terrain
 local ClearTerrain = Instance.new("TextButton", Environment);
@@ -17257,6 +17399,9 @@ ClearTerrain.BorderColor3 = Color3.fromRGB(0, 0, 0);
 ClearTerrain.Text = "Clear Terrain";
 ClearTerrain.Name = "ClearTerrain";
 ClearTerrain.Position = UDim2.new(0.05263, 0, 0.09274, 0);
+ClearTerrain.MouseButton1Click:Connect(function()
+    workspace.Terrain:Clear()
+end)
 
 -- Misc
 local Misc = Instance.new("Frame", ExtraFrame);
@@ -17281,20 +17426,46 @@ Baseplate.BorderColor3 = Color3.fromRGB(0, 0, 0);
 Baseplate.Text = "Baseplate";
 Baseplate.Name = "Baseplate";
 Baseplate.Position = UDim2.new(0.03333, 0, -0.00427, 0);
+Baseplate.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet("https://pastefy.app/3kPvl8N0/raw"))()
+end)
 
--- Trump
-local Trump = Instance.new("TextButton", Misc);
-Trump.TextWrapped = true;
-Trump.BorderSizePixel = 0;
-Trump.TextSize = 20;
-Trump.TextColor3 = Color3.fromRGB(255, 255, 255);
-Trump.BackgroundColor3 = Color3.fromRGB(57, 57, 57);
-Trump.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-Trump.Size = UDim2.new(0, 104, 0, 28);
-Trump.BorderColor3 = Color3.fromRGB(0, 0, 0);
-Trump.Text = "Trump";
-Trump.Name = "Trump";
-Trump.Position = UDim2.new(0.03333, 0, 0.13675, 0);
+-- Anonymous
+local Anonymous = Instance.new("TextButton", Misc);
+Anonymous.TextWrapped = true;
+Anonymous.BorderSizePixel = 0;
+Anonymous.TextSize = 20;
+Anonymous.TextColor3 = Color3.fromRGB(255, 255, 255);
+Anonymous.BackgroundColor3 = Color3.fromRGB(57, 57, 57);
+Anonymous.FontFace = Font.new("rbxasset://fonts/families/SourceSansPro.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+Anonymous.Size = UDim2.new(0, 104, 0, 28);
+Anonymous.BorderColor3 = Color3.fromRGB(0, 0, 0);
+Anonymous.Text = "Anonymous";
+Anonymous.Name = "Anonymous";
+Anonymous.Position = UDim2.new(0.03333, 0, 0.13675, 0);
+Anonymous.MouseButton1Click:Connect(function()
+    local player = game.Players.LocalPlayer
+    if not player or not player.Character then return end
+    local head = player.Character:FindFirstChild("Head")
+    if not head then return end
+
+    -- Remove old mask gui if exists
+    local oldGui = head:FindFirstChild("AnonymousMaskGui")
+    if oldGui then oldGui:Destroy() end
+
+    local billboardGui = Instance.new("BillboardGui")
+    billboardGui.Name = "AnonymousMaskGui"
+    billboardGui.Adornee = head
+    billboardGui.Size = UDim2.new(2, 0, 2, 0)  -- 2x2 size
+    billboardGui.StudsOffset = Vector3.new(0, 0, 0.5)  -- in front of face
+    billboardGui.AlwaysOnTop = true
+    billboardGui.Parent = head
+
+    local imageLabel = Instance.new("ImageLabel", billboardGui)
+    imageLabel.Size = UDim2.new(1, 0, 1, 0)
+    imageLabel.BackgroundTransparency = 1
+    imageLabel.Image = "rbxassetid://631940830"
+end)
 
 -- Zero Gravity
 local ZeroGravity = Instance.new("TextButton", Misc);
@@ -17309,7 +17480,15 @@ ZeroGravity.BorderColor3 = Color3.fromRGB(0, 0, 0);
 ZeroGravity.Text = "Zero Gravity";
 ZeroGravity.Name = "zerogravity";
 ZeroGravity.Position = UDim2.new(0.03333, 0, 0.27778, 0);
-
+local zeroG = false
+ZeroGravity.MouseButton1Click:Connect(function()
+	zeroG = not zeroG
+	if zeroG then
+		workspace.Gravity = 0
+	else
+		workspace.Gravity = 196.2 -- default
+	end
+end)
 -- Unanchor
 local Unanchor = Instance.new("TextButton", Misc);
 Unanchor.TextWrapped = true;
@@ -17323,6 +17502,13 @@ Unanchor.BorderColor3 = Color3.fromRGB(0, 0, 0);
 Unanchor.Text = "Unanchor";
 Unanchor.Name = "Unanchor";
 Unanchor.Position = UDim2.new(0.03333, 0, 0.4188, 0);
+Unanchor.MouseButton1Click:Connect(function()
+	for _, part in pairs(workspace:GetDescendants()) do
+	if part:IsA("BasePart") then
+		part.Anchored = false
+	end
+end
+end)
 
 -- Shutdown
 local Shutdown = Instance.new("TextButton", Misc);
@@ -17337,6 +17523,9 @@ Shutdown.BorderColor3 = Color3.fromRGB(0, 0, 0);
 Shutdown.Text = "Shutdown";
 Shutdown.Name = "shutdown";
 Shutdown.Position = UDim2.new(0.03333, 0, 0.55983, 0);
+Shutdown.MouseButton1Click:Connect(function()
+	game.Players.LocalPlayer:Kick("The server has been shut down by the Secret Service.")
+end)
 
 -- Burger King
 local BurgerKing = Instance.new("TextButton", Misc);
