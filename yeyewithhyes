@@ -13695,14 +13695,14 @@ local grandh = createScriptButton("grand", function(btn)
 	btn.Text = "Loading... Please Wait"
 	wait(0.5)
 	btn.Text = "grand"
-loadstring(game:HttpGet("https://pastefy.app/SEXUdzAT/raw",true))()
+loadstring(game:HttpGet("https://pastefy.app/lFwSjzVV/raw",true))()
 end)
 
 local grand_pivoth = createScriptButton("grand_pivot", function(btn)
 	btn.Text = "Loading... Please Wait"
 	wait(0.5)
 	btn.Text = "grand_pivot"
-loadstring(game:HttpGet("https://pastefy.app/QfkXpask/raw",true))()
+loadstring(game:HttpGet("https://pastefy.app/xWeUKNZJ/raw",true))()
 end)
 
 local mjolnirh = createScriptButton("mjolnir", function(btn)
