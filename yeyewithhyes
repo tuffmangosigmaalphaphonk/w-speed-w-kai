@@ -13730,7 +13730,7 @@ local excah = createScriptButton("exca", function(btn)
 	btn.Text = "Loading... Please Wait"
 	wait(0.5)
 	btn.Text = "exca"
-	loadstring(game:HttpGet("https://pastefy.app/q74DFYYz/raw", true))()
+	loadstring(game:HttpGet("https://pastefy.app/WyO7Wdte/raw", true))()
 end)
 
 local r6h = createScriptButton("r6", function(btn)
