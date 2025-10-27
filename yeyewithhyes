@@ -19980,3 +19980,6 @@ end)()
 Main.Init()
 
 --for i,v in pairs(Main.MissingEnv) do print(i,v) end
+
+print("Api keywords loaded. Total: 6741")
+print("216967")
